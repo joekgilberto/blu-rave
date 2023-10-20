@@ -6,7 +6,7 @@ namespace csharp_crud_api.Controllers;
 
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/blu-rays")]
 public class BluRaysController : ControllerBase
 {
   private readonly BluRayContext _context;

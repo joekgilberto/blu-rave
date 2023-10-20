@@ -12,13 +12,13 @@ namespace Models
         public string Title { get; set; }
 
         [Column("steelbook")]
-        public string Steelbook { get; set; }
+        public bool Steelbook { get; set; }
 
-        [Column("fourk")]
-        public string FourK { get; set; }
+        [Column("four_k")]
+        public bool FourK { get; set; }
 
         [Column("television")]
-        public string Television { get; set; }
+        public bool Television { get; set; }
 
         [Column("date_added")]
         public DateOnly DateAdded { get; set; }
