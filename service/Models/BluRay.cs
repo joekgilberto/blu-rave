@@ -20,6 +20,9 @@ namespace Models
         [Column("television")]
         public bool Television { get; set; }
 
+        [Column("notes")]
+        public string Notes { get; set; }
+
         [Column("date_added")]
         public DateOnly DateAdded { get; set; }
     }
