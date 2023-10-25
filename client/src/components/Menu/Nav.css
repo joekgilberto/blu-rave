@@ -1,0 +1,26 @@
+nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
+    text-shadow: 2px 2px 2px #00000030;
+    margin-left: 200px;
+}
+
+nav a p{
+    width: 280px;
+    font-size: 30px;
+    margin: 5px;
+    color: #47b2ffff;
+}
+
+nav a p:hover{
+    color: rgb(124, 200, 255);
+    animation: rise .2s ease-in forwards;
+}
+
+nav a{
+    text-decoration: none !important;
+}

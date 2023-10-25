@@ -1,7 +1,10 @@
 main{
-    display: flex;
-    justify-content: center;
+    max-height: 100vh;
     grid-column: 1 / span 1;
     grid-row: 1 / span 1;
+    padding: 40px 70px;
     background-color: #47b2ffff;
+    overflow-y: scroll;
+    box-shadow: 5px 0px 5px #00000040;
+    color: #fff;
 }

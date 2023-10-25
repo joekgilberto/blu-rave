@@ -1,0 +1,60 @@
+.New{
+    display: flex;
+    flex-direction: column;
+    font-size: 26px;
+}
+
+.New form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 26px;
+}
+
+.New label{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+}
+
+label.check{
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.New textarea{
+    resize:vertical;
+}
+
+.New input,
+.New select,
+.New textarea{
+    font-size: 26px;
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 5px;
+}
+
+.New input:focus,
+.New select:focus,
+.New textarea:focus{
+    outline: none;
+}
+
+.New input.checkbox{
+    width: 26px;
+}
+
+.New button{
+    width: 200px;
+    font-size: 26px;
+    margin: 10px auto;
+    border: none;
+    background-color: #fff;
+    color: #47b2ffff;
+    padding: 10px;
+}
+
+.New button:hover{
+    background-color: rgb(229, 237, 243);
+}

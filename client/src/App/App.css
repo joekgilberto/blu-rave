@@ -6,6 +6,8 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
+  font-family: Arial, Helvetica, sans-serif;
+  position: fixed;
 }
 
 h1{
@@ -13,4 +15,23 @@ h1{
   font-weight: 400;
   font-size: 100px;
   color: #fff;
+  margin-bottom: 0;
+}
+
+button{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.blu-rave{
+  font-weight: bold;
+  font-style: italic;
+}
+
+@keyframes rise {
+  0%{
+    transform: translateY(0px);
+  }
+  100%{
+    transform: translateY(-2px);
+  }
 }

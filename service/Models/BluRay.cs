@@ -17,8 +17,8 @@ namespace Models
         [Column("four_k")]
         public bool FourK { get; set; }
 
-        [Column("television")]
-        public bool Television { get; set; }
+        [Column("format")]
+        public string Format { get; set; }
 
         [Column("notes")]
         public string Notes { get; set; }
