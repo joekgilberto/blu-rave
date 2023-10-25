@@ -1,0 +1,62 @@
+.ShowBluRay{
+    height: calc(100vh - 280px);
+}
+
+.ShowBluRay h2 {
+    font-size: 40px;
+    font-style: italic;
+    border-bottom: 3px solid #329dea;
+    padding-bottom: 10px;
+    margin-bottom: 0;
+}
+
+.ShowBluRay p {
+    font-size: 26px;
+}
+
+.notes {
+    margin: 50px 0;
+}
+
+.notes p {
+    margin: 10px 0;
+}
+
+.date-added {
+    color: #218cd8;
+}
+
+.owner-options {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.owner-options .edit {
+    width: 100%;
+    font-size: 26px;
+    margin: 10px auto;
+    border: none;
+    background-color: #fff;
+    color: #47b2ffff;
+    padding: 15px;
+}
+
+.owner-options .delete {
+    width: 100%;
+    font-size: 26px;
+    margin: 10px auto;
+    border: 3px solid #fff;
+    color: #fff;
+    background-color: transparent;
+    padding: 12px;
+}
+
+.owner-options .edit:hover {
+    background-color: #e5edf3;
+}
+
+.owner-options .delete:hover {
+    color: #e5edf3;
+    border: 3px solid #e5edf3;
+}

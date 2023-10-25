@@ -13,7 +13,8 @@ export default function Error() {
 
     return (
         <div className="Error">
-            <h2>404 - Blu-Ray not found</h2>
+            <h2>Error 404</h2>
+            <p>Blu-Ray not found, return to <a href='/'>homepage</a>.</p>
         </div>
     );
 }

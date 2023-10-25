@@ -1,0 +1,21 @@
+.Error h2{
+    padding-bottom: 20px;
+    font-weight: normal;
+    font-size: 40px;
+    border-bottom: 2px solid #fff;
+    margin-bottom: 0;
+}
+
+.Error p{
+    font-size: 26px;
+    margin: 20px 0 0 0;
+}
+
+.Error a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.Error a:hover{
+    text-decoration: underline;
+}

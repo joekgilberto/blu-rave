@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Text&display=swap');
 
+*{
+  box-sizing: border-box;
+}
+
 .App{
   width: 100vw;
   height: 100vh;
@@ -29,6 +33,10 @@ button{
 
 .italic{
   font-style: italic;
+}
+
+.underline{
+  text-decoration: underline;
 }
 
 @keyframes rise {

@@ -5,7 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import Title from '../Title/Title';
 import Home from '../../pages/Home/Home';
 import New from '../../pages/New/New';
-import Index from '../../pages/Index/Index';
+import Index from '../../pages/AllBluRays/AllBluRays';
 import ShowBluRay from '../../pages/ShowBluRay/ShowBluRay';
 import Error from '../../pages/Error/Error';
 
