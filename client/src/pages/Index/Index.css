@@ -1,0 +1,28 @@
+.Index{
+    display: flex;
+    flex-direction: column;
+}
+
+.Index button{
+    width: 50%;
+    background: none;
+    border: none;
+    font-size: 26px;
+    color: #fff;
+    padding: 10px;
+}
+
+.Index .list{
+    height: calc(100vh - 298px);
+}
+
+.Index .formats{
+    display: flex;
+    justify-content: center;
+}
+
+.Index .selected{
+    background: #fff;
+    color: #47b2ffff;
+
+}

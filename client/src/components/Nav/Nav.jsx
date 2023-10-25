@@ -1,17 +1,25 @@
 import './Nav.css';
 
-export default function Nav() {
+export default function Nav({ page }) {
   return (
     <nav>
-      <a href='/'>
-        <p>HOME</p>
-      </a>
-      <a href='/new'>
-        <p>ADD BLU-RAY</p>
-      </a>
-      <a href='/index'>
-        <p>VIEW COLLECTION</p>
-      </a>
+      {page !== "home" ?
+        <a href='/'>
+          <p>HOME</p>
+        </a>
+        : null}
+
+      {page !== "new" ?
+        <a href='/new'>
+          <p>ADD BLU-RAY</p>
+        </a>
+        : null}
+
+      {page !== "index" ?
+        <a href='/index'>
+          <p>VIEW COLLECTION</p>
+        </a>
+        : null}
     </nav>
   );
 }

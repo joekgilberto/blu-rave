@@ -1,14 +1,17 @@
 import './App.css';
 
+import { useState } from 'react';
+
 import Background from '../components/Background/Background';
 import Main from '../components/Main/Main';
-import Nav from '../components/Nav/Nav';
 
 export default function App() {
+  const [page, setPage] = useState('home')
+
   return (
     <div className="App">
-      <Background />
-      <Main />
+      <Background page={page} />
+      <Main setPage={setPage} />
     </div>
   );
 }

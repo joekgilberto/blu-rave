@@ -6,6 +6,7 @@ nav{
     grid-column: 2 / span 1;
     grid-row: 1 / span 1;
     text-shadow: 2px 2px 2px #00000030;
+    margin-left: 10px;
 }
 
 nav a p{
