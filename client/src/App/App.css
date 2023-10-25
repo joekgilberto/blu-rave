@@ -27,6 +27,10 @@ button{
   font-style: italic;
 }
 
+.italic{
+  font-style: italic;
+}
+
 @keyframes rise {
   0%{
     transform: translateY(0px);
