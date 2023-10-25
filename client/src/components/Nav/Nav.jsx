@@ -1,6 +1,12 @@
 import './Nav.css';
 
-export default function Nav({ page }) {
+import { useContext } from "react";
+import { PageContext } from '../../data';
+
+export default function Nav() {
+
+  const { page } = useContext(PageContext);
+
   return (
     <nav>
       {page !== "home" ?

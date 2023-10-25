@@ -6,7 +6,7 @@ namespace csharp_crud_api.Controllers;
 
 
 [ApiController]
-[Route("api/blu-rays")]
+[Route("api/[controller]")]
 public class BluRaysController : ControllerBase
 {
   private readonly BluRayContext _context;
@@ -16,14 +16,14 @@ public class BluRaysController : ControllerBase
     _context = context;
   }
 
-  // GET: api/blu-rays
+  // GET: api/blurays
   [HttpGet]
   public async Task<ActionResult<IEnumerable<BluRay>>> GetBluRays()
   {
     return await _context.BluRays.ToListAsync();
   }
 
-  // GET: api/blu-rays/5
+  // GET: api/blurays/5
   [HttpGet("{id}")]
   public async Task<ActionResult<BluRay>> GetBluRay(int id)
   {
@@ -37,7 +37,7 @@ public class BluRaysController : ControllerBase
     return bluRay;
   }
 
-  // POST: api/blu-rays
+  // POST: api/blurays
   [HttpPost]
   public async Task<ActionResult<BluRay>> PostBluRay(BluRay bluRay)
   {
@@ -47,7 +47,7 @@ public class BluRaysController : ControllerBase
     return CreatedAtAction(nameof(GetBluRay), new { id = bluRay.Id }, bluRay);
   }
 
-  // PUT: api/blu-rays/5
+  // PUT: api/blurays/5
   [HttpPut("{id}")]
   public async Task<IActionResult> PutBluRay(int id, BluRay bluRay)
   {
@@ -77,7 +77,7 @@ public class BluRaysController : ControllerBase
     return NoContent();
   }
 
-  // DELETE: api/blu-rays/5
+  // DELETE: api/blurays/5
   [HttpDelete("{id}")]
   public async Task<IActionResult> DeleteBluRay(int id)
   {

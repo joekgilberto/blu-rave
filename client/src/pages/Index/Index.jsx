@@ -1,9 +1,11 @@
 import './Index.css';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import { PageContext } from '../../data';
 
-export default function Index({ setPage }) {
+export default function Index() {
 
+    const { setPage } = useContext(PageContext);
     const [format, setFormat] = useState(true)
 
     function handleClick() {

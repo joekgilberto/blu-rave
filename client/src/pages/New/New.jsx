@@ -1,9 +1,8 @@
 import './New.css';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useNavigate } from "react-router";
-
-const date = new Date();
+import { PageContext } from '../../data';
 
 const initState = {
   title: "",
@@ -13,9 +12,10 @@ const initState = {
   notes: ""
 }
 
-export default function New({ setPage }) {
+export default function New() {
 
   const navigate = useNavigate()
+  const { setPage } = useContext(PageContext);
   const [formData, setFormData] = useState(initState);
 
   function handleChange(e) {

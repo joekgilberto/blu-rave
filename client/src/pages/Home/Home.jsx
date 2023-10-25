@@ -1,8 +1,11 @@
 import './Home.css';
 
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
+import { PageContext } from '../../data';
 
-export default function Home({ setPage }) {
+export default function Home() {
+
+    const { setPage } = useContext(PageContext);
 
     useEffect(()=>{
         setPage("home")
