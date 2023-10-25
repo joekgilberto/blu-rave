@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Text&display=swap');
+
+.App{
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+}
+
+h1{
+  font-family: "Libre Barcode 39 Text", sans-serif;
+  font-weight: 400;
+  font-size: 100px;
+  color: #fff;
+}
