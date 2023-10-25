@@ -12,7 +12,7 @@ export default function New({ setPage }) {
     <div className='New'>
       <form>
         <label>Title
-          <input type='text'/>
+          <input type='text' maxlength="50"/>
         </label>
         <label className='check'>Special Edition
           <input className='checkbox' type='checkbox'/>
@@ -29,7 +29,7 @@ export default function New({ setPage }) {
           </select>
         </label>
         <label>Notes
-          <textarea/>
+          <textarea maxlength="255"/>
         </label>
         <button type='submit'>Save</button>
         </form>
