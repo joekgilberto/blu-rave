@@ -22,6 +22,12 @@ export async function getBluRay(id) {
 
 export async function createBluRay(data) {
     try {
+        if (data.title.startsWith("The ")){
+            title = data.title.split('')
+            title.splice(0,4);
+            title = title.concat([',',' ','T','h','e'])
+            data.title = title.join('')
+          }
         await bluAPI.create(data).then((res)=>{
             return res
         })
