@@ -2,6 +2,7 @@ import './AllBluRays.css';
 
 import { useEffect, useState, useContext } from 'react';
 import { PageContext } from '../../data';
+import * as bluRayServices from '../../utilities/blu-rays/blu-services';
 
 import Loading from '../../components/Loading/Loading';
 
@@ -44,9 +45,19 @@ export default function AllBluRays() {
     const [format, setFormat] = useState(true)
     const [allBluRays, setAllBluRays] = useState(null);
 
+    async function handleRefresh() {
+
+        await bluRayServices.getAllBluRays().then((res) => {
+            setAllBluRays(res)
+        })
+            .catch((err) => console.log(err))
+    }
+
+
     useEffect(() => {
         setPage("index")
-        setAllBluRays(dummyData)
+        handleRefresh()
+        console.log(allBluRays)
     }, [])
 
     function handleClick() {
@@ -56,37 +67,37 @@ export default function AllBluRays() {
     return (
         <div className="AllBluRays">
             <div className='list'>
-                {allBluRays?
-                <>
-                {format ?
+                {allBluRays ?
                     <>
-                    {allBluRays.map((bluRay,idx)=>{
-                        return(
-                        bluRay.format==="Film" || bluRay.format==="Short"?
-                        <div className='media' key={idx}>
-                            <p className='italic'>{bluRay.title}</p>
-                            <p className='details'>{bluRay.four_k?"4K":null} {bluRay.steelbook?"★":null}</p>
-                        </div>:null
-                        )
-                    })}
+                        {format ?
+                            <>
+                                {allBluRays.map((bluRay, idx) => {
+                                    return (
+                                        bluRay.format === "Film" || bluRay.format === "Short" ?
+                                            <div className='media' key={idx}>
+                                                <p className='italic'>{bluRay.title}</p>
+                                                <p className='details'>{bluRay.four_k ? "4K" : null} {bluRay.steelbook ? "★" : null}</p>
+                                            </div> : null
+                                    )
+                                })}
+                            </>
+                            :
+                            <>
+                                {allBluRays.map((bluRay, idx) => {
+                                    return (
+                                        bluRay.format === "Television" || bluRay.format === "Miniseries" ?
+                                            <div className='media' key={idx}>
+                                                <p className='italic'>{bluRay.title}</p>
+                                                <p className='details'>{bluRay.four_k ? "4K" : null} {bluRay.steelbook ? "★" : null}</p>
+                                            </div> : null
+                                    )
+                                })}
+                            </>
+
+                        }
                     </>
                     :
-                    <>
-                    {allBluRays.map((bluRay,idx)=>{
-                        return(
-                        bluRay.format==="Television" || bluRay.format==="Miniseries"?
-                        <div className='media' key={idx}>
-                            <p className='italic'>{bluRay.title}</p>
-                            <p className='details'>{bluRay.four_k?"4K":null} {bluRay.steelbook?"★":null}</p>
-                        </div>:null
-                        )
-                    })}
-                    </>
-
-                }
-            </>
-            :
-            <Loading />}
+                    <Loading />}
             </div>
             <div className='formats'>
                 <button onClick={handleClick} className={format ? "selected" : null}>Film</button>

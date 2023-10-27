@@ -8,6 +8,7 @@ export async function index() {
     return axios
         .get(BASE_URL)
         .then((res) => {
+            console.log(res)
             return res.data
         })
         .catch((err) => console.log(err));

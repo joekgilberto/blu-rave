@@ -6,6 +6,8 @@ export async function getAllBluRays() {
         return await bluAPI.index().then((bluRays) => {
             bluRays.sort((a, b) => (a.title.toUpperCase() < b.title.toUpperCase()) ? -1 : (a.title.toUpperCase() > b.title.toUpperCase()) ? 1 : 0);
             return bluRays
+        }).catch((err)=>{
+            console.log(err)
         })
     } catch (err) {
         return err

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router";
 import { PageContext } from '../../data';
 
 let dateAdded = new Date()
-dateAdded.toISOString().split('T')[0]
+dateAdded = dateAdded.toISOString().split('T')[0]
 
 const initState = {
   title: "",
