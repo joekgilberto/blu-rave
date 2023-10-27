@@ -3,6 +3,8 @@ import './New.css';
 import { useState, useEffect, useContext } from 'react';
 import { useNavigate } from "react-router";
 import { PageContext } from '../../data';
+import * as bluRayServices from '../../utilities/blu-rays/blu-services';
+
 
 let dateAdded = new Date()
 dateAdded = dateAdded.toISOString().split('T')[0]
@@ -25,10 +27,10 @@ export default function New() {
   function handleChange(e) {
     let updatedData;
 
-    if (e.target.name === "steelbook" || e.target.name === "four_k"){
+    if (e.target.name === "steelbook" || e.target.name === "four_k") {
       let value;
 
-      if (e.target.value === "on"){
+      if (e.target.value === "on") {
         value = true;
       } else {
         value = false;
@@ -44,7 +46,10 @@ export default function New() {
   async function handleSubmit(e) {
     e.preventDefault()
     console.log(formData)
-    navigate("/index")
+
+    bluRayServices.createBluRay(formData).then(() => {
+      navigate('/blu-rays')
+    })
   }
 
   useEffect(() => {

@@ -1,29 +1,17 @@
-.Modal{
+.Destroy{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    grid-column: 1 / span 2;
-    grid-row: 1 / span 1;
-    background-color: #00000050;
-}
-
-.confirm{
-    width: 50%;
-    height: 40%;
-    background-color: #fff;
     padding: 50px;
 }
 
-.confirm h2,
-.confirm p{
-    color: #47b2ffff;
-}
-
-.confirm h2{
+.Destroy h2{
     font-size: 40px;
+    border-bottom: none;
 }
 
-.confirm p{
+.Destroy p{
     font-size: 26px;
 }
 
@@ -49,7 +37,7 @@
 }
 
 .delete-options .cancel{
-    background-color: transparent;
+    background-color: #fff;
     border: none;
     color: #47b2ffff;
 }

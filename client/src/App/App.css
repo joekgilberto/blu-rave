@@ -39,6 +39,10 @@ button{
   text-decoration: underline;
 }
 
+textarea{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 @keyframes rise {
   0%{
     transform: translateY(0px);
