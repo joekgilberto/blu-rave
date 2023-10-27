@@ -6,7 +6,7 @@ namespace service.Controllers;
 
 
 [ApiController]
-[Route("[controller]")]
+[Route("blu-rays")]
 public class BluRaysController : ControllerBase
 {
   private readonly BluRayContext _context;
