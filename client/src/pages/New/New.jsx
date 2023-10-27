@@ -4,12 +4,16 @@ import { useState, useEffect, useContext } from 'react';
 import { useNavigate } from "react-router";
 import { PageContext } from '../../data';
 
+let dateAdded = new Date()
+dateAdded.toISOString().split('T')[0]
+
 const initState = {
   title: "",
   steelbook: false,
-  four_k: false,
+  fourK: false,
   format: "Film",
-  notes: ""
+  notes: "",
+  dateAdded: dateAdded
 }
 
 export default function New() {

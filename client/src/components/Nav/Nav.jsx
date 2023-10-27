@@ -22,7 +22,7 @@ export default function Nav() {
         : null}
 
       {page !== "index" ?
-        <a href='/index'>
+        <a href='/blu-rays'>
           <p>VIEW COLLECTION</p>
         </a>
         : null}

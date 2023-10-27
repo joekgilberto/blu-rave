@@ -2,11 +2,11 @@ using Data;
 using Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-namespace csharp_crud_api.Controllers;
+namespace service.Controllers;
 
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("[controller]")]
 public class BluRaysController : ControllerBase
 {
   private readonly BluRayContext _context;

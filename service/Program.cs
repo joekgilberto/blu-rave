@@ -13,7 +13,7 @@ builder.Services.AddSwaggerGen();
 // Added configuration for PostgreSQL
 var configuration = builder.Configuration;
 builder.Services.AddDbContext<BluRayContext>(options =>
-    options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
+    options.UseNpgsql(configuration.GetConnectionString("WebApiDatabase")));
 
 var app = builder.Build();
 

@@ -16,8 +16,8 @@ export default function Main() {
             <Routes>
                {<Route path='/' element={<Home />} name='home' />}
                 <Route path='/new' element={<New />} name='new' />
-                <Route path='/index' element={<Index />} name='index' />
-                <Route path="/blu-ray/:id" element={<ShowBluRay />} />
+                <Route path='/blu-rays' element={<Index />} name='index' />
+                <Route path="/blu-rays/:id" element={<ShowBluRay />} />
                 <Route path='/*' element={<Error />} />
             </Routes>
         </main>
