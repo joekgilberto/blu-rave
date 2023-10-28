@@ -28,14 +28,7 @@ export default function New() {
     let updatedData;
 
     if (e.target.name === "steelbook" || e.target.name === "fourK") {
-      let value;
-
-      if (e.target.value === "on") {
-        value = true;
-      } else {
-        value = false;
-      }
-      updatedData = { ...formData, [e.target.name]: value }
+      updatedData = { ...formData, [e.target.name]: !formData[e.target.name] }
     } else {
       updatedData = { ...formData, [e.target.name]: e.target.value }
     }
