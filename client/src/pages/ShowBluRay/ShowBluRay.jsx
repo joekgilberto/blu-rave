@@ -80,7 +80,7 @@ export default function ShowBluRay() {
                         <Destroy setConfirm={setConfirm} />}
                         </>
                     :
-                    <Edit bluRay={bluRay} />}
+                    <Edit bluRay={bluRay} setEdit={setEdit} handleRequest={handleRequest} />}
                 </>
                 :
                 <Loading />}

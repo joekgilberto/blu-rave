@@ -7,7 +7,7 @@ import * as bluRayServices from '../../utilities/blu-rays/blu-services';
 
 import Loading from '../Loading/Loading';
 
-export default function Edit({ bluRay }) {
+export default function Edit({ bluRay, setEdit, handleRequest }) {
 
     const navigate = useNavigate()
     const { setPage } = useContext(PageContext);
@@ -40,8 +40,9 @@ export default function Edit({ bluRay }) {
         e.preventDefault()
         console.log(formData)
 
-        bluRayServices.createBluRay(formData).then(() => {
-            navigate('/blu-rays')
+        bluRayServices.updateBluRay(bluRay.id, formData).then(() => {
+            handleRequest()
+            setEdit(false)
         })
     }
 
