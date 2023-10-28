@@ -27,7 +27,7 @@ export default function New() {
   function handleChange(e) {
     let updatedData;
 
-    if (e.target.name === "steelbook" || e.target.name === "four_k") {
+    if (e.target.name === "steelbook" || e.target.name === "fourK") {
       let value;
 
       if (e.target.value === "on") {
@@ -70,7 +70,7 @@ export default function New() {
         </label>
         <label className='check'>4K
           <div className='container'>
-            <input className='checkbox' type='checkbox' name="four_k" onChange={handleChange} />
+            <input className='checkbox' type='checkbox' name="fourK" onChange={handleChange} />
             <span className="checkmark"></span>
           </div>
         </label>

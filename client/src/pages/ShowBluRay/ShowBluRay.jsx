@@ -6,6 +6,7 @@ import { PageContext } from '../../data';
 import * as bluRayServices from '../../utilities/blu-rays/blu-services';
 
 import Loading from '../../components/Loading/Loading';
+import Edit from '../../components/Edit/Edit';
 import Destroy from '../../components/Destroy/Destroy';
 
 const dummyData = {
@@ -23,6 +24,7 @@ export default function ShowBluRay() {
     const { setPage } = useContext(PageContext);
     const [bluRay, setBluRay] = useState(null);
     const [confirm, setConfirm] = useState(false);
+    const [edit, setEdit] = useState(false)
     const { id } = useParams();
 
     async function handleRequest() {
@@ -44,9 +46,15 @@ export default function ShowBluRay() {
         setConfirm(true)
     }
 
+    function handleEdit(){
+        setEdit(true);
+    }
+
     return (
         <div className="ShowBluRay">
             {bluRay ?
+                <>
+                {!edit?
                 <>
                     <h2>{bluRay.title}</h2>
 
@@ -63,13 +71,16 @@ export default function ShowBluRay() {
                                 </div>
                                 : null}
                             <div className='owner-options'>
-                                <button className='edit'>Edit</button>
+                                <button className='edit' onClick={handleEdit}>Edit</button>
                                 <button className='delete' onClick={handleDelete}>Delete</button>
                             </div>
                             <p className='date-added'>Added {bluRay.dateAdded}</p>
                         </>
                         :
                         <Destroy setConfirm={setConfirm} />}
+                        </>
+                    :
+                    <Edit bluRay={bluRay} />}
                 </>
                 :
                 <Loading />}
