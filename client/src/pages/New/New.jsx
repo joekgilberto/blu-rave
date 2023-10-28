@@ -45,7 +45,6 @@ export default function New() {
 
   async function handleSubmit(e) {
     e.preventDefault()
-    console.log(formData)
 
     bluRayServices.createBluRay(formData).then(() => {
       navigate('/blu-rays')

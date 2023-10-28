@@ -57,7 +57,6 @@ export default function AllBluRays() {
     useEffect(() => {
         setPage("index")
         handleRefresh()
-        console.log(allBluRays)
     }, [])
 
     function handleClick() {

@@ -20,15 +20,8 @@ export default function Edit({ bluRay, setEdit, handleRequest }) {
     function handleChange(e) {
         let updatedData;
 
-        if (e.target.name === "steelbook" || e.target.name === "four_k") {
-            let value;
-
-            if (e.target.value === "on") {
-                value = true;
-            } else {
-                value = false;
-            }
-            updatedData = { ...formData, [e.target.name]: value }
+        if (e.target.name === "steelbook" || e.target.name === "fourK") {
+            updatedData = { ...formData, [e.target.name]: !formData[e.target.name] }
         } else {
             updatedData = { ...formData, [e.target.name]: e.target.value }
         }
@@ -38,7 +31,6 @@ export default function Edit({ bluRay, setEdit, handleRequest }) {
 
     async function handleSubmit(e) {
         e.preventDefault()
-        console.log(formData)
 
         bluRayServices.updateBluRay(bluRay.id, formData).then(() => {
             handleRequest()
