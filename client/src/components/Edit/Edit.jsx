@@ -43,39 +43,42 @@ export default function Edit({ bluRay, setEdit, handleRequest }) {
     }, [])
 
     return (
-        formData?
-        <div className='New'>
-            <form onSubmit={handleSubmit}>
-                <label>Title*
-                    <input type='text' maxLength="50" name="title" onChange={handleChange} value={formData.title} required />
-                </label>
-                <label className='check'>Special Edition
-                    <div className='container'>
-                        <input className='checkbox' type='checkbox' name="steelbook" onChange={handleChange} defaultChecked={formData.steelbook} />
-                        <span className="checkmark"></span>
+        formData ?
+            <div className='New'>
+                <form onSubmit={handleSubmit}>
+                    <label>Title*
+                        <input type='text' maxLength="50" name="title" onChange={handleChange} value={formData.title} required />
+                    </label>
+                    <label className='check'>Special Edition
+                        <div className='container'>
+                            <input className='checkbox' type='checkbox' name="steelbook" onChange={handleChange} defaultChecked={formData.steelbook} />
+                            <span className="checkmark"></span>
+                        </div>
+                    </label>
+                    <label className='check'>4K
+                        <div className='container'>
+                            <input className='checkbox' type='checkbox' name="fourK" onChange={handleChange} defaultChecked={formData.fourK} />
+                            <span className="checkmark"></span>
+                        </div>
+                    </label>
+                    <label>Format
+                        <select name="format" onChange={handleChange} value={formData.format}>
+                            <option>Film</option>
+                            <option>Short</option>
+                            <option>Television</option>
+                            <option>Miniseries</option>
+                        </select>
+                    </label>
+                    <label>Notes
+                        <textarea maxLength="255" name="notes" onChange={handleChange} value={formData.notes} />
+                    </label>
+                    <div className='owner-options'>
+                        <button className='edit' type='submit'>Update</button>
+                        <button className='delete' onClick={() => setEdit(false)}>Cancel</button>
                     </div>
-                </label>
-                <label className='check'>4K
-                    <div className='container'>
-                        <input className='checkbox' type='checkbox' name="fourK" onChange={handleChange} defaultChecked={formData.fourK} />
-                        <span className="checkmark"></span>
-                    </div>
-                </label>
-                <label>Format
-                    <select name="format" onChange={handleChange} value={formData.format}>
-                        <option>Film</option>
-                        <option>Short</option>
-                        <option>Television</option>
-                        <option>Miniseries</option>
-                    </select>
-                </label>
-                <label>Notes
-                    <textarea maxLength="255" name="notes" onChange={handleChange} value={formData.notes} />
-                </label>
-                <button type='submit'>Update</button>
-            </form>
-        </div>
-        :
-        <Loading />
+                </form>
+            </div>
+            :
+            <Loading />
     );
 }
