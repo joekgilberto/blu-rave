@@ -1,9 +1,9 @@
 import * as bluAPI from './blu-api'
 import * as tools from '../tools'
 
-export async function getAllBluRays() {
+export async function getAllBluRays(token) {
     try {
-        return await bluAPI.index().then((bluRays) => {
+        return await bluAPI.index(token).then((bluRays) => {
             bluRays.sort((a, b) => (a.title.toUpperCase() < b.title.toUpperCase()) ? -1 : (a.title.toUpperCase() > b.title.toUpperCase()) ? 1 : 0);
             return bluRays
         }).catch((err)=>{

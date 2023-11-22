@@ -2,6 +2,7 @@ using Data;
 using Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 namespace service.Controllers;
 
 
@@ -103,6 +104,16 @@ public class BluRaysController : ControllerBase
   public string Test()
   {
     return "Hello World!";
+  }
+
+  [HttpGet("private")]
+  [Authorize]
+  public IActionResult Private()
+  {
+    return Ok(new
+    {
+      Message = "Hello from a private endpoint! You need to be authenticated to see this."
+    });
   }
 }
 // Dummy comment

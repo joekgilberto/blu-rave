@@ -3,6 +3,7 @@ import './AllBluRays.css';
 import { useEffect, useState, useContext } from 'react';
 import { PageContext } from '../../data';
 import * as bluRayServices from '../../utilities/blu-rays/blu-services';
+import { useAuth0 } from "@auth0/auth0-react";
 
 import Loading from '../../components/Loading/Loading';
 
@@ -44,10 +45,17 @@ export default function AllBluRays() {
     const { setPage } = useContext(PageContext);
     const [format, setFormat] = useState(true)
     const [allBluRays, setAllBluRays] = useState(null);
+    const { getAccessTokenSilently } = useAuth0();
+
 
     async function handleRefresh() {
+        const domain = "dev-izyyi8s1l0oh6rko.us.auth0.com";
+        const accessToken = await getAccessTokenSilently({
+            audience: `https://${domain}/api/v2/`,
+            scope: "read:current_user",
+          });
 
-        await bluRayServices.getAllBluRays().then((res) => {
+        await bluRayServices.getAllBluRays(accessToken).then((res) => {
             setAllBluRays(res)
         })
             .catch((err) => console.log(err))

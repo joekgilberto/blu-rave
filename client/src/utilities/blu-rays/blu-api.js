@@ -1,12 +1,18 @@
 // Imports axios for API calls
 import axios from 'axios';
+
 // Imports food API environmental variables
 const BASE_URL = process.env.REACT_APP_BLU_API_URL;
 
 // Function to get all blu-rays
-export async function index() {
+export async function index(token) {
+    const config={
+        headers: {
+            Authorization: `Bearer ${token}`,
+        }
+    }
     return axios
-        .get(BASE_URL)
+        .get(BASE_URL,config)
         .then((res) => {
             return res.data
         })
