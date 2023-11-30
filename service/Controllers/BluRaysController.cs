@@ -5,7 +5,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
 namespace service.Controllers;
 
-
 [ApiController]
 [Route("blu-rays")]
 public class BluRaysController : ControllerBase

@@ -13,9 +13,7 @@ root.render(
       domain="dev-izyyi8s1l0oh6rko.us.auth0.com"
       clientId="8w4zj34LI82gUcgNclpDhDKQVttXTysg"
       authorizationParams={{
-        redirect_uri: window.location.origin,
-        audience: "https://dev-izyyi8s1l0oh6rko.us.auth0.com/api/v2/",
-        scope: "read:current_user update:current_user_metadata"
+        redirect_uri: window.location.origin
       }}
     >
       <App />

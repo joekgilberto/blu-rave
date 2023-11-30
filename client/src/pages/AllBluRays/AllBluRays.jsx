@@ -59,6 +59,10 @@ export default function AllBluRays() {
             setAllBluRays(res)
         })
             .catch((err) => console.log(err))
+
+        await bluRayServices.privateTest(accessToken).then((res) => {
+            console.log("here ",res)
+        })
     }
 
 

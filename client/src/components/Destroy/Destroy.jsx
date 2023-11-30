@@ -7,7 +7,6 @@ export default function Destroy({setConfirm}) {
 
     const navigate = useNavigate()
     const { id } = useParams();
-    console.log("ID",id)
 
     async function handleDelete(){
         await bluRayServices.destroyBluRay(id).then(()=>{

@@ -56,3 +56,15 @@ export async function destroyBluRay(id) {
         return err
     }
 }
+
+export async function privateTest(token) {
+    try {
+        return await bluAPI.privateTest(token).then((bluRays) => {
+            return bluRays
+        }).catch((err)=>{
+            console.log(err)
+        })
+    } catch (err) {
+        return err
+    }
+}
