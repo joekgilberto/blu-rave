@@ -4,6 +4,7 @@ import { useEffect, useContext, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { PageContext } from '../../data';
 import * as bluRayServices from '../../utilities/blu-rays/blu-services';
+import { useAuth0 } from "@auth0/auth0-react";
 
 import Loading from '../../components/Loading/Loading';
 import Edit from '../../components/Edit/Edit';
@@ -26,9 +27,11 @@ export default function ShowBluRay() {
     const [confirm, setConfirm] = useState(false);
     const [edit, setEdit] = useState(false)
     const { id } = useParams();
+    const { getAccessTokenSilently } = useAuth0();
 
     async function handleRequest() {
-        await bluRayServices.getBluRay(id).then((res) => {
+        const accessToken = await getAccessTokenSilently();
+        await bluRayServices.getBluRay(accessToken,id).then((res) => {
             res ? setBluRay(res) : navigate("/blu-rays");
         })
             .catch((err) => {

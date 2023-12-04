@@ -13,7 +13,9 @@ root.render(
       domain="dev-izyyi8s1l0oh6rko.us.auth0.com"
       clientId="8w4zj34LI82gUcgNclpDhDKQVttXTysg"
       authorizationParams={{
-        redirect_uri: window.location.origin
+        redirect_uri: window.location.origin,
+        audience: "http://localhost:3000/",
+        scope: "read:blu-rays"
       }}
     >
       <App />

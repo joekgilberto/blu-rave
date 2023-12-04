@@ -3,26 +3,33 @@ import './New.css';
 import { useState, useEffect, useContext } from 'react';
 import { useNavigate } from "react-router";
 import { PageContext } from '../../data';
+import { useAuth0 } from "@auth0/auth0-react";
 import * as bluRayServices from '../../utilities/blu-rays/blu-services';
-
-
-let dateAdded = new Date()
-dateAdded = dateAdded.toISOString().split('T')[0]
-
-const initState = {
-  title: "",
-  steelbook: false,
-  fourK: false,
-  format: "Film",
-  notes: "",
-  dateAdded: dateAdded
-}
 
 export default function New() {
 
   const navigate = useNavigate()
   const { setPage } = useContext(PageContext);
+
+  let dateAdded = new Date()
+  dateAdded = dateAdded.toISOString().split('T')[0]
+
+  const { getAccessTokenSilently } = useAuth0();
+
+  const initState = {
+    title: "",
+    steelbook: false,
+    fourK: false,
+    format: "Film",
+    notes: "",
+    dateAdded: "",
+    owner: ""
+  }
+
+  console.log(initState)
+
   const [formData, setFormData] = useState(initState);
+
 
   function handleChange(e) {
     let updatedData;
@@ -36,15 +43,29 @@ export default function New() {
     setFormData(updatedData)
   }
 
+  async function setStart() {
+    const accessToken = await getAccessTokenSilently();
+    let dateAdded = new Date()
+    dateAdded = dateAdded.toISOString().split('T')[0]
+    setFormData({ ...formData, dateAdded: dateAdded, owner: accessToken })
+  }
+
   async function handleSubmit(e) {
     e.preventDefault()
 
-    bluRayServices.createBluRay(formData).then(() => {
-      navigate('/blu-rays')
-    })
+    console.log(formData)
+
+    await getAccessTokenSilently().then(async (accessToken) => {
+      await bluRayServices.createBluRay(accessToken, formData).then(() => {
+        navigate('/blu-rays')
+      })
+    }
+    )
+
   }
 
   useEffect(() => {
+    setStart()
     setPage("new")
   }, [])
 

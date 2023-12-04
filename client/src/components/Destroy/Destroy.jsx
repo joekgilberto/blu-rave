@@ -2,14 +2,17 @@ import './Destroy.css';
 
 import { useNavigate, useParams } from 'react-router-dom';
 import * as bluRayServices from '../../utilities/blu-rays/blu-services';
+import { useAuth0 } from "@auth0/auth0-react";
 
 export default function Destroy({setConfirm}) {
 
     const navigate = useNavigate()
     const { id } = useParams();
+    const { getAccessTokenSilently } = useAuth0();
 
     async function handleDelete(){
-        await bluRayServices.destroyBluRay(id).then(()=>{
+        const accessToken = await getAccessTokenSilently();
+        await bluRayServices.destroyBluRay(accessToken,id).then(()=>{
             setConfirm(false)
             navigate("/blu-rays")
         })

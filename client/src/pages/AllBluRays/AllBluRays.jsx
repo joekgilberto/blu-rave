@@ -49,20 +49,11 @@ export default function AllBluRays() {
 
 
     async function handleRefresh() {
-        const domain = "dev-izyyi8s1l0oh6rko.us.auth0.com";
-        const accessToken = await getAccessTokenSilently({
-            audience: `https://${domain}/api/v2/`,
-            scope: "read:current_user",
-          });
-
+        const accessToken = await getAccessTokenSilently();
         await bluRayServices.getAllBluRays(accessToken).then((res) => {
             setAllBluRays(res)
         })
             .catch((err) => console.log(err))
-
-        await bluRayServices.privateTest(accessToken).then((res) => {
-            console.log("here ",res)
-        })
     }
 
 

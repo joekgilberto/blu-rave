@@ -12,6 +12,5 @@ export function titlesWithThe(input){
 
 export function authConfig(token){
     const auth = {headers: {authorization: `Bearer ${token}`}}
-    console.log(auth)
     return auth
 }

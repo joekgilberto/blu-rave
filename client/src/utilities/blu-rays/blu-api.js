@@ -16,9 +16,9 @@ export async function index(token) {
 };
 
 // Function to get a specific blu-ray
-export async function show(id) {
+export async function show(token, id) {
     return axios
-        .get(`${BASE_URL}${id}/`)
+        .get(`${BASE_URL}${id}/`,tools.authConfig(token))
         .then((res) => {
             return res.data
         })
@@ -27,9 +27,9 @@ export async function show(id) {
 };
 
 // Function to get create a blu-ray
-export async function create(data) {
+export async function create(token,data) {
     return axios
-        .post(BASE_URL,data)
+        .post(BASE_URL,data,tools.authConfig(token))
         .then((res) => {
             return res.data
         })
@@ -37,9 +37,9 @@ export async function create(data) {
 };
 
 // Function to update a specific blu-ray
-export async function update(id,data) {
+export async function update(token,id,data) {
     return axios
-        .put(`${BASE_URL}${id}/`,data)
+        .put(`${BASE_URL}${id}/`,data,tools.authConfig(token))
         .then((res) => {
             return res.data
         })
@@ -48,23 +48,12 @@ export async function update(id,data) {
 };
 
 // Function to delete a specific blu-ray
-export async function destroy(id) {
+export async function destroy(token,id) {
     return axios
-        .delete(`${BASE_URL}${id}/`)
+        .delete(`${BASE_URL}${id}/`,tools.authConfig(token))
         .then((res) => {
             return res.data
         })
         .catch((err) => console.log(err));
     
 }
-
-export async function privateTest(token) {
-    console.log(tools.authConfig(token))
-
-    return axios
-        .get(`${BASE_URL}private/`,tools.authConfig(token))
-        .then((res) => {
-            return res.data
-        })
-        .catch((err) => console.log(err));
-};

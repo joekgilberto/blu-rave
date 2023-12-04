@@ -4,6 +4,7 @@ import { useState, useEffect, useContext } from 'react';
 import { useNavigate, useParams } from "react-router";
 import { PageContext } from '../../data';
 import * as bluRayServices from '../../utilities/blu-rays/blu-services';
+import { useAuth0 } from "@auth0/auth0-react";
 
 import Loading from '../Loading/Loading';
 
@@ -12,6 +13,7 @@ export default function Edit({ bluRay, setEdit, handleRequest }) {
     const navigate = useNavigate()
     const { setPage } = useContext(PageContext);
     const [formData, setFormData] = useState(null);
+    const { getAccessTokenSilently } = useAuth0();
 
     useEffect(() => {
         setFormData(bluRay)
@@ -31,8 +33,9 @@ export default function Edit({ bluRay, setEdit, handleRequest }) {
 
     async function handleSubmit(e) {
         e.preventDefault()
+        const accessToken = await getAccessTokenSilently();
 
-        bluRayServices.updateBluRay(bluRay.id, formData).then(() => {
+        await bluRayServices.updateBluRay(accessToken, bluRay.id, formData).then(() => {
             handleRequest()
             setEdit(false)
         })

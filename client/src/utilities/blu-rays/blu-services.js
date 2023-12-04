@@ -14,22 +14,22 @@ export async function getAllBluRays(token) {
     }
 }
 
-export async function getBluRay(id) {
+export async function getBluRay(token,id) {
     try {
-        const response = await bluAPI.show(id)
+        const response = await bluAPI.show(token,id)
         return response
     } catch (err) {
         return err
     }
 }
 
-export async function createBluRay(data) {
+export async function createBluRay(token,data) {
     try {
         
         const newTitle = tools.titlesWithThe(data.title);
         data.title = newTitle;
 
-        await bluAPI.create(data).then((res) => {
+        await bluAPI.create(token,data).then((res) => {
             return res
         })
 
@@ -38,9 +38,9 @@ export async function createBluRay(data) {
     }
 }
 
-export async function updateBluRay(id, data) {
+export async function updateBluRay(token, id, data) {
     try {
-        await bluAPI.update(id, data).then((res) => {
+        await bluAPI.update(token, id, data).then((res) => {
             return res
         })
     } catch (err) {
@@ -48,22 +48,10 @@ export async function updateBluRay(id, data) {
     }
 }
 
-export async function destroyBluRay(id) {
+export async function destroyBluRay(token, id) {
     try {
-        const response = await bluAPI.destroy(id)
+        const response = await bluAPI.destroy(token, id)
         return response
-    } catch (err) {
-        return err
-    }
-}
-
-export async function privateTest(token) {
-    try {
-        return await bluAPI.privateTest(token).then((bluRays) => {
-            return bluRays
-        }).catch((err)=>{
-            console.log(err)
-        })
     } catch (err) {
         return err
     }

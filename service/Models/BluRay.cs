@@ -25,5 +25,8 @@ namespace Models
 
         [Column("date_added")]
         public DateOnly DateAdded { get; set; }
+        
+        [Column("owner")]
+        public string Owner { get; set; }
     }
 }
