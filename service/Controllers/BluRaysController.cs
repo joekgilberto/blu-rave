@@ -5,12 +5,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
 namespace service.Controllers;
 
+
 [ApiController]
 [Route("blu-rays")]
 public class BluRaysController : ControllerBase
 {
   private readonly BluRayContext _context;
 
+  // Context shouldn't be called in Controller, should be called in sepearate file's service
   public BluRaysController(BluRayContext context)
   {
     _context = context;
@@ -18,8 +20,9 @@ public class BluRaysController : ControllerBase
 
   // GET: api/blurays
   [HttpGet]
-  public async Task<ActionResult<IEnumerable<BluRay>>> GetBluRays()
+  public async Task<ActionResult<IEnumerable<BluRay>>> GetBluRays(string searchString)
   {
+    //GetBluRays method, parameter of searchString- entity framework filtering
     return await _context.BluRays.ToListAsync();
   }
 
@@ -27,7 +30,8 @@ public class BluRaysController : ControllerBase
   [HttpGet("{id}")]
   public async Task<ActionResult<BluRay>> GetBluRay(int id)
   {
-    var bluRay = await _context.BluRays.FindAsync(id);
+    // Use below as example to query database, make separate class as a service (to be called by the controller) that is the only one that calls the database
+    var bluRay = await _context.BluRays.Where(bluRay => bluRay.Id == id);
 
     if (bluRay == null)
     {
