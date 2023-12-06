@@ -64,7 +64,7 @@ export default function ShowBluRay() {
                     {!confirm ?
                         <>
                             <p>Format: {bluRay.format}</p>
-                            <p>Definition: {bluRay.fourK ? "4K" : "HD"}</p>
+                            <p>Definition: {bluRay.definition == "4K" ? "4K" : bluRay.definition == "Blu-Ray" ? "HD" : "SD"}</p>
                             {bluRay.steelbook ? <p>Special Edition</p> : null}
 
                             {bluRay.notes ?

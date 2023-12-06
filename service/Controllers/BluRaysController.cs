@@ -20,9 +20,9 @@ public class BluRaysController : ControllerBase
 
   // GET: api/blurays
   [HttpGet]
-  public async Task<ActionResult<IEnumerable<BluRay>>> GetBluRays(string searchString)
+  public async Task<ActionResult<IEnumerable<BluRay>>> GetBluRays()
   {
-    //GetBluRays method, parameter of searchString- entity framework filtering
+    //GetBluRays method, add parameter of string searchString to above method declaration- entity framework filtering
     return await _context.BluRays.ToListAsync();
   }
 
@@ -31,7 +31,7 @@ public class BluRaysController : ControllerBase
   public async Task<ActionResult<BluRay>> GetBluRay(int id)
   {
     // Use below as example to query database, make separate class as a service (to be called by the controller) that is the only one that calls the database
-    var bluRay = await _context.BluRays.Where(bluRay => bluRay.Id == id);
+    var bluRay = await _context.BluRays.FindAsync(id);
 
     if (bluRay == null)
     {

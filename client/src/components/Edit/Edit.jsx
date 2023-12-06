@@ -58,11 +58,12 @@ export default function Edit({ bluRay, setEdit, handleRequest }) {
                             <span className="checkmark"></span>
                         </div>
                     </label>
-                    <label className='check'>4K
-                        <div className='container'>
-                            <input className='checkbox' type='checkbox' name="fourK" onChange={handleChange} defaultChecked={formData.fourK} />
-                            <span className="checkmark"></span>
-                        </div>
+                    <label>Definition
+                        <select name="definition" onChange={handleChange}>
+                            <option>Blu-Ray</option>
+                            <option>4K</option>
+                            <option>DVD</option>
+                        </select>
                     </label>
                     <label>Format
                         <select name="format" onChange={handleChange} value={formData.format}>

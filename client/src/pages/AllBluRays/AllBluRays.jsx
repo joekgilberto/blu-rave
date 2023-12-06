@@ -79,7 +79,7 @@ export default function AllBluRays() {
                                             <a href={`/blu-rays/${bluRay.id}`} key={idx}>
                                                 <div className='media'>
                                                     <p className='italic'>{bluRay.title}</p>
-                                                    <p className='details'>{bluRay.fourK ? "4K" : null} {bluRay.steelbook ? "★" : null}</p>
+                                                    <p className='details'>{bluRay.definition == "4K" ? "4K" : bluRay.definition == "DVD" ? "DVD" : null} {bluRay.steelbook ? "★" : null}</p>
                                                 </div>
                                             </a>
                                             : null
@@ -94,7 +94,7 @@ export default function AllBluRays() {
                                             <a href={`/blu-rays/${bluRay.id}`} key={idx}>
                                                 <div className='media'>
                                                     <p className='italic'>{bluRay.title}</p>
-                                                    <p className='details'>{bluRay.fourK ? "4K" : null} {bluRay.steelbook ? "★" : null}</p>
+                                                    <p className='details'>{bluRay.definition == "4K" ? "4K" : bluRay.definition == "DVD" ? "DVD" : null} {bluRay.steelbook ? "★" : null}</p>
                                                 </div>
                                             </a>
                                             : null

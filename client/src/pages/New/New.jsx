@@ -19,14 +19,12 @@ export default function New() {
   const initState = {
     title: "",
     steelbook: false,
-    fourK: false,
+    definition: "Blu-Ray",
     format: "Film",
     notes: "",
     dateAdded: "",
     owner: ""
   }
-
-  console.log(initState)
 
   const [formData, setFormData] = useState(initState);
 
@@ -52,8 +50,6 @@ export default function New() {
 
   async function handleSubmit(e) {
     e.preventDefault()
-
-    console.log(formData)
 
     await getAccessTokenSilently().then(async (accessToken) => {
       await bluRayServices.createBluRay(accessToken, formData).then(() => {
@@ -81,11 +77,12 @@ export default function New() {
             <span className="checkmark"></span>
           </div>
         </label>
-        <label className='check'>4K
-          <div className='container'>
-            <input className='checkbox' type='checkbox' name="fourK" onChange={handleChange} />
-            <span className="checkmark"></span>
-          </div>
+        <label>Definition
+          <select name="definition" onChange={handleChange}>
+            <option>Blu-Ray</option>
+            <option>4K</option>
+            <option>DVD</option>
+          </select>
         </label>
         <label>Format
           <select name="format" onChange={handleChange}>
