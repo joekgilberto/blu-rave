@@ -45,7 +45,7 @@ public class BluRaysController : ControllerBase
     }
     else
     {
-      return NotFound();
+      return BadRequest();
     }
 
   }
@@ -72,9 +72,9 @@ public class BluRaysController : ControllerBase
       }
       return bluRay;
     }
-
-    return NotFound();
-
+    else{
+      return BadRequest();
+    }
   }
 
   // POST: api/blurays
@@ -91,7 +91,10 @@ public class BluRaysController : ControllerBase
 
       return CreatedAtAction(nameof(GetBluRay), new { id = bluRay.Id }, bluRay);
     }
-    return BadRequest();
+    else
+    {
+      return BadRequest();
+    }
   }
 
   // PUT: api/blurays/5
@@ -153,9 +156,9 @@ public class BluRaysController : ControllerBase
       string dbOwner = bluRay.Owner;
       string rqOwner = headers["owner"];
 
-      if (bluRay == null ||!Equals(dbOwner, rqOwner))
+      if (bluRay == null || !Equals(dbOwner, rqOwner))
       {
-        return NotFound();
+        return BadRequest();
       }
 
       _context.BluRays.Remove(bluRay);
@@ -165,13 +168,13 @@ public class BluRaysController : ControllerBase
     }
     else
     {
-      return NotFound();
+      return BadRequest();
     }
   }
 
   private bool BluRayExists(int id)
   {
     return _context.BluRays.Any(e => e.Id == id);
-  }  
+  }
 }
 // Dummy comment
