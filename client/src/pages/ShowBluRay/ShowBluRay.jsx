@@ -27,11 +27,12 @@ export default function ShowBluRay() {
     const [confirm, setConfirm] = useState(false);
     const [edit, setEdit] = useState(false)
     const { id } = useParams();
-    const { getAccessTokenSilently } = useAuth0();
+    const { user, getAccessTokenSilently } = useAuth0();
 
     async function handleRequest() {
+        const owner = user.sub;
         const accessToken = await getAccessTokenSilently();
-        await bluRayServices.getBluRay(accessToken,id).then((res) => {
+        await bluRayServices.getBluRay(accessToken,owner,id).then((res) => {
             res ? setBluRay(res) : navigate("/blu-rays");
         })
             .catch((err) => {
@@ -42,8 +43,13 @@ export default function ShowBluRay() {
 
     useEffect(() => {
         setPage("show")
-        handleRequest()
     }, [])
+
+    useEffect(()=>{
+        if(user){
+            handleRequest()
+        }
+    },user)
 
     function handleDelete() {
         setConfirm(true)

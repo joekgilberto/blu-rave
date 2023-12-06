@@ -1,9 +1,9 @@
 import * as bluAPI from './blu-api'
 import * as tools from '../tools'
 
-export async function getAllBluRays(token) {
+export async function getAllBluRays(token,owner) {
     try {
-        return await bluAPI.index(token).then((bluRays) => {
+        return await bluAPI.index(token,owner).then((bluRays) => {
             bluRays.sort((a, b) => (a.title.toUpperCase() < b.title.toUpperCase()) ? -1 : (a.title.toUpperCase() > b.title.toUpperCase()) ? 1 : 0);
             return bluRays
         }).catch((err)=>{
@@ -14,22 +14,22 @@ export async function getAllBluRays(token) {
     }
 }
 
-export async function getBluRay(token,id) {
+export async function getBluRay(token,owner,id) {
     try {
-        const response = await bluAPI.show(token,id)
+        const response = await bluAPI.show(token,owner,id)
         return response
     } catch (err) {
         return err
     }
 }
 
-export async function createBluRay(token,data) {
+export async function createBluRay(token,owner,data) {
     try {
         
         const newTitle = tools.titlesWithThe(data.title);
         data.title = newTitle;
 
-        await bluAPI.create(token,data).then((res) => {
+        await bluAPI.create(token,owner,data).then((res) => {
             return res
         })
 
@@ -38,9 +38,9 @@ export async function createBluRay(token,data) {
     }
 }
 
-export async function updateBluRay(token, id, data) {
+export async function updateBluRay(token,owner, id, data) {
     try {
-        await bluAPI.update(token, id, data).then((res) => {
+        await bluAPI.update(token,owner, id, data).then((res) => {
             return res
         })
     } catch (err) {
@@ -48,9 +48,9 @@ export async function updateBluRay(token, id, data) {
     }
 }
 
-export async function destroyBluRay(token, id) {
+export async function destroyBluRay(token,owner, id) {
     try {
-        const response = await bluAPI.destroy(token, id)
+        const response = await bluAPI.destroy(token,owner, id)
         return response
     } catch (err) {
         return err

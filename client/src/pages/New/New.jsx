@@ -14,7 +14,7 @@ export default function New() {
   let dateAdded = new Date()
   dateAdded = dateAdded.toISOString().split('T')[0]
 
-  const { getAccessTokenSilently } = useAuth0();
+  const { user, getAccessTokenSilently } = useAuth0();
 
   const initState = {
     title: "",
@@ -32,7 +32,7 @@ export default function New() {
   function handleChange(e) {
     let updatedData;
 
-    if (e.target.name === "steelbook" || e.target.name === "fourK") {
+    if (e.target.name === "steelbook" || e.target.name === "definition") {
       updatedData = { ...formData, [e.target.name]: !formData[e.target.name] }
     } else {
       updatedData = { ...formData, [e.target.name]: e.target.value }
@@ -42,28 +42,33 @@ export default function New() {
   }
 
   async function setStart() {
-    const accessToken = await getAccessTokenSilently();
     let dateAdded = new Date()
     dateAdded = dateAdded.toISOString().split('T')[0]
-    setFormData({ ...formData, dateAdded: dateAdded, owner: accessToken })
+    setFormData({ ...formData, dateAdded: dateAdded, owner: user.sub })
   }
 
   async function handleSubmit(e) {
     e.preventDefault()
 
-    await getAccessTokenSilently().then(async (accessToken) => {
-      await bluRayServices.createBluRay(accessToken, formData).then(() => {
-        navigate('/blu-rays')
+    if(user && user.sub === formData.owner)
+    {
+      await getAccessTokenSilently().then(async (accessToken) => {
+        await bluRayServices.createBluRay(accessToken, user.sub, formData).then(() => {
+          navigate('/blu-rays')
+        })
       })
     }
-    )
-
   }
 
   useEffect(() => {
-    setStart()
     setPage("new")
   }, [])
+
+  useEffect(() => {
+    if(user){
+      setStart()
+    }
+  }, [user])
 
   return (
     <div className='New'>

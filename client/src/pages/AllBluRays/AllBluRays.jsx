@@ -45,12 +45,13 @@ export default function AllBluRays() {
     const { setPage } = useContext(PageContext);
     const [format, setFormat] = useState(true)
     const [allBluRays, setAllBluRays] = useState(null);
-    const { getAccessTokenSilently } = useAuth0();
+    const { user, getAccessTokenSilently } = useAuth0();
 
 
-    async function handleRefresh() {
+    async function handleRequest() {
+        const owner = user.sub;
         const accessToken = await getAccessTokenSilently();
-        await bluRayServices.getAllBluRays(accessToken).then((res) => {
+        await bluRayServices.getAllBluRays(accessToken, owner).then((res) => {
             setAllBluRays(res)
         })
             .catch((err) => console.log(err))
@@ -59,8 +60,13 @@ export default function AllBluRays() {
 
     useEffect(() => {
         setPage("index")
-        handleRefresh()
     }, [])
+
+    useEffect(()=>{
+        if(user){
+            handleRequest()
+        }
+    },[user])
 
     function handleClick() {
         setFormat(!format)

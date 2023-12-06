@@ -10,10 +10,9 @@ import Loading from '../Loading/Loading';
 
 export default function Edit({ bluRay, setEdit, handleRequest }) {
 
-    const navigate = useNavigate()
     const { setPage } = useContext(PageContext);
     const [formData, setFormData] = useState(null);
-    const { getAccessTokenSilently } = useAuth0();
+    const { user, getAccessTokenSilently } = useAuth0();
 
     useEffect(() => {
         setFormData(bluRay)
@@ -22,7 +21,7 @@ export default function Edit({ bluRay, setEdit, handleRequest }) {
     function handleChange(e) {
         let updatedData;
 
-        if (e.target.name === "steelbook" || e.target.name === "fourK") {
+        if (e.target.name === "steelbook" || e.target.name === "definition") {
             updatedData = { ...formData, [e.target.name]: !formData[e.target.name] }
         } else {
             updatedData = { ...formData, [e.target.name]: e.target.value }
@@ -33,12 +32,16 @@ export default function Edit({ bluRay, setEdit, handleRequest }) {
 
     async function handleSubmit(e) {
         e.preventDefault()
-        const accessToken = await getAccessTokenSilently();
 
-        await bluRayServices.updateBluRay(accessToken, bluRay.id, formData).then(() => {
-            handleRequest()
-            setEdit(false)
-        })
+        if (user && formData.owner === user.sub) {
+            const accessToken = await getAccessTokenSilently();
+
+            await bluRayServices.updateBluRay(accessToken, user.sub, bluRay.id, formData).then(() => {
+                handleRequest()
+                setEdit(false)
+
+            })
+        }
     }
 
     useEffect(() => {

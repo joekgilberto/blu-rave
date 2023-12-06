@@ -3,19 +3,40 @@ import './Destroy.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import * as bluRayServices from '../../utilities/blu-rays/blu-services';
 import { useAuth0 } from "@auth0/auth0-react";
+import { useEffect, useState } from 'react';
 
 export default function Destroy({setConfirm}) {
 
     const navigate = useNavigate()
     const { id } = useParams();
-    const { getAccessTokenSilently } = useAuth0();
+    const { user, getAccessTokenSilently } = useAuth0();
+    const [bluRay, setBluRay] = useState(null);
+
+    useEffect(()=>{
+        handleRequest()
+        console.log(bluRay)
+    },[user])
+
+    async function handleRequest(){
+        const owner = user.sub;
+        const accessToken = await getAccessTokenSilently();
+        await bluRayServices.getBluRay(accessToken,owner,id).then((res) => {
+            res ? setBluRay(res) : navigate("/blu-rays");
+        })
+            .catch((err) => {
+                console.log(err)
+                navigate("/blu-rays")
+            })
+    }
 
     async function handleDelete(){
-        const accessToken = await getAccessTokenSilently();
-        await bluRayServices.destroyBluRay(accessToken,id).then(()=>{
-            setConfirm(false)
-            navigate("/blu-rays")
-        })
+        if(user && bluRay.owner === user.sub){
+            const accessToken = await getAccessTokenSilently();
+            await bluRayServices.destroyBluRay(accessToken,user.sub,id).then(()=>{
+                setConfirm(false)
+                navigate("/blu-rays")
+            })
+        }
     }
 
     function handleClick(){

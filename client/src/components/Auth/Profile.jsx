@@ -6,6 +6,7 @@ const Profile = () => {
   const [userMetadata, setUserMetadata] = useState(null);
 
   useEffect(() => {
+    console.log("test",user)
     const getUserMetadata = async () => {
       const domain = "dev-izyyi8s1l0oh6rko.us.auth0.com";
 
@@ -28,6 +29,8 @@ const Profile = () => {
         const { user_metadata } = await metadataResponse.json();
 
         setUserMetadata(user_metadata);
+        console.log(user_metadata)
+        console.log(user)
       } catch (e) {
         console.log(e.message);
       }

@@ -6,9 +6,9 @@ import * as tools from '../tools'
 const BASE_URL = process.env.REACT_APP_BLU_API_URL;
 
 // Function to get all blu-rays
-export async function index(token) {
+export async function index(token,owner) {
     return axios
-        .get(BASE_URL,tools.authConfig(token))
+        .get(BASE_URL,tools.authConfig(token,owner))
         .then((res) => {
             return res.data
         })
@@ -16,9 +16,9 @@ export async function index(token) {
 };
 
 // Function to get a specific blu-ray
-export async function show(token, id) {
+export async function show(token, owner, id) {
     return axios
-        .get(`${BASE_URL}${id}/`,tools.authConfig(token))
+        .get(`${BASE_URL}${id}/`,tools.authConfig(token,owner))
         .then((res) => {
             return res.data
         })
@@ -27,9 +27,9 @@ export async function show(token, id) {
 };
 
 // Function to get create a blu-ray
-export async function create(token,data) {
+export async function create(token,owner,data) {
     return axios
-        .post(BASE_URL,data,tools.authConfig(token))
+        .post(BASE_URL,data,tools.authConfig(token,owner))
         .then((res) => {
             return res.data
         })
@@ -37,9 +37,9 @@ export async function create(token,data) {
 };
 
 // Function to update a specific blu-ray
-export async function update(token,id,data) {
+export async function update(token,owner,id,data) {
     return axios
-        .put(`${BASE_URL}${id}/`,data,tools.authConfig(token))
+        .put(`${BASE_URL}${id}/`,data,tools.authConfig(token,owner))
         .then((res) => {
             return res.data
         })
@@ -48,9 +48,9 @@ export async function update(token,id,data) {
 };
 
 // Function to delete a specific blu-ray
-export async function destroy(token,id) {
+export async function destroy(token,owner,id) {
     return axios
-        .delete(`${BASE_URL}${id}/`,tools.authConfig(token))
+        .delete(`${BASE_URL}${id}/`,tools.authConfig(token,owner))
         .then((res) => {
             return res.data
         })

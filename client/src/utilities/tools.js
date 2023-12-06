@@ -10,7 +10,7 @@ export function titlesWithThe(input){
     }
 }
 
-export function authConfig(token){
-    const auth = {headers: {authorization: `Bearer ${token}`}}
+export function authConfig(token, owner=null){
+    const auth = {headers: {authorization: `Bearer ${token}`, owner: owner}}
     return auth
 }
