@@ -7,8 +7,16 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+string auth0Key = Environment.GetEnvironmentVariable("AUTH0_KEY");
+string corsOrigin = Environment.GetEnvironmentVariable("CORS_ORIGIN");
+string connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING");
+string auth0Domain = Environment.GetEnvironmentVariable("AUTH0_DOMAIN");
+string auth0Audience = Environment.GetEnvironmentVariable("AUTH0_AUDIENCE");
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Configuration["ConnectionStrings:WebApiDatabase"] = connectionString;
+builder.Configuration["Auth0:Domain"] = auth0Domain;
+builder.Configuration["Auth0:Audience"] = auth0Audience;
 
 // Add services to the container.
 var domain = $"https://{builder.Configuration["Auth0:Domain"]}/";
@@ -21,7 +29,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     {
         ValidIssuer = domain,
         ValidAudience = builder.Configuration["Auth0:Audience"],
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("IDw3btMd6mpwJFF8wDEEFHWVopYTJMadFJHdKm1r73pFXut1UXIizgWCElZ8xvYJ")),
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(auth0Key)),
         NameClaimType = ClaimTypes.NameIdentifier
     };
 });
@@ -36,7 +44,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: MyAllowSpecificOrigins,
                           policy =>
                           {
-                              policy.WithOrigins("http://localhost:3000","https://localhost:3000")
+                              policy.WithOrigins(corsOrigin)
                                                   .AllowAnyOrigin()
                                                   .AllowAnyHeader()
                                                   .AllowAnyMethod();

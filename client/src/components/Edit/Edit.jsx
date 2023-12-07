@@ -14,7 +14,6 @@ export default function Edit({ bluRay, setEdit, handleRequest }) {
     const { user, getAccessTokenSilently } = useAuth0();
 
     useEffect(() => {
-        setPage("edit")
         setFormData(bluRay)
         console.log(bluRay)
     }, [])
