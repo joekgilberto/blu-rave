@@ -30,6 +30,10 @@
     border-bottom: 3px solid #329dea;
 }
 
+.AllBluRays .last{
+    border-bottom: none !important;
+}
+
 .AllBluRays .no-underline{
     border-bottom: none;
 }

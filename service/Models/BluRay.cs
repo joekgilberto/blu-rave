@@ -28,5 +28,8 @@ namespace Models
         
         [Column("owner")]
         public string Owner { get; set; }
+        
+        [Column("year")]
+        public int? Year { get; set; }
     }
 }

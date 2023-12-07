@@ -14,7 +14,9 @@ export default function Edit({ bluRay, setEdit, handleRequest }) {
     const { user, getAccessTokenSilently } = useAuth0();
 
     useEffect(() => {
+        setPage("edit")
         setFormData(bluRay)
+        console.log(bluRay)
     }, [])
 
     function handleChange(e) {
@@ -22,6 +24,12 @@ export default function Edit({ bluRay, setEdit, handleRequest }) {
 
         if (e.target.name === "steelbook" || e.target.name === "definition") {
             updatedData = { ...formData, [e.target.name]: !formData[e.target.name] }
+        } else if (e.target.name === "year"){
+            if (e.target.value > 1888 && e.target.value <= new Date().getFullYear()){
+                updatedData = { ...formData, [e.target.name]: e.target.value }
+            } else {
+                updatedData = { ...formData, [e.target.name]: null }
+            }
         } else {
             updatedData = { ...formData, [e.target.name]: e.target.value }
         }
@@ -42,16 +50,15 @@ export default function Edit({ bluRay, setEdit, handleRequest }) {
         }
     }
 
-    useEffect(() => {
-        setPage("new")
-    }, [])
-
     return (
         formData ?
             <div className='New'>
                 <form onSubmit={handleSubmit}>
-                    <label>Title*
+                    <label>Title
                         <input type='text' maxLength="50" name="title" onChange={handleChange} value={formData.title} required />
+                    </label>
+                    <label>Release Year
+                        <input type='number' min="1888" max={`${new Date().getFullYear()}`} name="year" step="1" onChange={handleChange} value={formData.year} onWheel={(e) => e.target.blur()} />
                     </label>
                     <label className='check'>Special Edition
                         <div className='container'>

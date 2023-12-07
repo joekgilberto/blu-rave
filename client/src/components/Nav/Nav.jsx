@@ -44,9 +44,7 @@ export default function Nav() {
             <p onClick={() => loginWithRedirect()}>LOGIN</p>
           </a>
           :
-          <a>
-            <p> </p>
-          </a>
+          <p className='loading'>LOADING...</p>
       }
     </nav>
   );
