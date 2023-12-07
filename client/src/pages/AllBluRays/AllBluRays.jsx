@@ -7,39 +7,6 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 import Loading from '../../components/Loading/Loading';
 
-const dummyData = [{
-    title: "Bullet Train",
-    steelbook: true,
-    fourK: true,
-    format: "Film",
-    notes: "Steelbook bought on sale from Amazon.",
-    dateAdded: "2023-10-19"
-},
-{
-    title: "Knives Out",
-    steelbook: false,
-    fourK: true,
-    format: "Film",
-    notes: "Look into a steelbook down the line.",
-    dateAdded: "2023-10-23"
-},
-{
-    title: "Over the Garden Wall",
-    steelbook: false,
-    fourK: false,
-    format: "Miniseries",
-    notes: "Your rarest blu-ray!",
-    dateAdded: "2023-10-01"
-},
-{
-    title: "Adventure Time: The Complete Series",
-    steelbook: false,
-    fourK: false,
-    format: "Television",
-    notes: "Really cool packaging.",
-    dateAdded: "2023-09-04"
-}]
-
 export default function AllBluRays() {
 
     const { setPage } = useContext(PageContext);

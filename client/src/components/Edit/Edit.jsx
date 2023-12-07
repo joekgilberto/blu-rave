@@ -1,7 +1,6 @@
 import './Edit.css';
 
 import { useState, useEffect, useContext } from 'react';
-import { useNavigate, useParams } from "react-router";
 import { PageContext } from '../../data';
 import * as bluRayServices from '../../utilities/blu-rays/blu-services';
 import { useAuth0 } from "@auth0/auth0-react";
@@ -39,7 +38,6 @@ export default function Edit({ bluRay, setEdit, handleRequest }) {
             await bluRayServices.updateBluRay(accessToken, user.sub, bluRay.id, formData).then(() => {
                 handleRequest()
                 setEdit(false)
-
             })
         }
     }

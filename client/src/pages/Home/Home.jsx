@@ -2,14 +2,8 @@ import './Home.css';
 
 import { useEffect, useContext } from 'react';
 import { PageContext } from '../../data';
-import LoginButton from '../../components/Auth/Login';
-import LogoutButton from '../../components/Auth/Logout';
-import Profile from '../../components/Auth/Profile'
-import { useAuth0 } from "@auth0/auth0-react";
-
 
 export default function Home() {
-    const { isAuthenticated } = useAuth0();
     const { setPage } = useContext(PageContext);
 
     useEffect(()=>{

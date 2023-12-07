@@ -1,6 +1,6 @@
 import './Nav.css';
 
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { PageContext } from '../../data';
 
 import { useAuth0 } from "@auth0/auth0-react";

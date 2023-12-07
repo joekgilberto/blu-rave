@@ -10,15 +10,6 @@ import Loading from '../../components/Loading/Loading';
 import Edit from '../../components/Edit/Edit';
 import Destroy from '../../components/Destroy/Destroy';
 
-const dummyData = {
-    title: "Bullet Train",
-    steelbook: true,
-    fourK: true,
-    format: "Film",
-    notes: "Steelbook bought on sale from Amazon.",
-    dateAdded: "2023-10-19"
-}
-
 export default function ShowBluRay() {
 
     const navigate = useNavigate()

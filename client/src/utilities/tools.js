@@ -1,3 +1,4 @@
+// Stylizes titles starting with 'the' to ensure it is properly alphabetized
 export function titlesWithThe(input){
     if (input.startsWith("The ")) {
         let title = input.split('')
@@ -10,7 +11,8 @@ export function titlesWithThe(input){
     }
 }
 
-export function authConfig(token, owner=null){
+// Sets auth header
+export function authConfig(token, owner){
     const auth = {headers: {authorization: `Bearer ${token}`, owner: owner}}
     return auth
 }
