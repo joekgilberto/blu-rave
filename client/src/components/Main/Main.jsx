@@ -8,6 +8,7 @@ import New from '../../pages/New/New';
 import Index from '../../pages/AllBluRays/AllBluRays';
 import ShowBluRay from '../../pages/ShowBluRay/ShowBluRay';
 import Error from '../../pages/Error/Error';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
 
 export default function Main() {
     return (
@@ -15,9 +16,9 @@ export default function Main() {
             <Title />
             <Routes>
                {<Route path='/' element={<Home />} name='home' />}
-                <Route path='/new' element={<New />} name='new' />
-                <Route path='/blu-rays' element={<Index />} name='index' />
-                <Route path="/blu-rays/:id" element={<ShowBluRay />} />
+                <Route path='/new' element={<PrivateRoute><New /></PrivateRoute>} name='new' />
+                <Route path='/blu-rays' element={<PrivateRoute><Index /></PrivateRoute>} name='index' />
+                <Route path="/blu-rays/:id" element={<PrivateRoute><ShowBluRay /></PrivateRoute>} />
                 <Route path='/*' element={<Error />} />
             </Routes>
         </main>
