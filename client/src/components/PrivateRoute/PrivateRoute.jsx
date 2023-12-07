@@ -8,8 +8,6 @@ function PrivateRoute({ children }) {
 
 
     function evalCurrentUser() {
-        console.log(isLoading)
-        console.log(user)
         if (!isLoading && !user) {
             return navigate("/");
         }
