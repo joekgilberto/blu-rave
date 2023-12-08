@@ -14,7 +14,7 @@ string auth0Domain = Environment.GetEnvironmentVariable("AUTH0_DOMAIN");
 string auth0Audience = Environment.GetEnvironmentVariable("AUTH0_AUDIENCE");
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Configuration["ConnectionStrings:WebApiDatabase"] = connectionString;
+// builder.Configuration["ConnectionStrings:WebApiDatabase"] = connectionString;
 builder.Configuration["Auth0:Domain"] = auth0Domain;
 builder.Configuration["Auth0:Audience"] = auth0Audience;
 
