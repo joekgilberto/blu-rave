@@ -13,6 +13,6 @@ export function titlesWithThe(input){
 
 // Sets auth header
 export function authConfig(token, owner){
-    const auth = {headers: {authorization: `Bearer ${token}`, owner: owner}}
+    const auth = {headers: {Authorization: `Bearer ${token}`, owner: owner}}
     return auth
 }
