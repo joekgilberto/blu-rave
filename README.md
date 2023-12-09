@@ -106,22 +106,31 @@ Still in the service directory, create environmental variables starting with you
 ```
 export CONNECTION_STRING=User ID=<your user ID>;Password=<your password?;Server=localhost;Port=5432;Database=blu;Integrated Security=true;Pooling=true;
 ```
-
-STUFF
-
+Then add a secure authorization key for your token validation parameters:
+```
+KEY=<your secure key>;
+```
+Then add your Auth0 domain from your Backend/API set up:
+```
+AUTH0_DOMAIN=<your domain>
+```
+And your Auth0 audience as well:
+```
+AUTH0_AUDIENCE=<your audience>
+```
 Finally add the url for your client application, to be a whitelested CORS origin:
 ```
 export CORS_ORIGIN=http://localhost:3000/
 ```
 
-### Spin up backend server
-For the final step of your backend set up, spin up the server with the following command:
+### Spin up service server
+For the final step of your service set up, spin up the server with the following command:
 ```
- python3 manage.py runserver
+ dotnet run
 ```
 
-### Install frontend dependencies
-For the first step of your frontend set up, navigate into your frontend directory via your terminal and install your dependencies.
+### Install client dependencies
+For the first step of your client set up, navigate into your client directory via your terminal and install your dependencies.
 ```
 npm i
 ```
@@ -131,30 +140,31 @@ Next, create your environmental variables:
 ```
 touch .env.local
 ```
-Then, add your database environmental variables to interact with your backend (running on localhost:8000):
+Then, add your database environmental variables to interact with your service server (running on https://localhost:7108/):
 ```
-REACT_APP_FOOD_API_URL=http://localhost:8000/food-items/
-REACT_APP_NOTIF_API_URL=http://localhost:8000/notifications/
-REACT_APP_AUTH_API_URL=http://localhost:8000/api-token-auth/
-REACT_APP_USER_API_URL=http://localhost:8000/user/
+REACT_APP_PROD_API=https://localhost:7108/blu-rays/
+
+REACT_APP_DOMAIN=<your domain from your SPA Auth0 app>
+REACT_APP_CLIENT_ID=<your client ID from your SPA Auth0 app>
+REACT_APP_AUDIENCE=<your audience from your Auth0 API>
+REACT_APP_SCOPE=<your scope from your Auth0 API>
 ```
 
-### Spin up your frontend server
-Finally, while still in your frontend directory, spin up your front server:
+### Spin up your client app
+Finally, while still in your client directory, spin up your app:
 ```
 npm start
 ```
 
 ### Browse
-Now, you can go to localhost:3000 in your browser (Google Chrome is reccommended for best performance) and browse the application.
+Now, you can go to http://localhost:3000/ in your browser (Google Chrome is reccommended for best performance) and browse the application.
 
 ## Current User Flow
-Firstly, visit [https://date-and-thyme.netlify.app/](https://date-and-thyme.netlify.app/)
+Firstly, visit [https://blu-rave.netlify.app//](https://blu-rave.netlify.app/)
 
-From the home page, the user can read up on the application.  The user can then sign in (through the button on the homepage or header) to access the application.  Once on the authorization page, a returning user can sign in and a new user can sign up.  If a returning user were to attempt to sign up with the same credentials, they would be automatically logged in.  After logging in, users can navigate the site throuhg the header's nav.  Through "Add Groceries" they can add food items and their expiration date to their fridge.  The user can check what items are in the fridge through the "Fridge" navigation link, and can click on those items to view further details, edit those details, or delete the grocery item.  Then, through the fridge icon in the navigation, users can see what notifications they have (reminding them when food has 5 or less days, warning them when food has 2 or less days, and alerting them when the food has expired).  The notifications will update every time the user opens the app.
+From the home page, the user can read up on the application.  The user can then sign in (through an Auth0 redirect) to access the application.  After logging in, users can navigate the site throuhg the header's nav.  Through "Add Blu-Ray" they can add a blu-ray to their collection.  The user can check what blu-rays are in the collection (separated by films and TV shows) through the "View Collection" navigation link.  Users can click on individual blu-rays to view further details, edit those details, or delete the blu-ray.
 
 ## Future Features
 Features to be added in further edits:
-- The ability to track what food is eaten, what food is discarded after expiration, and which items are neutrally deleted.
-- Users will receive email and/or text notifications when food is about to go bad
-- When viewing a grocery item's detail page, the OpenAI API will generate and return one recipe with said grocery item.
+- Mobile styling.
+- The ability for users to share their blu-ray collections with other users.
