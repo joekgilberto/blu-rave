@@ -1,4 +1,4 @@
-# date and thyme
+# Blu-Rave
 A full-stack APS.NET/React web application that keeps track of your budding blu-ray collection.  Utilizes a React frontend Axios API calls deployed on Netlify, and a ASP.NET backend deployed on Azure that interacts with a PostgreSQL database, all authorized by Auth0.  Built by [Joe Gilberto](https://joekgilberto.com/).
 
 ## Deployment
