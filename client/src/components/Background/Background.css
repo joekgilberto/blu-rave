@@ -1,6 +1,14 @@
 .Background{
     width: 100vw;
     height: 100vh;
+    display: grid;
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 1;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr auto;
+}
+
+.back-nav{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,7 +16,7 @@
     grid-row: 1 / span 1;
 }
 
-.Background img{
+.back-nav img{
     width: 80%;
     max-width: 640px;
     margin-left: 275px;
