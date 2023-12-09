@@ -59,4 +59,5 @@
 .owner-options .delete:hover {
     color: #e5edf3;
     border: 3px solid #e5edf3;
+    background-color: transparent;
 }
