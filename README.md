@@ -50,45 +50,50 @@ Below are specific relevant resources I referenced while building this applicati
 The following instructions were used through macOS with a silicone M1 chip.
 
 ### Fork and clone
-To deploy locally, fork and clone this repo.  Then, using the terminal, navigate into the backend directory.
+To deploy locally, fork and clone this repo.
 
-### Set up a virtual environment to run Python
-Once in the backend, you will have to set up a virtual environment through the following commands.
+### Install .NET 7.0
+First, install .NET 7.0 here: [https://dotnet.microsoft.com/en-us/download/dotnet](https://dotnet.microsoft.com/en-us/download/dotnet)
 
-First, install virtualenv:
+### Add service dependencies
+Navigate to the service directory.  Then, add the needed dependencies below:
 ```
-pip3 install virtualenv
+dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer
 ```
-Then create a virtual environment:
 ```
- python3 -m venv myenv
+dotnet add package Microsoft.AspNetCore.OpenApi
 ```
-Enter the virtual environment:
 ```
- source myenv/bin/activate
+dotnet add package Microsoft.EntityFrameworkCore.Design
 ```
-
-### Install backend dependencies
-Next, install backend dependencies by running:
 ```
-pip install -r requirements.txt
+dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL
+```
+```
+dotnet add package Swashbuckle.AspNetCore
 ```
 
 ### Create a local database
 Then, create a local PostgreSQL database.
 ```
-createdb date_and_thyme 
+createdb blu_rays 
 ```
 
+## Create an Auth0 Application
+Next, follow this Auth0 quickstart guide [(https://auth0.com/docs/quickstarts))](https://auth0.com/docs/quickstarts) to create a Backend/API you will use in your service end, selecting the ASP.NET Core Web API option, and then working into the Single Page App tutorial you will use in your client end, choosing the React option.
+
+
 ### Create backend environmental variables
-Still in the backend directory, create an env file:
+Still in the backend directory, create environmental variables starting with your PostgreSQL connection string:
 ```
-touch backend/.env
+export CONNECTION_STRING=<your database connection string>
 ```
-Within that .env file, add the SECRET_KEY vairable of your choosing and a WHITELIST variable to allow the frontend React app (running on localhost:3000) to interact with the Django backend:
+
+STUFF
+
+Finally add the url for your client application, to be a whitelested CORS origin:
 ```
-SECRET_KEY='<your key>'
-WHITELIST='http://localhost:3000'
+export CORS_ORIGIN=http://localhost:3000/
 ```
 
 ### Spin up backend server
