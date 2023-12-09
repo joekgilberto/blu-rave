@@ -12,5 +12,9 @@ footer p{
 }
 
 footer:hover a{
-    text-decoration: underline;
+    text-decoration: underline !important;
+}
+
+footer a:visited{
+    color: inherit;
 }

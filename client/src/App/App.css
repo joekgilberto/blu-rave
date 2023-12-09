@@ -26,6 +26,10 @@ button{
   font-family: Arial, Helvetica, sans-serif;
 }
 
+a:any-link{
+  text-decoration: none;
+}
+
 .blu-rave{
   font-weight: bold;
   font-style: italic;
