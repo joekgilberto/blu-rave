@@ -15,7 +15,6 @@ export default function Edit({ bluRay, setEdit, handleRequest }) {
 
     useEffect(() => {
         setFormData(bluRay)
-        console.log(bluRay)
     }, [])
 
     function handleChange(e) {
