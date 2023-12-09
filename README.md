@@ -104,7 +104,7 @@ Next, follow this Auth0 quickstart guide [(https://auth0.com/docs/quickstarts))]
 ### Create service environmental variables
 Still in the service directory, create environmental variables starting with your PostgreSQL connection string:
 ```
-export CONNECTION_STRING=User ID=<your user ID>;Password=<your password?;Server=localhost;Port=5432;Database=blu;Integrated Security=true;Pooling=true;
+export CONNECTION_STRING=User ID=<your user ID>;Password=<your password>;Server=localhost;Port=5432;Database=blu;Integrated Security=true;Pooling=true;
 ```
 Then add a secure authorization key for your token validation parameters:
 ```
