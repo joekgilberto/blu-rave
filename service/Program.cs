@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
-string auth0Key = Environment.GetEnvironmentVariable("AUTH0_KEY");
+string key = Environment.GetEnvironmentVariable("KEY");
 string corsOrigin = Environment.GetEnvironmentVariable("CORS_ORIGIN");
 string connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING");
 string auth0Domain = Environment.GetEnvironmentVariable("AUTH0_DOMAIN");
@@ -29,7 +29,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     {
         ValidIssuer = domain,
         ValidAudience = builder.Configuration["Auth0:Audience"],
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(auth0Key)),
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key)),
         NameClaimType = ClaimTypes.NameIdentifier
     };
 });

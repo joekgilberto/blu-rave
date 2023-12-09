@@ -74,19 +74,37 @@ dotnet add package Swashbuckle.AspNetCore
 ```
 
 ### Create a local database
-Then, create a local PostgreSQL database.
+Then, conenct to PostgreSQL.
 ```
-createdb blu_rays 
+psql 
+```
+Next, create a local PostgreSQL database.
+```
+CREATE TABLE blu_rays(
+id serial PRIMARY KEY,
+title TEXT,
+steelbook BOOL,
+definition TEXT,
+format TEXT,
+notes TEXT,
+date_added DATE,
+owner TEXT,
+year INT
+);
+```
+Then leave the PostgreSQL shell.
+```
+\q
 ```
 
 ## Create an Auth0 Application
-Next, follow this Auth0 quickstart guide [(https://auth0.com/docs/quickstarts))](https://auth0.com/docs/quickstarts) to create a Backend/API you will use in your service end, selecting the ASP.NET Core Web API option, and then working into the Single Page App tutorial you will use in your client end, choosing the React option.
+Next, follow this Auth0 quickstart guide [(https://auth0.com/docs/quickstarts))](https://auth0.com/docs/quickstarts) to create a Backend/API you will use in your service end, selecting the ASP.NET Core Web API option, and then continue on to the Single Page App tutorial you will use in your client end, choosing the React option.
 
 
-### Create backend environmental variables
-Still in the backend directory, create environmental variables starting with your PostgreSQL connection string:
+### Create service environmental variables
+Still in the service directory, create environmental variables starting with your PostgreSQL connection string:
 ```
-export CONNECTION_STRING=<your database connection string>
+export CONNECTION_STRING=User ID=<your user ID>;Password=<your password?;Server=localhost;Port=5432;Database=blu;Integrated Security=true;Pooling=true;
 ```
 
 STUFF
