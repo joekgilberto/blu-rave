@@ -4,6 +4,7 @@ import { useEffect, useContext, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { PageContext } from '../../data';
 import * as bluRayServices from '../../utilities/blu-rays/blu-services';
+import { useAuth0 } from "@auth0/auth0-react";
 
 import Loading from '../../components/Loading/Loading';
 import Edit from '../../components/Edit/Edit';
@@ -26,9 +27,12 @@ export default function ShowBluRay() {
     const [confirm, setConfirm] = useState(false);
     const [edit, setEdit] = useState(false)
     const { id } = useParams();
+    const { user, getAccessTokenSilently } = useAuth0();
 
     async function handleRequest() {
-        await bluRayServices.getBluRay(id).then((res) => {
+        const owner = user.sub;
+        const accessToken = await getAccessTokenSilently();
+        await bluRayServices.getBluRay(accessToken,owner,id).then((res) => {
             res ? setBluRay(res) : navigate("/blu-rays");
         })
             .catch((err) => {
@@ -39,8 +43,13 @@ export default function ShowBluRay() {
 
     useEffect(() => {
         setPage("show")
-        handleRequest()
     }, [])
+
+    useEffect(()=>{
+        if(user){
+            handleRequest()
+        }
+    },user)
 
     function handleDelete() {
         setConfirm(true)
@@ -61,7 +70,7 @@ export default function ShowBluRay() {
                     {!confirm ?
                         <>
                             <p>Format: {bluRay.format}</p>
-                            <p>Definition: {bluRay.fourK ? "4K" : "HD"}</p>
+                            <p>Definition: {bluRay.definition == "4K" ? "4K" : bluRay.definition == "Blu-Ray" ? "HD" : "SD"}</p>
                             {bluRay.steelbook ? <p>Special Edition</p> : null}
 
                             {bluRay.notes ?

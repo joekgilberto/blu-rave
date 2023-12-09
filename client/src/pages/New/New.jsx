@@ -3,31 +3,36 @@ import './New.css';
 import { useState, useEffect, useContext } from 'react';
 import { useNavigate } from "react-router";
 import { PageContext } from '../../data';
+import { useAuth0 } from "@auth0/auth0-react";
 import * as bluRayServices from '../../utilities/blu-rays/blu-services';
-
-
-let dateAdded = new Date()
-dateAdded = dateAdded.toISOString().split('T')[0]
-
-const initState = {
-  title: "",
-  steelbook: false,
-  fourK: false,
-  format: "Film",
-  notes: "",
-  dateAdded: dateAdded
-}
 
 export default function New() {
 
   const navigate = useNavigate()
   const { setPage } = useContext(PageContext);
+
+  let dateAdded = new Date()
+  dateAdded = dateAdded.toISOString().split('T')[0]
+
+  const { user, getAccessTokenSilently } = useAuth0();
+
+  const initState = {
+    title: "",
+    steelbook: false,
+    definition: "Blu-Ray",
+    format: "Film",
+    notes: "",
+    dateAdded: "",
+    owner: ""
+  }
+
   const [formData, setFormData] = useState(initState);
+
 
   function handleChange(e) {
     let updatedData;
 
-    if (e.target.name === "steelbook" || e.target.name === "fourK") {
+    if (e.target.name === "steelbook" || e.target.name === "definition") {
       updatedData = { ...formData, [e.target.name]: !formData[e.target.name] }
     } else {
       updatedData = { ...formData, [e.target.name]: e.target.value }
@@ -36,17 +41,34 @@ export default function New() {
     setFormData(updatedData)
   }
 
+  async function setStart() {
+    let dateAdded = new Date()
+    dateAdded = dateAdded.toISOString().split('T')[0]
+    setFormData({ ...formData, dateAdded: dateAdded, owner: user.sub })
+  }
+
   async function handleSubmit(e) {
     e.preventDefault()
 
-    bluRayServices.createBluRay(formData).then(() => {
-      navigate('/blu-rays')
-    })
+    if(user && user.sub === formData.owner)
+    {
+      await getAccessTokenSilently().then(async (accessToken) => {
+        await bluRayServices.createBluRay(accessToken, user.sub, formData).then(() => {
+          navigate('/blu-rays')
+        })
+      })
+    }
   }
 
   useEffect(() => {
     setPage("new")
   }, [])
+
+  useEffect(() => {
+    if(user){
+      setStart()
+    }
+  }, [user])
 
   return (
     <div className='New'>
@@ -60,11 +82,12 @@ export default function New() {
             <span className="checkmark"></span>
           </div>
         </label>
-        <label className='check'>4K
-          <div className='container'>
-            <input className='checkbox' type='checkbox' name="fourK" onChange={handleChange} />
-            <span className="checkmark"></span>
-          </div>
+        <label>Definition
+          <select name="definition" onChange={handleChange}>
+            <option>Blu-Ray</option>
+            <option>4K</option>
+            <option>DVD</option>
+          </select>
         </label>
         <label>Format
           <select name="format" onChange={handleChange}>

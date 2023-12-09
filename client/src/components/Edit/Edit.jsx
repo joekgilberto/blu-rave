@@ -4,14 +4,15 @@ import { useState, useEffect, useContext } from 'react';
 import { useNavigate, useParams } from "react-router";
 import { PageContext } from '../../data';
 import * as bluRayServices from '../../utilities/blu-rays/blu-services';
+import { useAuth0 } from "@auth0/auth0-react";
 
 import Loading from '../Loading/Loading';
 
 export default function Edit({ bluRay, setEdit, handleRequest }) {
 
-    const navigate = useNavigate()
     const { setPage } = useContext(PageContext);
     const [formData, setFormData] = useState(null);
+    const { user, getAccessTokenSilently } = useAuth0();
 
     useEffect(() => {
         setFormData(bluRay)
@@ -20,7 +21,7 @@ export default function Edit({ bluRay, setEdit, handleRequest }) {
     function handleChange(e) {
         let updatedData;
 
-        if (e.target.name === "steelbook" || e.target.name === "fourK") {
+        if (e.target.name === "steelbook" || e.target.name === "definition") {
             updatedData = { ...formData, [e.target.name]: !formData[e.target.name] }
         } else {
             updatedData = { ...formData, [e.target.name]: e.target.value }
@@ -32,10 +33,15 @@ export default function Edit({ bluRay, setEdit, handleRequest }) {
     async function handleSubmit(e) {
         e.preventDefault()
 
-        bluRayServices.updateBluRay(bluRay.id, formData).then(() => {
-            handleRequest()
-            setEdit(false)
-        })
+        if (user && formData.owner === user.sub) {
+            const accessToken = await getAccessTokenSilently();
+
+            await bluRayServices.updateBluRay(accessToken, user.sub, bluRay.id, formData).then(() => {
+                handleRequest()
+                setEdit(false)
+
+            })
+        }
     }
 
     useEffect(() => {
@@ -55,11 +61,12 @@ export default function Edit({ bluRay, setEdit, handleRequest }) {
                             <span className="checkmark"></span>
                         </div>
                     </label>
-                    <label className='check'>4K
-                        <div className='container'>
-                            <input className='checkbox' type='checkbox' name="fourK" onChange={handleChange} defaultChecked={formData.fourK} />
-                            <span className="checkmark"></span>
-                        </div>
+                    <label>Definition
+                        <select name="definition" onChange={handleChange}>
+                            <option>Blu-Ray</option>
+                            <option>4K</option>
+                            <option>DVD</option>
+                        </select>
                     </label>
                     <label>Format
                         <select name="format" onChange={handleChange} value={formData.format}>

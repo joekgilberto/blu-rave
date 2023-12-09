@@ -14,8 +14,8 @@ namespace Models
         [Column("steelbook")]
         public bool Steelbook { get; set; }
 
-        [Column("four_k")]
-        public bool FourK { get; set; }
+        [Column("definition")]
+        public string Definition { get; set; }
 
         [Column("format")]
         public string Format { get; set; }
@@ -25,5 +25,8 @@ namespace Models
 
         [Column("date_added")]
         public DateOnly DateAdded { get; set; }
+        
+        [Column("owner")]
+        public string Owner { get; set; }
     }
 }
