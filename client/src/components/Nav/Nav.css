@@ -9,6 +9,10 @@ nav{
     margin-left: 10px;
 }
 
+nav a{
+    text-decoration: none !important;
+}
+
 nav a p{
     width: 280px;
     font-size: 30px;
@@ -17,10 +21,14 @@ nav a p{
 }
 
 nav a p:hover{
-    color: rgb(124, 200, 255);
+    color: #7cc8ff;
     animation: rise .2s ease-in forwards;
 }
 
-nav a{
-    text-decoration: none !important;
+nav .loading{
+    width: 280px;
+    font-size: 30px;
+    margin: 5px;
+    color: #47b2ffff;
 }
+

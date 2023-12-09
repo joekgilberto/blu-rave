@@ -7,44 +7,13 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 import Loading from '../../components/Loading/Loading';
 
-const dummyData = [{
-    title: "Bullet Train",
-    steelbook: true,
-    fourK: true,
-    format: "Film",
-    notes: "Steelbook bought on sale from Amazon.",
-    dateAdded: "2023-10-19"
-},
-{
-    title: "Knives Out",
-    steelbook: false,
-    fourK: true,
-    format: "Film",
-    notes: "Look into a steelbook down the line.",
-    dateAdded: "2023-10-23"
-},
-{
-    title: "Over the Garden Wall",
-    steelbook: false,
-    fourK: false,
-    format: "Miniseries",
-    notes: "Your rarest blu-ray!",
-    dateAdded: "2023-10-01"
-},
-{
-    title: "Adventure Time: The Complete Series",
-    steelbook: false,
-    fourK: false,
-    format: "Television",
-    notes: "Really cool packaging.",
-    dateAdded: "2023-09-04"
-}]
-
 export default function AllBluRays() {
 
     const { setPage } = useContext(PageContext);
     const [format, setFormat] = useState(true)
     const [allBluRays, setAllBluRays] = useState(null);
+    const [movies, setMovies] = useState(null)
+    const [tvShows, setTvShows] = useState(null)
     const { user, getAccessTokenSilently } = useAuth0();
 
 
@@ -53,6 +22,18 @@ export default function AllBluRays() {
         const accessToken = await getAccessTokenSilently();
         await bluRayServices.getAllBluRays(accessToken, owner).then((res) => {
             setAllBluRays(res)
+            const cacheMovies = []
+            const cacheTvShows = []
+
+            for (let bluRay of res){
+                if (bluRay.format === "Film" || bluRay.format === "Short"){
+                    cacheMovies.push(bluRay)
+                } else if (bluRay.format === "Television" || bluRay.format === "Miniseries"){
+                    cacheTvShows.push(bluRay)
+                }
+            }
+            setMovies(cacheMovies)
+            setTvShows(cacheTvShows)
         })
             .catch((err) => console.log(err))
     }
@@ -75,35 +56,31 @@ export default function AllBluRays() {
     return (
         <div className="AllBluRays">
             <div className='list'>
-                {allBluRays ?
+                {allBluRays && movies && tvShows ?
                     <>
                         {format ?
                             <>
-                                {allBluRays.map((bluRay, idx) => {
+                                {movies.map((bluRay, idx) => {
                                     return (
-                                        bluRay.format === "Film" || bluRay.format === "Short" ?
                                             <a href={`/blu-rays/${bluRay.id}`} key={idx}>
-                                                <div className='media'>
+                                                <div className={`media ${idx===movies.length-1?"last":null}`}>
                                                     <p className='italic'>{bluRay.title}</p>
                                                     <p className='details'>{bluRay.definition == "4K" ? "4K" : bluRay.definition == "DVD" ? "DVD" : null} {bluRay.steelbook ? "★" : null}</p>
                                                 </div>
                                             </a>
-                                            : null
                                     )
                                 })}
                             </>
                             :
                             <>
-                                {allBluRays.map((bluRay, idx) => {
+                                {tvShows.map((bluRay, idx) => {
                                     return (
-                                        bluRay.format === "Television" || bluRay.format === "Miniseries" ?
                                             <a href={`/blu-rays/${bluRay.id}`} key={idx}>
-                                                <div className='media'>
+                                                <div className={`media ${idx===tvShows.length-1?"last":null}`}>
                                                     <p className='italic'>{bluRay.title}</p>
                                                     <p className='details'>{bluRay.definition == "4K" ? "4K" : bluRay.definition == "DVD" ? "DVD" : null} {bluRay.steelbook ? "★" : null}</p>
                                                 </div>
                                             </a>
-                                            : null
                                     )
                                 })}
                             </>

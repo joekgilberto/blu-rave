@@ -14,7 +14,6 @@ export default function Destroy({setConfirm}) {
 
     useEffect(()=>{
         handleRequest()
-        console.log(bluRay)
     },[user])
 
     async function handleRequest(){

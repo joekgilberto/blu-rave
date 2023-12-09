@@ -20,6 +20,7 @@ public class BluRaysController : ControllerBase
 
   // GET: api/blurays
   [HttpGet]
+  [Authorize]
   public async Task<ActionResult<IEnumerable<BluRay>>> GetBluRays()
   {
     var request = Request;
@@ -52,6 +53,7 @@ public class BluRaysController : ControllerBase
 
   // GET: api/blurays/5
   [HttpGet("{id}")]
+  [Authorize]
   public async Task<ActionResult<BluRay>> GetBluRay(int id)
   {
     // Use below as example to query database, make separate class as a service (to be called by the controller) that is the only one that calls the database
@@ -79,6 +81,7 @@ public class BluRaysController : ControllerBase
 
   // POST: api/blurays
   [HttpPost]
+  [Authorize]
   public async Task<ActionResult<BluRay>> PostBluRay(BluRay bluRay)
   {
     var request = Request;
@@ -99,6 +102,7 @@ public class BluRaysController : ControllerBase
 
   // PUT: api/blurays/5
   [HttpPut("{id}")]
+  [Authorize]
   public async Task<IActionResult> PutBluRay(int id, BluRay bluRay)
   {
     var request = Request;
@@ -144,6 +148,7 @@ public class BluRaysController : ControllerBase
 
   // DELETE: api/blurays/5
   [HttpDelete("{id}")]
+  [Authorize]
   public async Task<IActionResult> DeleteBluRay(int id)
   {
     var request = Request;
@@ -177,4 +182,3 @@ public class BluRaysController : ControllerBase
     return _context.BluRays.Any(e => e.Id == id);
   }
 }
-// Dummy comment

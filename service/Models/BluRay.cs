@@ -21,12 +21,15 @@ namespace Models
         public string Format { get; set; }
 
         [Column("notes")]
-        public string Notes { get; set; }
+        public string? Notes { get; set; }
 
         [Column("date_added")]
         public DateOnly DateAdded { get; set; }
         
         [Column("owner")]
         public string Owner { get; set; }
+        
+        [Column("year")]
+        public int? Year { get; set; }
     }
 }

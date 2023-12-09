@@ -10,15 +10,6 @@ import Loading from '../../components/Loading/Loading';
 import Edit from '../../components/Edit/Edit';
 import Destroy from '../../components/Destroy/Destroy';
 
-const dummyData = {
-    title: "Bullet Train",
-    steelbook: true,
-    fourK: true,
-    format: "Film",
-    notes: "Steelbook bought on sale from Amazon.",
-    dateAdded: "2023-10-19"
-}
-
 export default function ShowBluRay() {
 
     const navigate = useNavigate()
@@ -32,7 +23,7 @@ export default function ShowBluRay() {
     async function handleRequest() {
         const owner = user.sub;
         const accessToken = await getAccessTokenSilently();
-        await bluRayServices.getBluRay(accessToken,owner,id).then((res) => {
+        await bluRayServices.getBluRay(accessToken, owner, id).then((res) => {
             res ? setBluRay(res) : navigate("/blu-rays");
         })
             .catch((err) => {
@@ -45,17 +36,17 @@ export default function ShowBluRay() {
         setPage("show")
     }, [])
 
-    useEffect(()=>{
-        if(user){
+    useEffect(() => {
+        if (user) {
             handleRequest()
         }
-    },user)
+    }, user)
 
     function handleDelete() {
         setConfirm(true)
     }
 
-    function handleEdit(){
+    function handleEdit() {
         setEdit(true);
     }
 
@@ -63,33 +54,36 @@ export default function ShowBluRay() {
         <div className="ShowBluRay">
             {bluRay ?
                 <>
-                {!edit?
-                <>
-                    <h2>{bluRay.title}</h2>
-
-                    {!confirm ?
+                    {!edit ?
                         <>
-                            <p>Format: {bluRay.format}</p>
-                            <p>Definition: {bluRay.definition == "4K" ? "4K" : bluRay.definition == "Blu-Ray" ? "HD" : "SD"}</p>
-                            {bluRay.steelbook ? <p>Special Edition</p> : null}
-
-                            {bluRay.notes ?
-                                <div className='notes'>
-                                    <p className='underline'>Notes:</p>
-                                    <p>{bluRay.notes}</p>
-                                </div>
+                            <h2>{bluRay.title}</h2>
+                            {bluRay.year ?
+                                <p className='release-year'>{bluRay.year}</p>
                                 : null}
-                            <div className='owner-options'>
-                                <button className='edit' onClick={handleEdit}>Edit</button>
-                                <button className='delete' onClick={handleDelete}>Delete</button>
-                            </div>
-                            <p className='date-added'>Added {bluRay.dateAdded}</p>
+
+                            {!confirm ?
+                                <>
+                                    <p>Format: {bluRay.format}</p>
+                                    <p>Definition: {bluRay.definition == "4K" ? "4K" : bluRay.definition == "Blu-Ray" ? "HD" : "SD"}</p>
+                                    {bluRay.steelbook ? <p>Special Edition</p> : null}
+
+                                    {bluRay.notes ?
+                                        <div className='notes'>
+                                            <p className='underline'>Notes:</p>
+                                            <p>{bluRay.notes}</p>
+                                        </div>
+                                        : null}
+                                    <div className='owner-options'>
+                                        <button className='edit' onClick={handleEdit}>Edit</button>
+                                        <button className='delete' onClick={handleDelete}>Delete</button>
+                                    </div>
+                                    <p className='date-added'>Added {bluRay.dateAdded}</p>
+                                </>
+                                :
+                                <Destroy setConfirm={setConfirm} />}
                         </>
                         :
-                        <Destroy setConfirm={setConfirm} />}
-                        </>
-                    :
-                    <Edit bluRay={bluRay} setEdit={setEdit} handleRequest={handleRequest} />}
+                        <Edit bluRay={bluRay} setEdit={setEdit} handleRequest={handleRequest} />}
                 </>
                 :
                 <Loading />}

@@ -1,7 +1,6 @@
 import './Edit.css';
 
 import { useState, useEffect, useContext } from 'react';
-import { useNavigate, useParams } from "react-router";
 import { PageContext } from '../../data';
 import * as bluRayServices from '../../utilities/blu-rays/blu-services';
 import { useAuth0 } from "@auth0/auth0-react";
@@ -21,8 +20,14 @@ export default function Edit({ bluRay, setEdit, handleRequest }) {
     function handleChange(e) {
         let updatedData;
 
-        if (e.target.name === "steelbook" || e.target.name === "definition") {
+        if (e.target.name === "steelbook") {
             updatedData = { ...formData, [e.target.name]: !formData[e.target.name] }
+        } else if (e.target.name === "year"){
+            if (e.target.value > 1888 && e.target.value <= new Date().getFullYear()){
+                updatedData = { ...formData, [e.target.name]: e.target.value }
+            } else {
+                updatedData = { ...formData, [e.target.name]: null }
+            }
         } else {
             updatedData = { ...formData, [e.target.name]: e.target.value }
         }
@@ -39,21 +44,19 @@ export default function Edit({ bluRay, setEdit, handleRequest }) {
             await bluRayServices.updateBluRay(accessToken, user.sub, bluRay.id, formData).then(() => {
                 handleRequest()
                 setEdit(false)
-
             })
         }
     }
-
-    useEffect(() => {
-        setPage("new")
-    }, [])
 
     return (
         formData ?
             <div className='New'>
                 <form onSubmit={handleSubmit}>
-                    <label>Title*
+                    <label>Title
                         <input type='text' maxLength="50" name="title" onChange={handleChange} value={formData.title} required />
+                    </label>
+                    <label>Release Year
+                        <input type='number' min="1888" max={`${new Date().getFullYear()}`} name="year" step="1" onChange={handleChange} value={formData.year} onWheel={(e) => e.target.blur()} />
                     </label>
                     <label className='check'>Special Edition
                         <div className='container'>

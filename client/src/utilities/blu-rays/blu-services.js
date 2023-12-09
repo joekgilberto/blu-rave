@@ -1,6 +1,8 @@
+//Imports tools and API calls
 import * as bluAPI from './blu-api'
 import * as tools from '../tools'
 
+// Function to get all blu-rays
 export async function getAllBluRays(token,owner) {
     try {
         return await bluAPI.index(token,owner).then((bluRays) => {
@@ -14,6 +16,7 @@ export async function getAllBluRays(token,owner) {
     }
 }
 
+// Function to get a specific blu-ray
 export async function getBluRay(token,owner,id) {
     try {
         const response = await bluAPI.show(token,owner,id)
@@ -23,6 +26,7 @@ export async function getBluRay(token,owner,id) {
     }
 }
 
+// Function to get create a blu-ray
 export async function createBluRay(token,owner,data) {
     try {
         
@@ -38,6 +42,7 @@ export async function createBluRay(token,owner,data) {
     }
 }
 
+// Function to update a specific blu-ray
 export async function updateBluRay(token,owner, id, data) {
     try {
         await bluAPI.update(token,owner, id, data).then((res) => {
@@ -48,6 +53,7 @@ export async function updateBluRay(token,owner, id, data) {
     }
 }
 
+// Function to delete a specific blu-ray
 export async function destroyBluRay(token,owner, id) {
     try {
         const response = await bluAPI.destroy(token,owner, id)

@@ -116,3 +116,8 @@ label.check {
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+
+.tiny{
+  font-size: 16px;
+  padding-bottom: 5px;
+}
