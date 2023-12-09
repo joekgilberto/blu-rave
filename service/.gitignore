@@ -1,5 +1,6 @@
 AUTH0_KEY="IDw3btMd6mpwJFF8wDEEFHWVopYTJMadFJHdKm1r73pFXut1UXIizgWCElZ8xvYJ"
-CORS_ORIGIN="http://localhost:3000/"
-CONNECTION_STRING="User ID=joegilberto;Password=dj4ng0p4ss;Server=localhost;Port=5432;Database=blu;Integrated Security=true;Pooling=true;"
 AUTH0_DOMAIN="dev-izyyi8s1l0oh6rko.us.auth0.com"
 AUTH0_AUDIENCE="http://localhost:3000/"
+CORS_ORIGIN="http://localhost:3000/"
+CONNECTION_STRING="User ID=joegilberto;Password=dj4ng0p4ss;Server=localhost;Port=5432;Database=blu;Integrated Security=true;Pooling=true;"
+CONNECTION_STRING_DEV="User ID=joegilberto;Password=dj4ng0p4ss;Server=localhost;Port=5432;Database=blu;Integrated Security=true;Pooling=true;"

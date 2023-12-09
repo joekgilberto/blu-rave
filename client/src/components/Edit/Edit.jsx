@@ -21,7 +21,7 @@ export default function Edit({ bluRay, setEdit, handleRequest }) {
     function handleChange(e) {
         let updatedData;
 
-        if (e.target.name === "steelbook" || e.target.name === "definition") {
+        if (e.target.name === "steelbook") {
             updatedData = { ...formData, [e.target.name]: !formData[e.target.name] }
         } else if (e.target.name === "year"){
             if (e.target.value > 1888 && e.target.value <= new Date().getFullYear()){

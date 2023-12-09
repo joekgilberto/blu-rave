@@ -13,8 +13,15 @@ string connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING"
 string auth0Domain = Environment.GetEnvironmentVariable("AUTH0_DOMAIN");
 string auth0Audience = Environment.GetEnvironmentVariable("AUTH0_AUDIENCE");
 
+Console.WriteLine(auth0Key);
+Console.WriteLine(corsOrigin);
+Console.WriteLine(connectionString);
+Console.WriteLine(auth0Domain);
+Console.WriteLine(auth0Audience);
+
+
 var builder = WebApplication.CreateBuilder(args);
-// builder.Configuration["ConnectionStrings:WebApiDatabase"] = connectionString;
+builder.Configuration["ConnectionStrings:WebApiDatabase"] = connectionString;
 builder.Configuration["Auth0:Domain"] = auth0Domain;
 builder.Configuration["Auth0:Audience"] = auth0Audience;
 
