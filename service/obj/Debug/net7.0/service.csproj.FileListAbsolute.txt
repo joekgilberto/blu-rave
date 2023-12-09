@@ -41,3 +41,10 @@
 /Users/joegilberto/SEI/portfolio/blu-rave/service/obj/Debug/net7.0/service.pdb
 /Users/joegilberto/SEI/portfolio/blu-rave/service/obj/Debug/net7.0/service.genruntimeconfig.cache
 /Users/joegilberto/SEI/portfolio/blu-rave/service/obj/Debug/net7.0/ref/service.dll
+/Users/joegilberto/SEI/portfolio/blu-rave/service/bin/Debug/net7.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/joegilberto/SEI/portfolio/blu-rave/service/bin/Debug/net7.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/joegilberto/SEI/portfolio/blu-rave/service/bin/Debug/net7.0/Microsoft.IdentityModel.Logging.dll
+/Users/joegilberto/SEI/portfolio/blu-rave/service/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.dll
+/Users/joegilberto/SEI/portfolio/blu-rave/service/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/joegilberto/SEI/portfolio/blu-rave/service/bin/Debug/net7.0/Microsoft.IdentityModel.Tokens.dll
+/Users/joegilberto/SEI/portfolio/blu-rave/service/bin/Debug/net7.0/System.IdentityModel.Tokens.Jwt.dll

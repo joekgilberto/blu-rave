@@ -2,6 +2,7 @@ using Data;
 using Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 namespace service.Controllers;
 
 
@@ -11,6 +12,7 @@ public class BluRaysController : ControllerBase
 {
   private readonly BluRayContext _context;
 
+  // Context shouldn't be called in Controller, should be called in sepearate file's service
   public BluRaysController(BluRayContext context)
   {
     _context = context;
@@ -20,60 +22,123 @@ public class BluRaysController : ControllerBase
   [HttpGet]
   public async Task<ActionResult<IEnumerable<BluRay>>> GetBluRays()
   {
-    return await _context.BluRays.ToListAsync();
+    var request = Request;
+    var headers = request.Headers;
+
+    if (headers.ContainsKey("owner"))
+    {
+      //GetBluRays method, add parameter of string searchString to above method declaration- entity framework filtering
+      var foundBluRays = await _context.BluRays.ToListAsync();
+      List<BluRay> returnedBluRays = new List<BluRay> { };
+
+      for (int i = 0; i < foundBluRays.Count; i++)
+      {
+        string dbOwner = foundBluRays[i].Owner;
+        string rqOwner = headers["owner"];
+        if (Equals(dbOwner, rqOwner))
+        {
+          returnedBluRays.Add(foundBluRays[i]);
+        }
+      }
+
+      return returnedBluRays;
+    }
+    else
+    {
+      return BadRequest();
+    }
+
   }
 
   // GET: api/blurays/5
   [HttpGet("{id}")]
   public async Task<ActionResult<BluRay>> GetBluRay(int id)
   {
-    var bluRay = await _context.BluRays.FindAsync(id);
+    // Use below as example to query database, make separate class as a service (to be called by the controller) that is the only one that calls the database
 
-    if (bluRay == null)
+    var request = Request;
+    var headers = request.Headers;
+
+    if (headers.ContainsKey("owner"))
     {
-      return NotFound();
-    }
+      var bluRay = await _context.BluRays.FindAsync(id);
 
-    return bluRay;
+      string dbOwner = bluRay.Owner;
+      string rqOwner = headers["owner"];
+
+      if (bluRay == null || !Equals(dbOwner, rqOwner))
+      {
+        return NotFound();
+      }
+      return bluRay;
+    }
+    else{
+      return BadRequest();
+    }
   }
 
   // POST: api/blurays
   [HttpPost]
   public async Task<ActionResult<BluRay>> PostBluRay(BluRay bluRay)
   {
-    _context.BluRays.Add(bluRay);
-    await _context.SaveChangesAsync();
+    var request = Request;
+    var headers = request.Headers;
 
-    return CreatedAtAction(nameof(GetBluRay), new { id = bluRay.Id }, bluRay);
+    if (headers.ContainsKey("owner"))
+    {
+      _context.BluRays.Add(bluRay);
+      await _context.SaveChangesAsync();
+
+      return CreatedAtAction(nameof(GetBluRay), new { id = bluRay.Id }, bluRay);
+    }
+    else
+    {
+      return BadRequest();
+    }
   }
 
   // PUT: api/blurays/5
   [HttpPut("{id}")]
   public async Task<IActionResult> PutBluRay(int id, BluRay bluRay)
   {
-    if (id != bluRay.Id)
-    {
-      return BadRequest();
-    }
+    var request = Request;
+    var headers = request.Headers;
 
-    _context.Entry(bluRay).State = EntityState.Modified;
-
-    try
+    if (headers.ContainsKey("owner"))
     {
-      await _context.SaveChangesAsync();
-    }
-    catch (DbUpdateConcurrencyException)
-    {
-      if (!BluRayExists(id))
+      if (id != bluRay.Id)
       {
-        return NotFound();
+        return BadRequest();
+      }
+
+      string dbOwner = bluRay.Owner;
+      string rqOwner = headers["owner"];
+
+      if (Equals(dbOwner, rqOwner))
+      {
+        _context.Entry(bluRay).State = EntityState.Modified;
+
+        try
+        {
+          await _context.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+          if (!BluRayExists(id))
+          {
+            return NotFound();
+          }
+          else
+          {
+            throw;
+          }
+        }
       }
       else
       {
-        throw;
+        return BadRequest();
       }
     }
-
     return NoContent();
   }
 
@@ -81,28 +146,35 @@ public class BluRaysController : ControllerBase
   [HttpDelete("{id}")]
   public async Task<IActionResult> DeleteBluRay(int id)
   {
-    var bluRay = await _context.BluRays.FindAsync(id);
-    if (bluRay == null)
+    var request = Request;
+    var headers = request.Headers;
+
+    if (headers.ContainsKey("owner"))
     {
-      return NotFound();
+      var bluRay = await _context.BluRays.FindAsync(id);
+
+      string dbOwner = bluRay.Owner;
+      string rqOwner = headers["owner"];
+
+      if (bluRay == null || !Equals(dbOwner, rqOwner))
+      {
+        return BadRequest();
+      }
+
+      _context.BluRays.Remove(bluRay);
+      await _context.SaveChangesAsync();
+
+      return NoContent();
     }
-
-    _context.BluRays.Remove(bluRay);
-    await _context.SaveChangesAsync();
-
-    return NoContent();
+    else
+    {
+      return BadRequest();
+    }
   }
 
   private bool BluRayExists(int id)
   {
     return _context.BluRays.Any(e => e.Id == id);
-  }
-
-  // dummy method to test the connection
-  [HttpGet("hello")]
-  public string Test()
-  {
-    return "Hello World!";
   }
 }
 // Dummy comment
