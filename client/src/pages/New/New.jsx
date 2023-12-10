@@ -10,11 +10,9 @@ export default function New() {
 
   const navigate = useNavigate()
   const { setPage } = useContext(PageContext);
-
-  let dateAdded = new Date()
-  dateAdded = dateAdded.toISOString().split('T')[0]
-
   const { user, getAccessTokenSilently } = useAuth0();
+  const [dateAdded, setDateAdded] = useState(new Date().toISOString().split('T')[0])
+  const [started, setStarted] = useState(null)
 
   const initState = {
     title: "",
@@ -24,7 +22,9 @@ export default function New() {
     format: "Film",
     notes: "",
     dateAdded: "",
-    owner: ""
+    owner: "",
+    username: "",
+    email: ""
   }
 
   const [formData, setFormData] = useState(initState);
@@ -49,15 +49,13 @@ export default function New() {
   }
 
   async function setStart() {
-    let dateAdded = new Date()
-    dateAdded = dateAdded.toISOString().split('T')[0]
-    setFormData({ ...formData, dateAdded: dateAdded, owner: user.sub })
+    setFormData({ ...formData, dateAdded: dateAdded, owner: user.sub, username: user.nickname, email: user.email })
+    setStarted(true)
   }
 
   async function handleSubmit(e) {
     e.preventDefault()
-
-    if(user && user.sub === formData.owner)
+    if(started && user && user.sub === formData.owner)
     {
       await getAccessTokenSilently().then(async (accessToken) => {
         await bluRayServices.createBluRay(accessToken, user.sub, formData).then(() => {

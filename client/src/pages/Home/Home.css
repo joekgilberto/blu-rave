@@ -1,4 +1,8 @@
-.Home p{
+.Home p {
     font-size: 26px;
     color: #fff;
+}
+
+.Home .hello {
+    font-weight: bold;
 }

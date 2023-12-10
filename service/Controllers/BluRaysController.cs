@@ -89,6 +89,7 @@ public class BluRaysController : ControllerBase
 
     if (headers.ContainsKey("owner"))
     {
+      Console.WriteLine(bluRay.Username, bluRay.Email);
       _context.BluRays.Add(bluRay);
       await _context.SaveChangesAsync();
 
