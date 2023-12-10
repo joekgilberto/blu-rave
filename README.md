@@ -160,7 +160,7 @@ npm start
 Now, you can go to http://localhost:3000/ in your browser (Google Chrome is reccommended for best performance) and browse the application.
 
 ## Current User Flow
-Firstly, visit [https://blu-rave.netlify.app//](https://blu-rave.netlify.app/)
+Firstly, visit [https://blu-rave.netlify.app/](https://blu-rave.netlify.app/)
 
 From the home page, the user can read up on the application.  The user can then sign in (through an Auth0 redirect) to access the application.  After logging in, users can navigate the site throuhg the header's nav.  Through "Add Blu-Ray" they can add a blu-ray to their collection.  The user can check what blu-rays are in the collection (separated by films and TV shows) through the "View Collection" navigation link.  Users can click on individual blu-rays to view further details, edit those details, or delete the blu-ray.
 
