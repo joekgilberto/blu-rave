@@ -5,6 +5,7 @@ import { PageContext } from '../../data';
 import * as bluRayServices from '../../utilities/blu-rays/blu-services';
 import { useAuth0 } from "@auth0/auth0-react";
 
+import BluRay from '../../components/BluRay/BluRay';
 import Loading from '../../components/Loading/Loading';
 
 export default function AllBluRays() {
@@ -62,12 +63,7 @@ export default function AllBluRays() {
                             <>
                                 {movies.map((bluRay, idx) => {
                                     return (
-                                            <a href={`/blu-rays/${bluRay.id}`} key={idx}>
-                                                <div className={`media ${idx===movies.length-1?"last":null}`}>
-                                                    <p className='italic'>{bluRay.title}</p>
-                                                    <p className='details'>{bluRay.definition == "4K" ? "4K" : bluRay.definition == "DVD" ? "DVD" : null} {bluRay.steelbook ? "★" : null}</p>
-                                                </div>
-                                            </a>
+                                            <BluRay key={idx} bluRay={bluRay} idx={idx} listLength={movies.length} />
                                     )
                                 })}
                             </>
@@ -75,12 +71,7 @@ export default function AllBluRays() {
                             <>
                                 {tvShows.map((bluRay, idx) => {
                                     return (
-                                            <a href={`/blu-rays/${bluRay.id}`} key={idx}>
-                                                <div className={`media ${idx===tvShows.length-1?"last":null}`}>
-                                                    <p className='italic'>{bluRay.title}</p>
-                                                    <p className='details'>{bluRay.definition == "4K" ? "4K" : bluRay.definition == "DVD" ? "DVD" : null} {bluRay.steelbook ? "★" : null}</p>
-                                                </div>
-                                            </a>
+                                        <BluRay key={idx} bluRay={bluRay} idx={idx} listLength={tvShows.length} />
                                     )
                                 })}
                             </>

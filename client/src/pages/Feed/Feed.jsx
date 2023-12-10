@@ -4,7 +4,9 @@ import { useEffect, useState, useContext } from 'react';
 import { PageContext } from '../../data';
 import * as bluRayServices from '../../utilities/blu-rays/blu-services';
 import { useAuth0 } from "@auth0/auth0-react";
+
 import Post from '../../components/Post/Post';
+import Loading from '../../components/Loading/Loading';
 
 export default function Feed() {
 
@@ -32,12 +34,13 @@ export default function Feed() {
     },[user])
 
     return (
-        <div>
+        <div className='Feed'>
             {bluRays?
                 bluRays.map((bluRay, idx)=>{
-                    return <Post key={idx} bluRay={bluRay} />
+                    return <Post key={idx} bluRay={bluRay} listLength={bluRays.length} idx={idx} />
                 })
-            :null}
+            :
+            <Loading />}
         </div>
     );
 }

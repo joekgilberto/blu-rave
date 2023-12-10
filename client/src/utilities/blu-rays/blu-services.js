@@ -67,7 +67,7 @@ export async function destroyBluRay(token,owner, id) {
 export async function getBluRayFeed(token,owner) {
     try {
         return await bluAPI.feed(token,owner).then((bluRays) => {
-            bluRays.sort((a, b) => (a.dateAdded < b.dateAdded) ? -1 : (a.dateAdded > b.dateAdded) ? 1 : 0);
+            bluRays.sort((a, b) => (a.dateAdded > b.dateAdded) ? -1 : (a.dateAdded < b.dateAdded) ? 1 : 0);
             return bluRays
         }).catch((err)=>{
             console.log(err)

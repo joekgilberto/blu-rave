@@ -1,0 +1,16 @@
+.Post{
+    display: flex;
+    padding: 10px 0;
+    flex-direction: column;
+    border-bottom: 3px solid #329dea;
+}
+
+.Post .update{
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+.Post .added-on{
+    color: #1a74b5;
+    margin-top: 0;
+}

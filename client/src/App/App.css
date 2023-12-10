@@ -39,6 +39,10 @@ a:any-link{
   font-style: italic;
 }
 
+.bold{
+  font-weight: bold;
+}
+
 .underline{
   text-decoration: underline;
 }

@@ -20,7 +20,7 @@ export default function Main() {
                 <Route path='/new' element={<PrivateRoute><New /></PrivateRoute>} name='new' />
                 <Route path='/blu-rays' element={<PrivateRoute><Index /></PrivateRoute>} name='index' />
                 <Route path="/blu-rays/:id" element={<PrivateRoute><ShowBluRay /></PrivateRoute>} />
-                <Route path="/blu-rays/feed" element={<PrivateRoute><Feed /></PrivateRoute>} />
+                <Route path="/feed" element={<PrivateRoute><Feed /></PrivateRoute>} />
                 <Route path='/*' element={<Error />} />
             </Routes>
         </main>
