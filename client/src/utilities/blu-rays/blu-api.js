@@ -57,3 +57,16 @@ export async function destroy(token,owner,id) {
         .catch((err) => console.log(err));
     
 }
+
+export async function feed(token,owner) {
+    return axios
+        .get(`${BASE_URL}feed/`,tools.authConfig(token,owner))
+        .then((res) => {
+            console.log(res)
+            for (let i = 0;  i < res.data.length; i++){
+                delete res.data[i].owner
+            }
+            return res.data
+        })
+        .catch((err) => console.log(err));
+};

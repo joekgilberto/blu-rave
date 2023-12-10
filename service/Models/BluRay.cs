@@ -37,5 +37,10 @@ namespace Models
 
         [Column("email")]
         public string Email { get; set; }
+
+        internal void Remove(string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
