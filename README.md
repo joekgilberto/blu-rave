@@ -143,7 +143,6 @@ touch .env.local
 Then, add your database environmental variables to interact with your service server (running on https://localhost:7108/):
 ```
 REACT_APP_PROD_API=https://localhost:7108/blu-rays/
-
 REACT_APP_DOMAIN=<your domain from your SPA Auth0 app>
 REACT_APP_CLIENT_ID=<your client ID from your SPA Auth0 app>
 REACT_APP_AUDIENCE=<your audience from your Auth0 API>
