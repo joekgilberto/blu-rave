@@ -91,9 +91,9 @@ export async function getOtherBluRay(token,owner,id) {
 }
 
 // Function to get all blu-rays from a user
-export async function getUserBluRays(token,owner,user) {
+export async function getUserBluRays(token,owner,email) {
     try {
-        return await bluAPI.user(token,owner,user).then((bluRays) => {
+        return await bluAPI.user(token,owner,email).then((bluRays) => {
             bluRays.sort((a, b) => (a.title.toUpperCase() < b.title.toUpperCase()) ? -1 : (a.title.toUpperCase() > b.title.toUpperCase()) ? 1 : 0);
             return bluRays
         }).catch((err)=>{
