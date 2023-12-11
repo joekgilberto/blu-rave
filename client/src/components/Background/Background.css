@@ -4,7 +4,7 @@
     display: grid;
     grid-column: 1 / span 2;
     grid-row: 1 / span 1;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 3fr 2fr;
     grid-template-rows: 1fr auto;
 }
 
@@ -21,6 +21,12 @@
     max-width: 640px;
     margin-left: 0;
 }
+
+@media screen and (min-width: 765px) {
+    .Background{
+        grid-template-columns: repeat(2, 1fr);
+    }
+  }
 
 @media screen and (min-width: 950px) {
     .back-nav img {
