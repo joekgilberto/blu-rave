@@ -10,6 +10,7 @@ import ShowBluRay from '../../pages/ShowBluRay/ShowBluRay';
 import Error from '../../pages/Error/Error';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import Feed from '../../pages/Feed/Feed';
+import OtherBluRay from '../../pages/OtherBluRay/OtherBluRay';
 
 export default function Main() {
     return (
@@ -21,6 +22,7 @@ export default function Main() {
                 <Route path='/blu-rays' element={<PrivateRoute><Index /></PrivateRoute>} name='index' />
                 <Route path="/blu-rays/:id" element={<PrivateRoute><ShowBluRay /></PrivateRoute>} />
                 <Route path="/feed" element={<PrivateRoute><Feed /></PrivateRoute>} />
+                <Route path="/feed/:id" element={<PrivateRoute><OtherBluRay /></PrivateRoute>} />
                 <Route path='/*' element={<Error />} />
             </Routes>
         </main>

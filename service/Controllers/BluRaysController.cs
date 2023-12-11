@@ -90,7 +90,6 @@ public class BluRaysController : ControllerBase
 
     if (headers.ContainsKey("owner"))
     {
-      Console.WriteLine(bluRay.Username, bluRay.Email);
       _context.BluRays.Add(bluRay);
       await _context.SaveChangesAsync();
 
@@ -188,7 +187,6 @@ public class BluRaysController : ControllerBase
 
     if (headers.ContainsKey("owner"))
     {
-      //GetBluRays method, add parameter of string searchString to above method declaration- entity framework filtering
       var foundBluRays = await _context.BluRays.ToListAsync();
       List<BluRay> returnedBluRays = new List<BluRay> { };
 
@@ -204,6 +202,31 @@ public class BluRaysController : ControllerBase
       return BadRequest();
     }
 
+  }
+
+  [HttpGet("feed/{id}")]
+  [Authorize]
+  public async Task<ActionResult<BluRay>> GetOtherBluRay(int id)
+  {
+    // Use below as example to query database, make separate class as a service (to be called by the controller) that is the only one that calls the database
+
+    var request = Request;
+    var headers = request.Headers;
+
+    if (headers.ContainsKey("owner"))
+    {
+      var bluRay = await _context.BluRays.FindAsync(id);
+
+      if (bluRay == null)
+      {
+        return NotFound();
+      }
+      return bluRay;
+    }
+    else
+    {
+      return BadRequest();
+    }
   }
 
   private bool BluRayExists(int id)
