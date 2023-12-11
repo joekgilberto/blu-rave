@@ -3,7 +3,7 @@ import axios from 'axios';
 import * as tools from '../tools'
 
 // Imports food API environmental variables
-const BASE_URL = process.env.REACT_APP_DEV_API;
+const BASE_URL = process.env.REACT_APP_API;
 
 // Function to get all blu-rays
 export async function index(token,owner) {
