@@ -50,11 +50,12 @@ export default function OtherBluRay() {
         <div className="OtherBluRay">
             {bluRay ?
                 <>
+                                    <a href={`/user/${bluRay.username}`}><p className='owner'>{bluRay.username}'s Collection</p></a>
+
                     <h2>{bluRay.title}</h2>
                     {bluRay.year ?
                         <p className='release-year'>{bluRay.year}</p>
                         : null}
-                    <p className='owner'>{bluRay.username}'s Collection</p>
                     <p>Format: {bluRay.format}</p>
                     <p>Definition: {bluRay.definition == "4K" ? "4K" : bluRay.definition == "Blu-Ray" ? "HD" : "SD"}</p>
                     {bluRay.steelbook ? <p>Special Edition</p> : null}

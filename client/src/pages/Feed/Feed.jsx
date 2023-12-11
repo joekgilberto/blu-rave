@@ -36,9 +36,12 @@ export default function Feed() {
     return (
         <div className='Feed'>
             {bluRays?
+                bluRays.length?
                 bluRays.map((bluRay, idx)=>{
                     return <Post key={idx} bluRay={bluRay} listLength={bluRays.length} idx={idx} />
                 })
+                :
+                <p className='none'>No collections yet.</p>
             :
             <Loading />}
         </div>

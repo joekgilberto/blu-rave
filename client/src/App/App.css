@@ -47,6 +47,12 @@ a:any-link{
   text-decoration: underline;
 }
 
+.none{
+  color: #218cd8;
+  text-align: center;
+  font-style: italic;
+}
+
 textarea{
   font-family: Arial, Helvetica, sans-serif;
 }

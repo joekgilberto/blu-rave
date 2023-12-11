@@ -229,6 +229,38 @@ public class BluRaysController : ControllerBase
     }
   }
 
+
+  [HttpGet("user/{id}")]
+  [Authorize]
+  public async Task<ActionResult<IEnumerable<BluRay>>> GetUserBluRays(string id)
+  {
+    var request = Request;
+    var headers = request.Headers;
+
+    if (headers.ContainsKey("owner"))
+    {
+      //GetBluRays method, add parameter of string searchString to above method declaration- entity framework filtering
+      var foundBluRays = await _context.BluRays.ToListAsync();
+      List<BluRay> returnedBluRays = new List<BluRay> { };
+
+      for (int i = 0; i < foundBluRays.Count; i++)
+      {
+        string username = foundBluRays[i].Username;
+        if (Equals(username, id))
+        {
+          returnedBluRays.Add(foundBluRays[i]);
+        }
+      }
+
+      return returnedBluRays;
+    }
+    else
+    {
+      return BadRequest();
+    }
+
+  }
+
   private bool BluRayExists(int id)
   {
     return _context.BluRays.Any(e => e.Id == id);
