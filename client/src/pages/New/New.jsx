@@ -5,6 +5,7 @@ import { useNavigate } from "react-router";
 import { PageContext } from '../../data';
 import { useAuth0 } from "@auth0/auth0-react";
 import * as bluRayServices from '../../utilities/blu-rays/blu-services';
+import Loading from '../../components/Loading/Loading';
 
 export default function New() {
 
@@ -13,6 +14,7 @@ export default function New() {
   const { user, getAccessTokenSilently } = useAuth0();
   const [dateAdded, setDateAdded] = useState(new Date().toISOString().split('T')[0])
   const [started, setStarted] = useState(null)
+  const [loading, setLoading] = useState(false);
 
   const initState = {
     title: "",
@@ -57,6 +59,7 @@ export default function New() {
     e.preventDefault()
     if(started && user && user.sub === formData.owner)
     {
+      setLoading(true);
       await getAccessTokenSilently().then(async (accessToken) => {
         await bluRayServices.createBluRay(accessToken, user.sub, formData).then(() => {
           navigate('/blu-rays')
@@ -76,6 +79,7 @@ export default function New() {
   }, [user])
 
   return (
+    !loading?
     <div className='New'>
       <form onSubmit={handleSubmit}>
         <label>Title
@@ -111,5 +115,7 @@ export default function New() {
         <button type='submit'>Collect</button>
       </form>
     </div>
+    :
+    <Loading />
   );
 }
