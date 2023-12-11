@@ -26,8 +26,8 @@ export function putTheBack(input) {
 export function encodeEmail(email) {
     let randInt = 0
 
-    while (randInt < 2) {
-        randInt = Math.floor(Math.random() * 10)
+    while (randInt === 0) {
+        randInt = Math.floor(Math.random() * 4)
     }
 
     let encodedEmail;
