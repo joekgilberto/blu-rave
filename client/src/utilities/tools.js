@@ -16,3 +16,15 @@ export function authConfig(token, owner){
     const auth = {headers: {Authorization: `Bearer ${token}`, owner: owner}}
     return auth
 }
+
+export function putTheBack(input){
+    if (input.endsWith(", The")) {
+        let title = input.split('')
+        title.splice(-5, 5);
+        const newTitle = ['T','h','e',' '].concat(title)
+        const output = newTitle.join('')
+        return output
+    } else{
+        return input
+    }
+}

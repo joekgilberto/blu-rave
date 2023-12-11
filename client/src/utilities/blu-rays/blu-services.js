@@ -45,6 +45,8 @@ export async function createBluRay(token,owner,data) {
 // Function to update a specific blu-ray
 export async function updateBluRay(token,owner, id, data) {
     try {
+        const newTitle = tools.titlesWithThe(data.title);
+        data.title = newTitle;
         await bluAPI.update(token,owner, id, data).then((res) => {
             return res
         })

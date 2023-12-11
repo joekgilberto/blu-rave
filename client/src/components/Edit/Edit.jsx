@@ -1,9 +1,9 @@
 import './Edit.css';
 
 import { useState, useEffect, useContext } from 'react';
-import { PageContext } from '../../data';
 import * as bluRayServices from '../../utilities/blu-rays/blu-services';
 import { useAuth0 } from "@auth0/auth0-react";
+import * as tools from '../../utilities/tools';
 
 import Loading from '../Loading/Loading';
 
@@ -52,7 +52,7 @@ export default function Edit({ bluRay, setEdit, handleRequest }) {
             <div className='New'>
                 <form onSubmit={handleSubmit}>
                     <label>Title
-                        <input type='text' maxLength="50" name="title" onChange={handleChange} value={formData.title} required />
+                        <input type='text' maxLength="50" name="title" onChange={handleChange} value={tools.putTheBack(formData.title)} required />
                     </label>
                     <label>Release Year
                         <input type='number' min="1888" max={`${new Date().getFullYear()}`} name="year" step="1" onChange={handleChange} value={formData.year} onWheel={(e) => e.target.blur()} />
