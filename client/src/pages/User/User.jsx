@@ -48,6 +48,7 @@ export default function User() {
 
     useEffect(() => {
         if (user) {
+            console.log(user)
             handleRequest()
         }
     }, [user])
@@ -57,10 +58,13 @@ export default function User() {
     }
 
     return (
-        <div className="User">
-            <p className='owner'>{id}'s Collection</p>
-            <div className='list'>
-                {allBluRays && movies && tvShows ?
+        allBluRays && movies && tvShows ?
+            <div className="User">
+                {allBluRays.length ?
+                    <p className='owner'>{allBluRays[0].username}'s Collection</p>
+                    : null}
+                <div className='list'>
+
                     <>
                         {format ?
                             <>
@@ -89,13 +93,14 @@ export default function User() {
 
                         }
                     </>
-                    :
-                    <Loading />}
+
+                </div>
+                <div className='formats'>
+                    <button onClick={handleClick} className={format ? "selected" : null}>Film</button>
+                    <button onClick={handleClick} className={!format ? "selected" : null}>Television</button>
+                </div>
             </div>
-            <div className='formats'>
-                <button onClick={handleClick} className={format ? "selected" : null}>Film</button>
-                <button onClick={handleClick} className={!format ? "selected" : null}>Television</button>
-            </div>
-        </div>
+            :
+            <Loading />
     );
 }

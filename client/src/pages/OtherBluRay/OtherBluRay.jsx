@@ -41,7 +41,7 @@ export default function OtherBluRay() {
 
     useEffect(() => {
         if (bluRay && user) {
-            if (bluRay.username === user.nickname) {
+            if (bluRay.username === user.username) {
                 navigate(`/blu-rays/${bluRay.id}`)
             }
         }
@@ -51,7 +51,7 @@ export default function OtherBluRay() {
         <div className="OtherBluRay">
             {bluRay ?
                 <>
-                                    <a href={`/user/${bluRay.username}`}><p className='owner'>{bluRay.username}'s Collection</p></a>
+                                    <a href={`/user/${bluRay.email}`}><p className='owner'>{bluRay.username}'s Collection</p></a>
 
                     <h2>{tools.putTheBack(bluRay.title)}</h2>
                     {bluRay.year ?
