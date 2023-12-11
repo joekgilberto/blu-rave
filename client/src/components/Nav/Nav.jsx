@@ -21,18 +21,18 @@ export default function Nav() {
             </a>
             : null}
 
-          {page !== "new" ?
-            <a href='/new'>
-              <p>ADD BLU-RAY</p>
-            </a>
-            : null}
-
           {page !== "index" ?
             <a href='/blu-rays'>
               <p>VIEW COLLECTION</p>
             </a>
             : null}
 
+          {page !== "new" ?
+            <a href='/new'>
+              <p>ADD BLU-RAY</p>
+            </a>
+            : null}
+            
           {page !== "feed" ?
             <a href='/feed'>
               <p>SOCIAL FEED</p>
