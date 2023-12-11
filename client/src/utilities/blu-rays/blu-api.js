@@ -28,8 +28,6 @@ export async function show(token, owner, id) {
 
 // Function to get create a blu-ray
 export async function create(token,owner,data) {
-    console.log(data)
-
     return axios
         .post(BASE_URL,data,tools.authConfig(token,owner))
         .then((res) => {
