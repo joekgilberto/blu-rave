@@ -33,7 +33,7 @@ export async function createBluRay(token,owner,data) {
         const newTitle = tools.titlesWithThe(data.title);
         data.title = newTitle;
 
-        await bluAPI.create(token,owner,data).then((res) => {
+        return await bluAPI.create(token,owner,data).then((res) => {
             return res
         })
 
@@ -58,8 +58,7 @@ export async function updateBluRay(token,owner, id, data) {
 // Function to delete a specific blu-ray
 export async function destroyBluRay(token,owner, id) {
     try {
-        const response = await bluAPI.destroy(token,owner, id)
-        return response
+        return await bluAPI.destroy(token,owner, id)
     } catch (err) {
         return err
     }
@@ -83,8 +82,7 @@ export async function getBluRayFeed(token,owner) {
 // Function to get a specific blu-ray
 export async function getOtherBluRay(token,owner,id) {
     try {
-        const response = await bluAPI.other(token,owner,id)
-        return response
+        return await bluAPI.other(token,owner,id)
     } catch (err) {
         return err
     }

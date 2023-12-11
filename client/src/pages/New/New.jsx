@@ -61,8 +61,12 @@ export default function New() {
     {
       setLoading(true);
       await getAccessTokenSilently().then(async (accessToken) => {
-        await bluRayServices.createBluRay(accessToken, user.sub, formData).then(() => {
-          navigate('/blu-rays')
+        await bluRayServices.createBluRay(accessToken, user.sub, formData).then((res) => {
+          if (res){
+            navigate(`/blu-rays/${res.id}`)
+          } else {
+            navigate('/blu-rays')
+          }
         })
       })
     }
