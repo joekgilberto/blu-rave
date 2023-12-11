@@ -48,7 +48,6 @@ export default function User() {
 
     useEffect(() => {
         if (user) {
-            console.log(user)
             handleRequest()
         }
     }, [user])

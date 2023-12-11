@@ -85,7 +85,7 @@ export async function other(token,owner,id) {
 // Function to get users blu-rays
 export async function user(token,owner,user) {
     return axios
-        .get(`${BASE_URL}user/${user}`,tools.authConfig(token,owner))
+        .get(`${BASE_URL}user/${atob(user)}`,tools.authConfig(token,owner))
         .then((res) => {
             return res.data
         })
