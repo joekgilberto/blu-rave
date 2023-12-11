@@ -165,6 +165,5 @@ From the home page, the user can read up on the application.  The user can then 
 
 ## Future Features
 Features to be added in further edits:
-- Add a loading feature after a POST request is submitted.
 - Mobile styling.
-- The ability for users to share their blu-ray collections with other users.
+- The ability for users to follow other users.
