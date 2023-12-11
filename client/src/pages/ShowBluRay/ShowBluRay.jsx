@@ -25,7 +25,6 @@ export default function ShowBluRay() {
         const accessToken = await getAccessTokenSilently();
         await bluRayServices.getBluRay(accessToken, owner, id).then((res) => {
             res ? setBluRay(res) : navigate("/blu-rays");
-            console.log(res)
         })
             .catch((err) => {
                 console.log(err)

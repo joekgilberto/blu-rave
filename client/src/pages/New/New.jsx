@@ -51,7 +51,6 @@ export default function New() {
   }
 
   async function setStart() {
-    console.log(user)
     setFormData({ ...formData, dateAdded: dateAdded, owner: user.sub, username: user.nickname, email: user.email })
     setStarted(true)
   }

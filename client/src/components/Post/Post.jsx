@@ -1,9 +1,6 @@
 import './Post.css';
 
 export default function Post({ bluRay, idx, listLength }) {
-
-    console.log(bluRay)
-
     return (
         <div className={`Post ${idx === listLength - 1 ? "last" : null}`}>
             <a href={`/feed/${bluRay.id}`}>
