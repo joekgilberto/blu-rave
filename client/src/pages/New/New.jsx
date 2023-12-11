@@ -57,7 +57,6 @@ export default function New() {
 
   async function handleSubmit(e) {
     e.preventDefault()
-    console.log(formData)
     if(started && user && user.sub === formData.owner)
     {
       setLoading(true);
