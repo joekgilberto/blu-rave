@@ -1,7 +1,7 @@
 import './User.css';
 
 import { useEffect, useState, useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { PageContext } from '../../data';
 import * as bluRayServices from '../../utilities/blu-rays/blu-services';
 import { useAuth0 } from "@auth0/auth0-react";
@@ -11,6 +11,7 @@ import Loading from '../../components/Loading/Loading';
 
 export default function User() {
 
+    const navigate = useNavigate()
     const { setPage } = useContext(PageContext);
     const { id } = useParams();
     const [format, setFormat] = useState(true)
@@ -28,15 +29,21 @@ export default function User() {
             const cacheMovies = []
             const cacheTvShows = []
 
-            for (let bluRay of res) {
-                if (bluRay.format === "Film" || bluRay.format === "Short") {
-                    cacheMovies.push(bluRay)
-                } else if (bluRay.format === "Television" || bluRay.format === "Miniseries") {
-                    cacheTvShows.push(bluRay)
+            if (!res.length){
+                navigate('/feed')
+            } else if (res[0].username === user.nickname){
+                navigate('/blu-rays')
+            } else {
+                for (let bluRay of res) {
+                    if (bluRay.format === "Film" || bluRay.format === "Short") {
+                        cacheMovies.push(bluRay)
+                    } else if (bluRay.format === "Television" || bluRay.format === "Miniseries") {
+                        cacheTvShows.push(bluRay)
+                    }
                 }
+                setMovies(cacheMovies)
+                setTvShows(cacheTvShows)
             }
-            setMovies(cacheMovies)
-            setTvShows(cacheTvShows)
         })
             .catch((err) => console.log(err))
     }
