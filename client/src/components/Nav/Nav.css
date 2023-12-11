@@ -15,7 +15,7 @@ nav a{
 
 nav a p{
     width: 280px;
-    font-size: 30px;
+    font-size: 25px;
     margin: 5px;
     color: #47b2ffff;
 }
@@ -32,3 +32,8 @@ nav .loading{
     color: #47b2ffff;
 }
 
+@media screen and (min-width: 765px) {
+    nav a p{
+        font-size: 30px;
+    }
+  }

@@ -1,19 +1,19 @@
-.Title a{
+.Title a {
     text-decoration: none;
 }
 
-.Title h1{
+.Title h1 {
     font-size: 60px;
 }
 
 @media screen and (min-width: 900px) {
-    .Title h1{
+    .Title h1 {
         font-size: 80px;
     }
-  }
+}
 
 @media screen and (min-width: 1050px) {
-    .Title h1{
+    .Title h1 {
         font-size: 100px;
     }
-  }
+}
