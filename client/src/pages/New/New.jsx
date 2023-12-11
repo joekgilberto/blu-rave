@@ -104,6 +104,7 @@ export default function New() {
         <label>Format
           <select name="format" onChange={handleChange}>
             <option>Film</option>
+            <option>Film Collection</option>
             <option>Short</option>
             <option>Television</option>
             <option>Miniseries</option>

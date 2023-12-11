@@ -73,6 +73,7 @@ export default function Edit({ bluRay, setEdit, handleRequest }) {
                     <label>Format
                         <select name="format" onChange={handleChange} value={formData.format}>
                             <option>Film</option>
+                            <option>Film Collection</option>
                             <option>Short</option>
                             <option>Television</option>
                             <option>Miniseries</option>

@@ -27,7 +27,7 @@ export default function AllBluRays() {
             const cacheTvShows = []
 
             for (let bluRay of res) {
-                if (bluRay.format === "Film" || bluRay.format === "Short") {
+                if (bluRay.format === "Film" || bluRay.format === "Film Collection" || bluRay.format === "Short") {
                     cacheMovies.push(bluRay)
                 } else if (bluRay.format === "Television" || bluRay.format === "Miniseries") {
                     cacheTvShows.push(bluRay)
