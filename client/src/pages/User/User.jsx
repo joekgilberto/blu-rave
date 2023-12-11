@@ -1,6 +1,7 @@
-import './AllBluRays.css';
+import './User.css';
 
 import { useEffect, useState, useContext } from 'react';
+import { useParams } from 'react-router-dom';
 import { PageContext } from '../../data';
 import * as bluRayServices from '../../utilities/blu-rays/blu-services';
 import { useAuth0 } from "@auth0/auth0-react";
@@ -8,9 +9,10 @@ import { useAuth0 } from "@auth0/auth0-react";
 import BluRay from '../../components/BluRay/BluRay';
 import Loading from '../../components/Loading/Loading';
 
-export default function AllBluRays() {
+export default function User() {
 
     const { setPage } = useContext(PageContext);
+    const { id } = useParams();
     const [format, setFormat] = useState(true)
     const [allBluRays, setAllBluRays] = useState(null);
     const [movies, setMovies] = useState(null)
@@ -21,7 +23,7 @@ export default function AllBluRays() {
     async function handleRequest() {
         const owner = user.sub;
         const accessToken = await getAccessTokenSilently();
-        await bluRayServices.getAllBluRays(accessToken, owner).then((res) => {
+        await bluRayServices.getUserBluRays(accessToken, owner, id).then((res) => {
             setAllBluRays(res)
             const cacheMovies = []
             const cacheTvShows = []
@@ -41,7 +43,7 @@ export default function AllBluRays() {
 
 
     useEffect(() => {
-        setPage("index")
+        setPage("user")
     }, [])
 
     useEffect(() => {
@@ -55,7 +57,8 @@ export default function AllBluRays() {
     }
 
     return (
-        <div className="AllBluRays">
+        <div className="User">
+            <p className='owner'>{id}'s Collection</p>
             <div className='list'>
                 {allBluRays && movies && tvShows ?
                     <>
@@ -64,7 +67,7 @@ export default function AllBluRays() {
                                 {movies.length ?
                                     movies.map((bluRay, idx) => {
                                         return (
-                                            <BluRay key={idx} bluRay={bluRay} idx={idx} listLength={movies.length} />
+                                            <BluRay key={idx} bluRay={bluRay} idx={idx} listLength={movies.length} others={true} />
                                         )
                                     })
                                     :
@@ -76,7 +79,7 @@ export default function AllBluRays() {
                                 {tvShows.length ?
                                     tvShows.map((bluRay, idx) => {
                                         return (
-                                            <BluRay key={idx} bluRay={bluRay} idx={idx} listLength={tvShows.length} />
+                                            <BluRay key={idx} bluRay={bluRay} idx={idx} listLength={tvShows.length} others={true} />
                                         )
                                     })
                                     :

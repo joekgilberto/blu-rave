@@ -32,7 +32,14 @@ export default function Nav() {
               <p>VIEW COLLECTION</p>
             </a>
             : null}
-            {isAuthenticated?
+
+          {page !== "feed" ?
+            <a href='/feed'>
+              <p>SOCIAL FEED</p>
+            </a>
+            : null}
+
+          {isAuthenticated ?
             <a href='/'>
               <p onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>LOGOUT</p>
             </a>

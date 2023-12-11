@@ -11,6 +11,9 @@ namespace Models
         [Column("title")]
         public string Title { get; set; }
 
+        [Column("year")]
+        public int? Year { get; set; }
+
         [Column("steelbook")]
         public bool Steelbook { get; set; }
 
@@ -29,7 +32,15 @@ namespace Models
         [Column("owner")]
         public string Owner { get; set; }
         
-        [Column("year")]
-        public int? Year { get; set; }
+        [Column("username")]
+        public string Username { get; set; }
+
+        [Column("email")]
+        public string Email { get; set; }
+
+        internal void Remove(string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

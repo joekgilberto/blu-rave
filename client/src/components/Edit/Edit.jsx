@@ -9,7 +9,6 @@ import Loading from '../Loading/Loading';
 
 export default function Edit({ bluRay, setEdit, handleRequest }) {
 
-    const { setPage } = useContext(PageContext);
     const [formData, setFormData] = useState(null);
     const { user, getAccessTokenSilently } = useAuth0();
 
@@ -65,7 +64,7 @@ export default function Edit({ bluRay, setEdit, handleRequest }) {
                         </div>
                     </label>
                     <label>Definition
-                        <select name="definition" onChange={handleChange}>
+                        <select name="definition" onChange={handleChange} value={formData.definition}>
                             <option>Blu-Ray</option>
                             <option>4K</option>
                             <option>DVD</option>

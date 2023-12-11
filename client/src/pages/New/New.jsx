@@ -5,16 +5,16 @@ import { useNavigate } from "react-router";
 import { PageContext } from '../../data';
 import { useAuth0 } from "@auth0/auth0-react";
 import * as bluRayServices from '../../utilities/blu-rays/blu-services';
+import Loading from '../../components/Loading/Loading';
 
 export default function New() {
 
   const navigate = useNavigate()
   const { setPage } = useContext(PageContext);
-
-  let dateAdded = new Date()
-  dateAdded = dateAdded.toISOString().split('T')[0]
-
   const { user, getAccessTokenSilently } = useAuth0();
+  const [dateAdded, setDateAdded] = useState(new Date().toISOString().split('T')[0])
+  const [started, setStarted] = useState(null)
+  const [loading, setLoading] = useState(false);
 
   const initState = {
     title: "",
@@ -24,7 +24,9 @@ export default function New() {
     format: "Film",
     notes: "",
     dateAdded: "",
-    owner: ""
+    owner: "",
+    username: "",
+    email: ""
   }
 
   const [formData, setFormData] = useState(initState);
@@ -49,16 +51,15 @@ export default function New() {
   }
 
   async function setStart() {
-    let dateAdded = new Date()
-    dateAdded = dateAdded.toISOString().split('T')[0]
-    setFormData({ ...formData, dateAdded: dateAdded, owner: user.sub })
+    setFormData({ ...formData, dateAdded: dateAdded, owner: user.sub, username: user.nickname, email: user.email })
+    setStarted(true)
   }
 
   async function handleSubmit(e) {
     e.preventDefault()
-
-    if(user && user.sub === formData.owner)
+    if(started && user && user.sub === formData.owner)
     {
+      setLoading(true);
       await getAccessTokenSilently().then(async (accessToken) => {
         await bluRayServices.createBluRay(accessToken, user.sub, formData).then(() => {
           navigate('/blu-rays')
@@ -78,6 +79,7 @@ export default function New() {
   }, [user])
 
   return (
+    !loading?
     <div className='New'>
       <form onSubmit={handleSubmit}>
         <label>Title
@@ -113,5 +115,7 @@ export default function New() {
         <button type='submit'>Collect</button>
       </form>
     </div>
+    :
+    <Loading />
   );
 }

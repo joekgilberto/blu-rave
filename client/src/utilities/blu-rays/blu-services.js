@@ -62,3 +62,42 @@ export async function destroyBluRay(token,owner, id) {
         return err
     }
 }
+
+// Function to get all blu-rays for feed
+export async function getBluRayFeed(token,owner) {
+    try {
+        return await bluAPI.feed(token,owner).then((bluRays) => {
+            bluRays.sort((a, b) => (a.dateAdded > b.dateAdded) ? -1 : (a.dateAdded < b.dateAdded) ? 1 : 0);
+            return bluRays
+        }).catch((err)=>{
+            console.log(err)
+        })
+    } catch (err) {
+        return err
+    }
+}
+
+// Function to get a single other blu-ray
+// Function to get a specific blu-ray
+export async function getOtherBluRay(token,owner,id) {
+    try {
+        const response = await bluAPI.other(token,owner,id)
+        return response
+    } catch (err) {
+        return err
+    }
+}
+
+// Function to get all blu-rays from a user
+export async function getUserBluRays(token,owner,user) {
+    try {
+        return await bluAPI.user(token,owner,user).then((bluRays) => {
+            bluRays.sort((a, b) => (a.title.toUpperCase() < b.title.toUpperCase()) ? -1 : (a.title.toUpperCase() > b.title.toUpperCase()) ? 1 : 0);
+            return bluRays
+        }).catch((err)=>{
+            console.log(err)
+        })
+    } catch (err) {
+        return err
+    }
+}

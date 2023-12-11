@@ -3,7 +3,7 @@ import axios from 'axios';
 import * as tools from '../tools'
 
 // Imports food API environmental variables
-const BASE_URL = process.env.REACT_APP_PROD_API;
+const BASE_URL = process.env.REACT_APP_DEV_API;
 
 // Function to get all blu-rays
 export async function index(token,owner) {
@@ -57,3 +57,37 @@ export async function destroy(token,owner,id) {
         .catch((err) => console.log(err));
     
 }
+
+// Function to get blu-ray feed
+export async function feed(token,owner) {
+    return axios
+        .get(`${BASE_URL}feed/`,tools.authConfig(token,owner))
+        .then((res) => {
+            for (let i = 0;  i < res.data.length; i++){
+                delete res.data[i].owner
+            }
+            return res.data
+        })
+        .catch((err) => console.log(err));
+};
+
+// Function to get others blu-ray
+export async function other(token,owner,id) {
+    return axios
+        .get(`${BASE_URL}feed/${id}`,tools.authConfig(token,owner))
+        .then((res) => {
+            delete res.data.owner
+            return res.data
+        })
+        .catch((err) => console.log(err));
+};
+
+// Function to get users blu-rays
+export async function user(token,owner,user) {
+    return axios
+        .get(`${BASE_URL}user/${user}`,tools.authConfig(token,owner))
+        .then((res) => {
+            return res.data
+        })
+        .catch((err) => console.log(err));
+};

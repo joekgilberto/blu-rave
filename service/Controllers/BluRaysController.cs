@@ -74,7 +74,8 @@ public class BluRaysController : ControllerBase
       }
       return bluRay;
     }
-    else{
+    else
+    {
       return BadRequest();
     }
   }
@@ -175,6 +176,89 @@ public class BluRaysController : ControllerBase
     {
       return BadRequest();
     }
+  }
+
+  [HttpGet("feed")]
+  [Authorize]
+  public async Task<ActionResult<IEnumerable<BluRay>>> GetBluRayFeed()
+  {
+    var request = Request;
+    var headers = request.Headers;
+
+    if (headers.ContainsKey("owner"))
+    {
+      var foundBluRays = await _context.BluRays.ToListAsync();
+      List<BluRay> returnedBluRays = new List<BluRay> { };
+
+      for (int i = 0; i < foundBluRays.Count; i++)
+      {
+        returnedBluRays.Add(foundBluRays[i]);
+      }
+
+      return returnedBluRays;
+    }
+    else
+    {
+      return BadRequest();
+    }
+
+  }
+
+  [HttpGet("feed/{id}")]
+  [Authorize]
+  public async Task<ActionResult<BluRay>> GetOtherBluRay(int id)
+  {
+    // Use below as example to query database, make separate class as a service (to be called by the controller) that is the only one that calls the database
+
+    var request = Request;
+    var headers = request.Headers;
+
+    if (headers.ContainsKey("owner"))
+    {
+      var bluRay = await _context.BluRays.FindAsync(id);
+
+      if (bluRay == null)
+      {
+        return NotFound();
+      }
+      return bluRay;
+    }
+    else
+    {
+      return BadRequest();
+    }
+  }
+
+
+  [HttpGet("user/{id}")]
+  [Authorize]
+  public async Task<ActionResult<IEnumerable<BluRay>>> GetUserBluRays(string id)
+  {
+    var request = Request;
+    var headers = request.Headers;
+
+    if (headers.ContainsKey("owner"))
+    {
+      //GetBluRays method, add parameter of string searchString to above method declaration- entity framework filtering
+      var foundBluRays = await _context.BluRays.ToListAsync();
+      List<BluRay> returnedBluRays = new List<BluRay> { };
+
+      for (int i = 0; i < foundBluRays.Count; i++)
+      {
+        string username = foundBluRays[i].Username;
+        if (Equals(username, id))
+        {
+          returnedBluRays.Add(foundBluRays[i]);
+        }
+      }
+
+      return returnedBluRays;
+    }
+    else
+    {
+      return BadRequest();
+    }
+
   }
 
   private bool BluRayExists(int id)

@@ -39,8 +39,18 @@ a:any-link{
   font-style: italic;
 }
 
+.bold{
+  font-weight: bold;
+}
+
 .underline{
   text-decoration: underline;
+}
+
+.none{
+  color: #218cd8;
+  text-align: center;
+  font-style: italic;
 }
 
 textarea{

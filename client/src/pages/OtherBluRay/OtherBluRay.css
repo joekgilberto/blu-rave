@@ -1,0 +1,40 @@
+.OtherBluRay{
+    height: calc(100vh - 280px);
+}
+
+.OtherBluRay h2 {
+    font-size: 40px;
+    font-style: italic;
+    border-bottom: 3px solid #329dea;
+    padding-bottom: 10px;
+    margin-bottom: 0;
+}
+
+.OtherBluRay p {
+    font-size: 26px;
+}
+
+.OtherBluRay .owner{
+    color: #47b2ffff;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 2px 2px 5px #0000002d;
+    text-align: center;
+}
+
+.release-year{
+    margin: 10px 0 0 0;
+    color: #218cd8;
+}
+
+.notes {
+    margin: 50px 0;
+}
+
+.notes p {
+    margin: 10px 0;
+}
+
+.date-added {
+    color: #218cd8;
+}
