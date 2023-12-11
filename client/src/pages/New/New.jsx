@@ -27,7 +27,7 @@ export default function New() {
     owner: "",
     username: "",
     email: ""
-  }
+    }
 
   const [formData, setFormData] = useState(initState);
 

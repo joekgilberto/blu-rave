@@ -25,6 +25,7 @@ export default function ShowBluRay() {
         const accessToken = await getAccessTokenSilently();
         await bluRayServices.getBluRay(accessToken, owner, id).then((res) => {
             res ? setBluRay(res) : navigate("/blu-rays");
+            console.log(res)
         })
             .catch((err) => {
                 console.log(err)
@@ -64,7 +65,7 @@ export default function ShowBluRay() {
                             {!confirm ?
                                 <>
                                     <p>Format: {bluRay.format}</p>
-                                    <p>Definition: {bluRay.definition == "4K" ? "4K" : bluRay.definition == "Blu-Ray" ? "HD" : "SD"}</p>
+                                    <p>Definition: {bluRay.definition === "4K" ? "4K" : bluRay.definition === "Blu-Ray" ? "HD" : "SD"}</p>
                                     {bluRay.steelbook ? <p>Special Edition</p> : null}
 
                                     {bluRay.notes ?
