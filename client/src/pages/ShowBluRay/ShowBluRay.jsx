@@ -60,7 +60,13 @@ export default function ShowBluRay() {
                             <h2>{tools.putTheBack(bluRay.title)}</h2>
                             {bluRay.year ?
                                 <p className='release-year'>{bluRay.year}</p>
-                                : null}
+                                :
+                                bluRay.startYear ?
+                                    bluRay.endYear ?
+                                        <p className='release-year'>{bluRay.startYear}-{bluRay.endYear}</p>
+                                        :
+                                        <p className='release-year'>{bluRay.startYear}</p>
+                                    : null}
 
                             {!confirm ?
                                 <>
