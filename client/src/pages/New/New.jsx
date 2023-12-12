@@ -15,7 +15,6 @@ export default function New() {
   const [dateAdded, setDateAdded] = useState(new Date().toISOString().split('T')[0])
   const [started, setStarted] = useState(null)
   const [loading, setLoading] = useState(false);
-  const [airing, setAiring] = useState(true);
 
   const initState = {
     title: "",
@@ -65,10 +64,6 @@ export default function New() {
     setFormData(updatedData)
   }
 
-  function handleAiring(e) {
-    setAiring(!airing);
-  }
-
   async function setStart() {
     setFormData({ ...formData, dateAdded: dateAdded, owner: user.sub, username: user.nickname, email: user.email })
     setStarted(true)
@@ -77,11 +72,8 @@ export default function New() {
   async function handleSubmit(e) {
     e.preventDefault()
 
-    if (formData.format === "Television" || formData.format === "Miniseries") {
+    if (formData.format === "Film Collection" || formData.format === "Television" || formData.format === "Miniseries") {
       formData.year = null;
-      if (airing) {
-        formData.endYear = null;
-      }
     } else {
       formData.startYear = null;
       formData.endYear = null;
@@ -127,24 +119,14 @@ export default function New() {
               <option>Miniseries</option>
             </select>
           </label>
-          {formData.format === "Television" || formData.format === "Miniseries" ?
+          {formData.format === "Film Collection" || formData.format === "Television" || formData.format === "Miniseries" ?
             <>
               <label>Start Year
                 <input type='number' min="1927" max={`${new Date().getFullYear()}`} name="startYear" step="1" onChange={handleChange} onWheel={(e) => e.target.blur()} />
               </label>
-
-              <label className='check'>Finished Airing?
-                <div className='container'>
-                  <input className='checkbox' type='checkbox' onChange={handleAiring} />
-                  <span className="checkmark"></span>
-                </div>
+              <label>End Year (if different)
+                <input type='number' min="1927" max={`${new Date().getFullYear()}`} name="endYear" step="1" onChange={handleChange} onWheel={(e) => e.target.blur()} />
               </label>
-
-              {!airing ?
-                <label>End Year
-                  <input type='number' min="1927" max={`${new Date().getFullYear()}`} name="endYear" step="1" onChange={handleChange} onWheel={(e) => e.target.blur()} />
-                </label>
-                : null}
             </>
             :
             <label>Release Year
