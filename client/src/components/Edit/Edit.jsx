@@ -11,6 +11,7 @@ export default function Edit({ bluRay, setEdit, handleRequest }) {
 
     const [formData, setFormData] = useState(null);
     const { user, getAccessTokenSilently } = useAuth0();
+    const [airing, setAiring] = useState(bluRay.endYear?false:true);
 
     useEffect(() => {
         setFormData(bluRay)
@@ -21,8 +22,20 @@ export default function Edit({ bluRay, setEdit, handleRequest }) {
 
         if (e.target.name === "steelbook") {
             updatedData = { ...formData, [e.target.name]: !formData[e.target.name] }
-        } else if (e.target.name === "year"){
-            if (e.target.value > 1888 && e.target.value <= new Date().getFullYear()){
+        } else if (e.target.name === "year") {
+            if (e.target.value > 1888 && e.target.value <= new Date().getFullYear()) {
+                updatedData = { ...formData, [e.target.name]: e.target.value }
+            } else {
+                updatedData = { ...formData, [e.target.name]: null }
+            }
+        } else if (e.target.name === "startYear") {
+            if (e.target.value > 1927 && e.target.value <= new Date().getFullYear()) {
+                updatedData = { ...formData, [e.target.name]: e.target.value }
+            } else {
+                updatedData = { ...formData, [e.target.name]: null }
+            }
+        } else if (e.target.name === "endYear") {
+            if (e.target.value > 1927 && e.target.value <= new Date().getFullYear()) {
                 updatedData = { ...formData, [e.target.name]: e.target.value }
             } else {
                 updatedData = { ...formData, [e.target.name]: null }
@@ -34,8 +47,22 @@ export default function Edit({ bluRay, setEdit, handleRequest }) {
         setFormData(updatedData)
     }
 
+    function handleAiring(e) {
+        setAiring(!airing);
+    }
+
     async function handleSubmit(e) {
         e.preventDefault()
+
+        if (formData.format === "Television" || formData.format === "Miniseries") {
+            formData.year = null;
+            if (airing) {
+              formData.endYear = null;
+            }
+          } else {
+            formData.startYear = null;
+            formData.endYear = null;
+          }
 
         if (user && formData.owner === user.sub) {
             const accessToken = await getAccessTokenSilently();
@@ -54,9 +81,32 @@ export default function Edit({ bluRay, setEdit, handleRequest }) {
                     <label>Title
                         <input type='text' maxLength="50" name="title" onChange={handleChange} value={tools.putTheBack(formData.title)} required />
                     </label>
-                    <label>Release Year
-                        <input type='number' min="1888" max={`${new Date().getFullYear()}`} name="year" step="1" onChange={handleChange} value={formData.year} onWheel={(e) => e.target.blur()} />
-                    </label>
+
+                    {formData.format === "Television" || formData.format === "Miniseries" ?
+                        <>
+                            <label>Start Year
+                                <input type='number' min="1927" max={`${new Date().getFullYear()}`} name="startYear" step="1" onChange={handleChange} onWheel={(e) => e.target.blur()} value={formData.startYear} />
+                            </label>
+
+                            <label className='check'>Finished Airing?
+                                <div className='container'>
+                                    <input className='checkbox' type='checkbox' onChange={handleAiring} defaultChecked={formData.endYear?true:false} />
+                                    <span className="checkmark"></span>
+                                </div>
+                            </label>
+
+                            {!airing ?
+                                <label>End Year
+                                    <input type='number' min="1927" max={`${new Date().getFullYear()}`} name="endYear" step="1" onChange={handleChange} onWheel={(e) => e.target.blur()} value={formData.endYear} />
+                                </label>
+                                : null}
+                        </>
+                        :
+                        <label>Release Year
+                            <input type='number' min="1888" max={`${new Date().getFullYear()}`} name="year" step="1" onChange={handleChange} onWheel={(e) => e.target.blur()} value={formData.year} />
+                        </label>
+
+                    }
                     <label className='check'>Special Edition
                         <div className='container'>
                             <input className='checkbox' type='checkbox' name="steelbook" onChange={handleChange} defaultChecked={formData.steelbook} />
