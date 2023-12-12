@@ -1,0 +1,35 @@
+.BluRay{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #329dea;
+}
+
+.BluRay .details{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.BluRay .format{
+    height: 30px;
+    opacity: 0.3;
+}
+
+.BluRay .fourK{
+    height: 15px !important;
+}
+
+.BluRay .special{
+    color: #2d79ae;
+    margin-left: 20px;
+}
+
+.BluRay .no-underline{
+    border-bottom: none;
+}
+
+.last{
+    border-bottom: none !important;
+}

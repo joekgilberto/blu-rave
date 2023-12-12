@@ -22,38 +22,12 @@
     padding: 10px;
 }
 
-.AllBluRays .media{
-    height: 100px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 3px solid #329dea;
-}
-
-.last{
-    border-bottom: none !important;
-}
-
-.AllBluRays .no-underline{
-    border-bottom: none;
-}
-
-.AllBluRays .details{
-    color: #1a74b5;
-    margin-left: 20px;
-}
-
 .AllBluRays .list{
     height: calc(100vh - 338px);
     margin: 20px 0;
     border-top: 2px solid #fff;
     border-bottom: 2px solid #fff;
     overflow-y: scroll;
-}
-
-.AllBluRays .formats{
-    display: flex;
-    justify-content: center;
 }
 
 .AllBluRays .selected{
