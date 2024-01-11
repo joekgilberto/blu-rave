@@ -3,13 +3,47 @@
     grid-column: 1 / span 2;
     grid-row: 2 / span 1;
     visibility: visible;
-    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 5px;
+    flex-wrap: nowrap;      
 }
 
 .BottomNav a p{
-    font-size: 25px;
-    margin: 5px;
+    font-size: 14px;
     color: #47b2ffff;
+    margin: 5px 10px;
+    text-align: center;
+    min-width: 60px;
+}
+
+.divider{
+    color: #337db3;
+}
+
+@media screen and (min-width: 420px) {
+    .BottomNav a p {
+        font-size: 16px;
+        min-width: 70px;
+    }
+}
+
+@media screen and (min-width: 450px) {
+    .BottomNav{
+        padding: 0 15px;
+    }
+
+    .BottomNav a p {
+        font-size: 18px;
+        min-width: 80px;
+    }
+}
+
+@media screen and (min-width: 530px) {
+    .BottomNav a p {
+        font-size: 20px;
+        min-width: 110px;
+    }
 }
 
 @media screen and (min-width: 765px) {

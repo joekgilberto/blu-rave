@@ -38,21 +38,15 @@ export default function BottomNav() {
         <nav className='BottomNav'>
             {user ?
                 <>
-                {links.filter((link) => link.page !== page).map((link)=> <a href={`/${link.url}`}><p>{link.text}</p></a>)}
-
-                    {isAuthenticated ?
-                        <a href='/'>
-                            <p onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>LOGOUT</p>
-                        </a>
-                        : null}
+                    {links.filter((link) => link.page !== page).map((link,idx) => {
+                        return <>
+                            <a href={`/${link.url}`}><p>{link.text}</p></a>
+                            {idx!==links.filter((link) => link.page !== page).length-1?<p className='divider'>|</p>:null}
+                        </>
+                    })}
                 </>
                 :
-                !isLoading ?
-                    <a>
-                        <p onClick={() => loginWithRedirect()}>LOGIN</p>
-                    </a>
-                    :
-                    <p className='loading'>LOADING...</p>
+                isLoading ? <p className='loading'>LOADING...</p> : null
             }
         </nav>
     );
