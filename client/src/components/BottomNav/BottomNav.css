@@ -1,0 +1,19 @@
+.BottomNav{
+    display: flex;
+    grid-column: 1 / span 2;
+    grid-row: 2 / span 1;
+    visibility: visible;
+    justify-content: center;
+}
+
+.BottomNav a p{
+    font-size: 25px;
+    margin: 5px;
+    color: #47b2ffff;
+}
+
+@media screen and (min-width: 765px) {
+    .BottomNav{
+        visibility: hidden;
+    }
+}

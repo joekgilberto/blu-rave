@@ -1,4 +1,4 @@
-import Nav from '../Nav/Nav';
+import Nav from '../Nav/SideNav';
 import './Background.css';
 import Footer from '../Footer/Footer';
 

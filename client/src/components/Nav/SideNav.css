@@ -1,4 +1,4 @@
-nav{
+.SideNav{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -9,23 +9,23 @@ nav{
     margin-left: 10px;
 }
 
-nav a{
+.SideNav a{
     text-decoration: none !important;
 }
 
-nav a p{
+.SideNav a p{
     width: 280px;
     font-size: 25px;
     margin: 5px;
     color: #47b2ffff;
 }
 
-nav a p:hover{
+.SideNav a p:hover{
     color: #7cc8ff;
     animation: rise .2s ease-in forwards;
 }
 
-nav .loading{
+.SideNav .loading{
     width: 280px;
     font-size: 30px;
     margin: 5px;
@@ -33,7 +33,7 @@ nav .loading{
 }
 
 @media screen and (min-width: 765px) {
-    nav a p{
+    .SideNav a p{
         font-size: 30px;
     }
   }
