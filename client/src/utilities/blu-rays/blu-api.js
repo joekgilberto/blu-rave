@@ -81,11 +81,10 @@ export async function other(token,owner,id) {
         })
         .catch((err) => console.log(err));
 };
-
 // Function to get users blu-rays
-export async function user(token,owner,user) {
+export async function user(token,owner,email) {
     return axios
-        .get(`${BASE_URL}user/${user}`,tools.authConfig(token,owner))
+        .get(`${BASE_URL}user/${tools.decodeEmail(email)}`,tools.authConfig(token,owner))
         .then((res) => {
             return res.data
         })
