@@ -56,6 +56,7 @@ export default function AllBluRays() {
 
     return (
         <div className="AllBluRays">
+        <p className='count'>{movies?`You have ${movies.length} Blu-Rays`:null}</p>
             <div className='list'>
                 {allBluRays && movies && tvShows ?
                     <>

@@ -22,6 +22,11 @@
     padding: 10px;
 }
 
+.AllBluRays .count{
+    margin-bottom: 0;
+    font-style: italic;
+}
+
 .AllBluRays .media{
     height: 100px;
     display: flex;
@@ -44,7 +49,7 @@
 }
 
 .AllBluRays .list{
-    height: calc(100vh - 338px);
+    height: calc(100vh - 360px);
     margin: 20px 0;
     border-top: 2px solid #fff;
     border-bottom: 2px solid #fff;
@@ -59,5 +64,4 @@
 .AllBluRays .selected{
     background: #fff;
     color: #47b2ffff;
-
 }
