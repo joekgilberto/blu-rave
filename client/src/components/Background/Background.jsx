@@ -9,7 +9,7 @@ export default function Background({ page }) {
         <img src="https://i.imgur.com/sw3dkDJ.png" alt="disc" />
         <Nav page={page} />
       </div>
-      <Footer />
+      <Footer label={'desktop'} />
     </div>
   );
 }

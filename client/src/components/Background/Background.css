@@ -6,6 +6,7 @@
     grid-row: 1 / span 1;
     grid-template-columns: 3fr 2fr;
     grid-template-rows: 1fr auto;
+    visibility: hidden;
 }
 
 .back-nav {
@@ -24,9 +25,9 @@
 
 @media screen and (min-width: 765px) {
     .Background{
-        grid-template-columns: repeat(2, 1fr);
+        visibility: visible;
     }
-  }
+}
 
 @media screen and (min-width: 950px) {
     .back-nav img {
