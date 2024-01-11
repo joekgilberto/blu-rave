@@ -50,7 +50,7 @@ export default function OtherBluRay() {
         <div className="OtherBluRay">
             {bluRay ?
                 <>
-                                    <a href={`/user/${bluRay.username}`}><p className='owner'>{bluRay.username}'s Collection</p></a>
+                                    <a href={`/user/${tools.encodeEmail(bluRay.email)}`}><p className='owner'>{bluRay.username}'s Collection</p></a>
 
                     <h2>{bluRay.title}</h2>
                     {bluRay.year ?
