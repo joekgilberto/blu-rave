@@ -1,0 +1,27 @@
+.ToggleAuth a p,
+.ToggleAuth .loading {
+    width: 120px;
+    font-size: 18px;
+    color: #47b2ffff;
+    background-color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+@media screen and (min-width: 580px) {
+    .ToggleAuth {
+        margin-top: 10px;
+    }
+
+    .ToggleAuth a p,
+    .ToggleAuth .loading {
+        width: 150px;
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width: 765px) {
+    .ToggleAuth {
+        display: none;
+    }
+}

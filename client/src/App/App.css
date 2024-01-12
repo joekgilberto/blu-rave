@@ -1,20 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Text&display=swap');
 
-*{
+* {
   box-sizing: border-box;
 }
 
-.App{
+.App {
   width: 100vw;
   height: 100vh;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1fr;
+  grid-template-columns: 3fr 2fr;
+  grid-template-rows: 90% 10%;
   font-family: Arial, Helvetica, sans-serif;
   position: fixed;
 }
 
-h1{
+h1 {
   font-family: "Libre Barcode 39 Text", sans-serif;
   font-weight: 400;
   font-size: 100px;
@@ -22,46 +22,54 @@ h1{
   margin-bottom: 0;
 }
 
-button{
+button {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-a:any-link{
+a:any-link {
   text-decoration: none;
 }
 
-.blu-rave{
+.blu-rave {
   font-weight: bold;
   font-style: italic;
 }
 
-.italic{
+.italic {
   font-style: italic;
 }
 
-.bold{
+.bold {
   font-weight: bold;
 }
 
-.underline{
+.underline {
   text-decoration: underline;
 }
 
-.none{
+.none {
   color: #218cd8;
   text-align: center;
   font-style: italic;
 }
 
-textarea{
+textarea {
   font-family: Arial, Helvetica, sans-serif;
 }
 
 @keyframes rise {
-  0%{
+  0% {
     transform: translateY(0px);
   }
-  100%{
+
+  100% {
     transform: translateY(-2px);
+  }
+}
+
+@media screen and (min-width: 765px) {
+  .App {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
   }
 }

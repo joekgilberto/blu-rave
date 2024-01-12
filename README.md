@@ -42,6 +42,10 @@ For the frontend, I utlized [React](https://react.dev/) components combined with
 Below are specific relevant resources I referenced while building this application.
 
 - [A public domain disc image from Wikimedia.](https://commons.wikimedia.org/wiki/File:RVT-R_disc_data_side_(white_background).png) that I used for the background.
+- [A public domain home icon from Wikimedia.](https://commons.wikimedia.org/wiki/File:HomeSimple_svg.svg) that I used for the mobile menu.
+- [A public domain plus icon from Wikimedia.](https://commons.wikimedia.org/wiki/File:Plus_(89613)_-_The_Noun_Project.svg) that I used for the mobile menu.
+- [A public domain disc icon from Wikimedia.](https://commons.wikimedia.org/wiki/File:CD_(6088)_-_The_Noun_Project.svg) that I used for the mobile menu.
+- [A public domain social icon from Wikimedia.](https://commons.wikimedia.org/wiki/File:Networking_-_The_Noun_Project.svg) that I used for the mobile menu.
 - [An article from Travis Media on creating a React and .NET project in VSCode.](https://travis.media/how-to-create-react-app-net-api-vscode/)
 - [An article from Francesco Ciulla on building a C# CRUD Rest API.](https://dev.to/francescoxx/c-c-sharp-crud-rest-api-using-net-7-aspnet-entity-framework-postgres-docker-and-docker-compose-493a)
 - [The Auth0 quickstart guides to implement authentication and authorization.](https://auth0.com/docs/quickstarts)

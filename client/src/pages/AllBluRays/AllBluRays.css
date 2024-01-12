@@ -1,19 +1,19 @@
-.AllBluRays{
+.AllBluRays {
     display: flex;
     flex-direction: column;
     font-size: 26px;
 }
 
-.AllBluRays a{
+.AllBluRays a {
     color: inherit;
     text-decoration: none;
 }
 
-.AllBluRays a:hover .italic{
+.AllBluRays a:hover .italic {
     text-decoration: underline;
 }
 
-.AllBluRays button{
+.AllBluRays button {
     width: 50%;
     background: none;
     border: none;
@@ -22,16 +22,58 @@
     padding: 10px;
 }
 
-.AllBluRays .list{
-    height: calc(100vh - 338px);
+.AllBluRays .count {
+    margin-bottom: 0;
+    font-style: italic;
+}
+
+.AllBluRays .media {
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #329dea;
+}
+
+.last {
+    border-bottom: none !important;
+}
+
+.AllBluRays .no-underline {
+    border-bottom: none;
+}
+
+.AllBluRays .details {
+    color: #1a74b5;
+    margin-left: 20px;
+}
+
+.AllBluRays .list {
+    height: calc(100vh - 440px);
     margin: 20px 0;
     border-top: 2px solid #fff;
     border-bottom: 2px solid #fff;
     overflow-y: scroll;
 }
 
-.AllBluRays .selected{
+.AllBluRays .formats {
+    display: flex;
+    justify-content: center;
+}
+
+.AllBluRays .selected {
     background: #fff;
     color: #47b2ffff;
+}
 
+@media screen and (min-width: 580px) {
+    .AllBluRays .list {
+        height: calc(100vh - 380px);
+    }
+}
+
+@media screen and (min-width: 765px) {
+    .AllBluRays .list {
+        height: calc(100vh - 360px);
+    }
 }

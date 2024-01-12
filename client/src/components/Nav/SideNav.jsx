@@ -1,4 +1,4 @@
-import './Nav.css';
+import './SideNav.css';
 
 import { useContext } from "react";
 import { PageContext } from '../../data';
@@ -12,7 +12,7 @@ export default function Nav() {
 
 
   return (
-    <nav>
+    <nav className='SideNav'>
       {user ?
         <>
           {page !== "home" ?

@@ -1,0 +1,26 @@
+.BottomNav{
+    display: flex;
+    grid-column: 1 / span 2;
+    grid-row: 2 / span 1;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 5px;
+    flex-wrap: nowrap;      
+    overflow-y: hidden;
+}
+
+.BottomNav img{
+    width: 50px;
+}
+
+.BottomNav .login{
+    font-size: 22px;
+    color: #47b2ffff;
+
+}
+
+@media screen and (min-width: 765px) {
+    .BottomNav{
+        display: none;
+    }
+}

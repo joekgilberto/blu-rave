@@ -1,14 +1,13 @@
-.Background{
+.Background {
     width: 100vw;
     height: 100vh;
     display: grid;
     grid-column: 1 / span 2;
     grid-row: 1 / span 1;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr auto;
+    display: none;
 }
 
-.back-nav{
+.back-nav {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,8 +15,40 @@
     grid-row: 1 / span 1;
 }
 
-.back-nav img{
-    width: 80%;
+.back-nav img {
+    width: 60%;
     max-width: 640px;
-    margin-left: 275px;
+    margin-left: 0;
+}
+
+@media screen and (min-width: 765px) {
+    .Background{
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        grid-template-rows: 1fr auto;
+    }
+}
+
+@media screen and (min-width: 950px) {
+    .back-nav img {
+        width: 80%;
+    }
+}
+
+@media screen and (min-width: 1045px) {
+    .back-nav img {
+        margin-left: 100px;
+    }
+}
+
+@media screen and (min-width: 1160px) {
+    .back-nav img {
+        margin-left: 200px;
+    }
+}
+
+@media screen and (min-width: 1225px) {
+    .back-nav img {
+        margin-left: 275px;
+    }
 }

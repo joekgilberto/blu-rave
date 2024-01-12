@@ -81,7 +81,6 @@ export async function other(token,owner,id) {
         })
         .catch((err) => console.log(err));
 };
-
 // Function to get users blu-rays
 export async function user(token,owner,email) {
     return axios

@@ -5,3 +5,15 @@
     border-bottom: 2px solid #fff;
     overflow-y: scroll;
 }
+
+@media screen and (min-width: 580px) {
+    .Feed {
+        height: calc(100vh - 260px);
+    }
+}
+
+@media screen and (min-width: 765px) {
+    .Feed {
+        height: calc(100vh - 230px);
+    }
+}

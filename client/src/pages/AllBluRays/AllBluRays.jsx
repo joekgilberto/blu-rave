@@ -56,6 +56,7 @@ export default function AllBluRays() {
 
     return (
         <div className="AllBluRays">
+        <p className='count'>{movies?`You have ${movies.length} Blu-Rays`:null}</p>
             <div className='list'>
                 {allBluRays && movies && tvShows ?
                     <>
@@ -91,7 +92,7 @@ export default function AllBluRays() {
             </div>
             <div className='formats'>
                 <button onClick={handleClick} className={format ? "selected" : null}>Film</button>
-                <button onClick={handleClick} className={!format ? "selected" : null}>Television</button>
+                <button onClick={handleClick} className={!format ? "selected" : null}>T.V.</button>
             </div>
         </div>
     );
