@@ -1,5 +1,5 @@
 .OtherBluRay{
-    height: calc(100vh - 290px);
+    height: calc(100vh - 300px);
     overflow-y: scroll;
 }
 
@@ -42,7 +42,7 @@
 
 @media screen and (min-width: 580px) {
     .OtherBluRay{
-        height: calc(100vh - 210px);
+        height: calc(100vh - 220px);
     }
     
 }
