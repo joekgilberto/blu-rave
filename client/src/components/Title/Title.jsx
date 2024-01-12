@@ -1,3 +1,4 @@
+import ToggleAuth from '../ToggleAuth/ToggleAuth';
 import './Title.css';
 
 export default function Title() {
@@ -6,6 +7,7 @@ export default function Title() {
       <a href="/">
         <h1>BLU-RAVE</h1>
       </a>
+      <ToggleAuth />
     </div>
   );
 }

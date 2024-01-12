@@ -8,28 +8,32 @@ import { useAuth0 } from "@auth0/auth0-react";
 export default function BottomNav() {
 
     const { page } = useContext(PageContext);
-    const { user, isAuthenticated, loginWithRedirect, logout, isLoading } = useAuth0();
+    const { user, isLoading, loginWithRedirect } = useAuth0();
 
     const links = [
         {
             page: 'home',
             url: '',
-            text: 'HOME'
+            text: 'home',
+            image: 'https://i.imgur.com/1ENrzeq.png'
         },
         {
             page: 'new',
             url: 'new',
-            text: 'ADD BLU-RAY'
+            text: 'add blu-ray',
+            image: 'https://i.imgur.com/EIKyoAz.png'
         },
         {
             page: 'index',
             url: 'blu-rays',
-            text: 'VIEW COLLECTION'
+            text: 'view collection',
+            image: 'https://i.imgur.com/ADE1H7Z.png'
         },
         {
             page: 'feed',
             url: 'feed',
-            text: 'SOCIAL FEED'
+            text: 'social feed',
+            image: 'https://i.imgur.com/bXOcMaD.png'
         }
     ]
 
@@ -38,15 +42,17 @@ export default function BottomNav() {
         <nav className='BottomNav'>
             {user ?
                 <>
-                    {links.filter((link) => link.page !== page).map((link,idx) => {
-                        return <>
-                            <a href={`/${link.url}`}><p>{link.text}</p></a>
-                            {idx!==links.filter((link) => link.page !== page).length-1?<p className='divider'>|</p>:null}
-                        </>
+                    {links.filter((link) => link.page !== page).map((link, idx) => {
+                        return <a href={`/${link.url}`}><img alt={link.text} src={link.image} /></a>
                     })}
                 </>
                 :
-                isLoading ? <p className='loading'>LOADING...</p> : null
+                !isLoading ?
+                    <a>
+                        <p className='login' onClick={() => loginWithRedirect()}>LOGIN</p>
+                    </a>
+                    :
+                    <p className='login'>LOADING...</p>
             }
         </nav>
     );

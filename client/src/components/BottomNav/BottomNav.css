@@ -9,41 +9,14 @@
     flex-wrap: nowrap;      
 }
 
-.BottomNav a p{
-    font-size: 14px;
+.BottomNav img{
+    width: 50px;
+}
+
+.BottomNav .login{
+    font-size: 22px;
     color: #47b2ffff;
-    margin: 5px 10px;
-    text-align: center;
-    min-width: 60px;
-}
 
-.divider{
-    color: #337db3;
-}
-
-@media screen and (min-width: 420px) {
-    .BottomNav a p {
-        font-size: 16px;
-        min-width: 70px;
-    }
-}
-
-@media screen and (min-width: 450px) {
-    .BottomNav{
-        padding: 0 15px;
-    }
-
-    .BottomNav a p {
-        font-size: 18px;
-        min-width: 80px;
-    }
-}
-
-@media screen and (min-width: 530px) {
-    .BottomNav a p {
-        font-size: 20px;
-        min-width: 110px;
-    }
 }
 
 @media screen and (min-width: 765px) {

@@ -1,3 +1,8 @@
+.Title {
+    display: flex;
+    flex-direction: column;
+}
+
 .Title a {
     text-decoration: none;
 }
@@ -8,9 +13,21 @@
 
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 580px) {
+    .Title{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
     .Title h1 {
         font-size: 80px;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .Title {
+        display: flex;
+        justify-content: space-between;
     }
 }
 
