@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   font-size: 26px;
+  height: calc(100vh - 280px);
+  overflow-y: scroll;
 }
 
 .New form {
@@ -59,7 +61,6 @@ label.check {
   background-color: #e5edf3;
 }
 
-/* Customize the label (the container) */
 .container {
   display: block;
   position: relative;
@@ -120,4 +121,10 @@ label.check {
 .tiny{
   font-size: 16px;
   padding-bottom: 5px;
+}
+
+@media screen and (min-width: 580px) {
+  .New{
+      height: calc(100vh - 220px);
+  } 
 }
