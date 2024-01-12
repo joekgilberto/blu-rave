@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   font-size: 26px;
-  height: calc(100vh - 280px);
+  height: calc(100vh - 310px);
   overflow-y: scroll;
 }
 
@@ -125,6 +125,6 @@ label.check {
 
 @media screen and (min-width: 580px) {
   .New{
-      height: calc(100vh - 220px);
+      height: calc(100vh - 240px);
   } 
 }
