@@ -245,8 +245,8 @@ public class BluRaysController : ControllerBase
 
       for (int i = 0; i < foundBluRays.Count; i++)
       {
-        string username = foundBluRays[i].Username;
-        if (Equals(username, id))
+        string email = foundBluRays[i].Email;
+        if (Equals(email, id))
         {
           returnedBluRays.Add(foundBluRays[i]);
         }

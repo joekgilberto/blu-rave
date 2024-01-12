@@ -146,11 +146,11 @@ touch .env.local
 ```
 Then, add your database environmental variables to interact with your service server (running on https://localhost:7108/):
 ```
-REACT_APP_PROD_API=https://localhost:7108/blu-rays/
+REACT_APP_PROD_API="https://localhost:7108/blu-rays/"
 REACT_APP_DOMAIN=<your domain from your SPA Auth0 app>
 REACT_APP_CLIENT_ID=<your client ID from your SPA Auth0 app>
 REACT_APP_AUDIENCE=<your audience from your Auth0 API>
-REACT_APP_SCOPE=<your scope from your Auth0 API>
+REACT_APP_SCOPE="openid profile email <additional scope from your Auth0 API>"
 ```
 
 ### Spin up your client app
@@ -169,6 +169,5 @@ From the home page, the user can read up on the application.  The user can then 
 
 ## Future Features
 Features to be added in further edits:
-- Add a loading feature after a POST request is submitted.
 - Mobile styling.
-- The ability for users to share their blu-ray collections with other users.
+- The ability for users to follow other users and like their movies.

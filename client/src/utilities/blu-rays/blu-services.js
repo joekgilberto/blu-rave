@@ -33,7 +33,7 @@ export async function createBluRay(token,owner,data) {
         const newTitle = tools.titlesWithThe(data.title);
         data.title = newTitle;
 
-        await bluAPI.create(token,owner,data).then((res) => {
+        return await bluAPI.create(token,owner,data).then((res) => {
             return res
         })
 
@@ -45,6 +45,8 @@ export async function createBluRay(token,owner,data) {
 // Function to update a specific blu-ray
 export async function updateBluRay(token,owner, id, data) {
     try {
+        const newTitle = tools.titlesWithThe(data.title);
+        data.title = newTitle;
         await bluAPI.update(token,owner, id, data).then((res) => {
             return res
         })
@@ -56,8 +58,7 @@ export async function updateBluRay(token,owner, id, data) {
 // Function to delete a specific blu-ray
 export async function destroyBluRay(token,owner, id) {
     try {
-        const response = await bluAPI.destroy(token,owner, id)
-        return response
+        return await bluAPI.destroy(token,owner, id)
     } catch (err) {
         return err
     }
@@ -81,17 +82,16 @@ export async function getBluRayFeed(token,owner) {
 // Function to get a specific blu-ray
 export async function getOtherBluRay(token,owner,id) {
     try {
-        const response = await bluAPI.other(token,owner,id)
-        return response
+        return await bluAPI.other(token,owner,id)
     } catch (err) {
         return err
     }
 }
 
 // Function to get all blu-rays from a user
-export async function getUserBluRays(token,owner,user) {
+export async function getUserBluRays(token,owner,email) {
     try {
-        return await bluAPI.user(token,owner,user).then((bluRays) => {
+        return await bluAPI.user(token,owner,email).then((bluRays) => {
             bluRays.sort((a, b) => (a.title.toUpperCase() < b.title.toUpperCase()) ? -1 : (a.title.toUpperCase() > b.title.toUpperCase()) ? 1 : 0);
             return bluRays
         }).catch((err)=>{

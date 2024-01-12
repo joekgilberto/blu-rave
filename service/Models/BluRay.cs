@@ -14,6 +14,12 @@ namespace Models
         [Column("year")]
         public int? Year { get; set; }
 
+        [Column("start_year")]
+        public int? StartYear { get; set; }
+
+        [Column("end_year")]
+        public int? EndYear { get; set; }
+
         [Column("steelbook")]
         public bool Steelbook { get; set; }
 

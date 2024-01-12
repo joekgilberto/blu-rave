@@ -6,6 +6,7 @@ import { PageContext } from '../../data';
 import * as bluRayServices from '../../utilities/blu-rays/blu-services';
 import { useAuth0 } from "@auth0/auth0-react";
 import * as tools from '../../utilities/tools';
+import * as tools from '../../utilities/tools';
 
 import Loading from '../../components/Loading/Loading';
 
@@ -53,7 +54,7 @@ export default function OtherBluRay() {
                 <>
                                     <a href={`/user/${tools.encodeEmail(bluRay.email)}`}><p className='owner'>{bluRay.username}'s Collection</p></a>
 
-                    <h2>{bluRay.title}</h2>
+                    <h2>{tools.putTheBack(bluRay.title)}</h2>
                     {bluRay.year ?
                         <p className='release-year'>{bluRay.year}</p>
                         : null}
