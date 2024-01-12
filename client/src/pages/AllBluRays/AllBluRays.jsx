@@ -92,7 +92,7 @@ export default function AllBluRays() {
             </div>
             <div className='formats'>
                 <button onClick={handleClick} className={format ? "selected" : null}>Film</button>
-                <button onClick={handleClick} className={!format ? "selected" : null}>Television</button>
+                <button onClick={handleClick} className={!format ? "selected" : null}>T.V.</button>
             </div>
         </div>
     );

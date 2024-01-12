@@ -44,7 +44,7 @@
 }
 
 .User .list{
-    height: calc(100vh - 380px);
+    height: calc(100vh - 460px);
     margin: 20px 0;
     border-top: 2px solid;
     border-bottom: 2px solid;
@@ -69,4 +69,10 @@
     box-shadow: 2px 2px 5px #0000002d;
     text-align: center;
     margin-bottom: 0;
+}
+
+@media screen and (min-width: 580px) {
+    .User .list {
+        height: calc(100vh - 390px);
+    }
 }

@@ -2,11 +2,11 @@
     display: flex;
     grid-column: 1 / span 2;
     grid-row: 2 / span 1;
-    visibility: visible;
     justify-content: space-around;
     align-items: center;
     padding: 0 5px;
     flex-wrap: nowrap;      
+    overflow-y: hidden;
 }
 
 .BottomNav img{
@@ -21,6 +21,6 @@
 
 @media screen and (min-width: 765px) {
     .BottomNav{
-        visibility: hidden;
+        display: none;
     }
 }

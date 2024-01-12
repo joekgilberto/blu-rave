@@ -1,5 +1,6 @@
 .OtherBluRay{
-    height: calc(100vh - 280px);
+    height: calc(100vh - 290px);
+    overflow-y: scroll;
 }
 
 .OtherBluRay h2 {
@@ -37,4 +38,11 @@
 
 .date-added {
     color: #218cd8;
+}
+
+@media screen and (min-width: 580px) {
+    .OtherBluRay{
+        height: calc(100vh - 210px);
+    }
+    
 }

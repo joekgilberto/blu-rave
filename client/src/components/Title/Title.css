@@ -10,7 +10,6 @@
 .Title h1 {
     font-size: 60px;
     margin: 30px 0 0 0;
-
 }
 
 @media screen and (min-width: 580px) {
@@ -18,7 +17,9 @@
         flex-direction: row;
         justify-content: space-between;
     }
+}
 
+@media screen and (min-width: 890px) {
     .Title h1 {
         font-size: 80px;
     }
