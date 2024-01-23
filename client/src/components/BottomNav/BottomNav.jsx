@@ -43,7 +43,7 @@ export default function BottomNav() {
             { isAuthenticated?
                 <>
                     {links.filter((link) => link.page !== page).map((link, idx) => {
-                        return <a href={`/${link.url}`}><img alt={link.text} src={link.image} /></a>
+                        return <a key={idx} href={`/${link.url}`}><img alt={link.text} src={link.image} /></a>
                     })}
                 </>
                 :

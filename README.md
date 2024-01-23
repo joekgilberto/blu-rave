@@ -4,6 +4,8 @@ A full-stack APS.NET/React web application that keeps track of your budding blu-
 ## Deployment
 Find the app deployed on Netlify, here: [https://blu-rave.netlify.app/](https://blu-rave.netlify.app/)
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5152d7b5-687c-4e56-ae94-6fd5f653da5b/deploy-status)](https://app.netlify.com/sites/blu-rave/deploys)
+
 ## Screenshots
 
 ### Home
