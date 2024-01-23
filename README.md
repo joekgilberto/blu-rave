@@ -2,7 +2,7 @@
 A full-stack APS.NET/React web application that keeps track of your budding blu-ray collection.  Utilizes a React frontend Axios API calls deployed on Netlify, and a ASP.NET backend deployed on Azure that interacts with a PostgreSQL database, all authorized by Auth0.  Built by [Joe Gilberto](https://joekgilberto.com/).
 
 ## Deployment
-Find the app deployed on Netlify, here: [https://blu-rave.netlify.app//](https://blu-rave.netlify.app/)
+Find the app deployed on Netlify, here: [https://blu-rave.netlify.app/](https://blu-rave.netlify.app/)
 
 ## Screenshots
 
@@ -35,17 +35,16 @@ As a user, I want to be able to see all information on individual blu-rays.
 As a user, I want to be able to edit the blu-rays in my collection.
 
 ## Technologies Used
-
 For the frontend, I utlized [React](https://react.dev/) components combined with [Axios](https://axios-http.com/) to make API calls to my backend.  My backend was built using [ASP.NET](https://dotnet.microsoft.com/en-us/apps/aspnet) and interacting with a [PostgreSQL](https://www.postgresql.org/) database.  User's are authenticated by signing in with [Auth0](https://auth0.com/).
 
 ### Resources
 Below are specific relevant resources I referenced while building this application.
 
-- [A public domain disc image from Wikimedia.](https://commons.wikimedia.org/wiki/File:RVT-R_disc_data_side_(white_background).png) that I used for the background.
-- [A public domain home icon from Wikimedia.](https://commons.wikimedia.org/wiki/File:HomeSimple_svg.svg) that I used for the mobile menu.
-- [A public domain plus icon from Wikimedia.](https://commons.wikimedia.org/wiki/File:Plus_(89613)_-_The_Noun_Project.svg) that I used for the mobile menu.
-- [A public domain disc icon from Wikimedia.](https://commons.wikimedia.org/wiki/File:CD_(6088)_-_The_Noun_Project.svg) that I used for the mobile menu.
-- [A public domain social icon from Wikimedia.](https://commons.wikimedia.org/wiki/File:Networking_-_The_Noun_Project.svg) that I used for the mobile menu.
+- [A public domain disc image from Wikimedia](https://commons.wikimedia.org/wiki/File:RVT-R_disc_data_side_(white_background).png) that I used for the background.
+- [A public domain home icon from Wikimedia](https://commons.wikimedia.org/wiki/File:HomeSimple_svg.svg) that I used for the mobile menu.
+- [A public domain plus icon from Wikimedia](https://commons.wikimedia.org/wiki/File:Plus_(89613)_-_The_Noun_Project.svg) that I used for the mobile menu.
+- [A public domain disc icon from Wikimedia](https://commons.wikimedia.org/wiki/File:CD_(6088)_-_The_Noun_Project.svg) that I used for the mobile menu.
+- [A public domain social icon from Wikimedia](https://commons.wikimedia.org/wiki/File:Networking_-_The_Noun_Project.svg) that I used for the mobile menu.
 - [An article from Travis Media on creating a React and .NET project in VSCode.](https://travis.media/how-to-create-react-app-net-api-vscode/)
 - [An article from Francesco Ciulla on building a C# CRUD Rest API.](https://dev.to/francescoxx/c-c-sharp-crud-rest-api-using-net-7-aspnet-entity-framework-postgres-docker-and-docker-compose-493a)
 - [The Auth0 quickstart guides to implement authentication and authorization.](https://auth0.com/docs/quickstarts)

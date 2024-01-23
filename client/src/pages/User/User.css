@@ -44,7 +44,7 @@
 }
 
 .User .list{
-    height: calc(100vh - 470px);
+    height: calc(100vh - 465px);
     margin: 20px 0;
     border-top: 2px solid;
     border-bottom: 2px solid;
@@ -72,7 +72,25 @@
 }
 
 @media screen and (min-width: 580px) {
-    .User .list {
+    .User .list{
         height: calc(100vh - 390px);
+    }
+}
+
+@media screen and (min-width: 765px) {
+    .User .list{
+        height: calc(100vh - 330px);
+    }
+}
+
+@media screen and (min-width: 890px) {
+    .User .list{
+        height: calc(100vh - 350px);
+    }
+}
+
+@media screen and (min-width: 1050px) {
+    .User .list{
+        height: calc(100vh - 370px);
     }
 }

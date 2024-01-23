@@ -1,3 +1,7 @@
+.Error{
+    overflow-y: scroll;
+}
+
 .Error h2{
     padding-bottom: 20px;
     font-weight: normal;

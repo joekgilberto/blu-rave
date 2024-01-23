@@ -1,5 +1,4 @@
 .Home{
-    height: calc(100vh - 300px);
     overflow-y: scroll;
 }
 
@@ -10,11 +9,4 @@
 
 .Home .hello {
     font-weight: bold;
-}
-
-@media screen and (min-width: 580px) {
-    .Home{
-        height: calc(100vh - 210px);
-    }
-    
 }

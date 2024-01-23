@@ -2,14 +2,22 @@
   display: flex;
   flex-direction: column;
   font-size: 26px;
-  height: calc(100vh - 310px);
-  overflow-y: scroll;
+}
+
+.New h2 {
+  margin: 26px 0 0 0;
+  padding-bottom: 10px;
+  font-size: 30px;
+  font-weight: 400 !important;
+  border-bottom: 2px solid #fff;
 }
 
 .New form {
+  height: calc(100vh - 349px);
   display: flex;
   flex-direction: column;
-  margin-top: 26px;
+  padding-bottom: 10px;
+  overflow-y: scroll;
 }
 
 .New label {
@@ -118,13 +126,34 @@ label.check {
   transform: rotate(45deg);
 }
 
-.tiny{
+.tiny {
   font-size: 16px;
   padding-bottom: 5px;
 }
 
 @media screen and (min-width: 580px) {
-  .New{
-      height: calc(100vh - 240px);
-  } 
+
+  .New form {
+    height: calc(100vh - 275px);
+  }
+}
+
+@media screen and (min-width: 765px) {
+  .New form {
+    height: calc(100vh - 202px);
+  }
+}
+
+@media screen and (min-width: 890px) {
+
+  .New form {
+    height: calc(100vh - 222px);
+  }
+}
+
+@media screen and (min-width: 1050px) {
+
+  .New form {
+    height: calc(100vh - 242px);
+  }
 }

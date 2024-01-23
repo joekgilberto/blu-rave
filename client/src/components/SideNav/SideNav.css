@@ -1,0 +1,39 @@
+.SideNav{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
+    text-shadow: 2px 2px 2px #00000030;
+    margin-left: 10px;
+}
+
+.SideNav a{
+    text-decoration: none !important;
+}
+
+.SideNav a p{
+    width: 280px;
+    font-size: 25px;
+    margin: 5px;
+    color: #47b2ffff;
+}
+
+.SideNav a p:hover{
+    color: #7cc8ff;
+    animation: rise .2s ease-in forwards;
+}
+
+.SideNav .loading{
+    width: 280px;
+    font-size: 30px;
+    margin: 5px;
+    color: #47b2ffff;
+}
+
+@media screen and (min-width: 765px) {
+    .SideNav a p{
+        font-size: 30px;
+    }
+  }

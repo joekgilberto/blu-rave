@@ -50,9 +50,9 @@ export default function OtherBluRay() {
     return (
         <div className="OtherBluRay">
             {bluRay ?
-                <>
-                                    <a href={`/user/${tools.encodeEmail(bluRay.email)}`}><p className='owner'>{bluRay.username}'s Collection</p></a>
-
+            <>
+                <a href={`/user/${tools.encodeEmail(bluRay.email)}`}><p className='owner'>{bluRay.username}'s Collection</p></a>
+                <div className='other-details'>
                     <h2>{tools.putTheBack(bluRay.title)}</h2>
                     {bluRay.year ?
                         <p className='release-year'>{bluRay.year}</p>
@@ -68,6 +68,7 @@ export default function OtherBluRay() {
                         </div>
                         : null}
                     <p className='date-added'>Added {bluRay.dateAdded}</p>
+                </div>
                 </>
                 :
                 <Loading />}

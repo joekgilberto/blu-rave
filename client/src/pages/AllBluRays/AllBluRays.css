@@ -68,12 +68,26 @@
 
 @media screen and (min-width: 580px) {
     .AllBluRays .list {
-        height: calc(100vh - 390px);
+    height: calc(100vh - 370px);
     }
 }
 
 @media screen and (min-width: 765px) {
     .AllBluRays .list {
-        height: calc(100vh - 370px);
+        height: calc(100vh - 310px);
+    }
+}
+
+@media screen and (min-width: 890px) {
+
+    .AllBluRays .list {
+        height: calc(100vh - 330px);
+    }
+}
+
+@media screen and (min-width: 1050px) {
+
+    .AllBluRays .list {
+        height: calc(100vh - 350px);
     }
 }

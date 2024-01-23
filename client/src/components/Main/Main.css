@@ -1,16 +1,80 @@
-main{
+main {
     grid-column: 1 / span 2;
     grid-row: 1 / span 1;
-    padding: 20px 35px;
+    padding: 20px 20px 0 20px;
     background-color: #47b2ffff;
     overflow-y: scroll;
     box-shadow: 5px 0px 5px #00000040;
     color: #fff;
 }
 
+.Home,
+.New,
+.Index,
+.ShowBluRay,
+.Feed,
+.OtherBluRay,
+.User,
+.Error {
+    height: calc(100vh - 277px);
+}
+
+@media screen and (min-width: 580px) {
+
+    .Home,
+    .New,
+    .Index,
+    .ShowBluRay,
+    .Feed,
+    .OtherBluRay,
+    .User,
+    .Error  {
+        height: calc(100vh - 203px);
+    }
+}
+
 @media screen and (min-width: 765px) {
-    main{
+    main {
         grid-column: 1 / span 1;
-        padding: 40px 70px;
+        padding: 40px 40px 0 40px;
+    }
+
+    .Home,
+    .New,
+    .Index,
+    .ShowBluRay,
+    .Feed,
+    .OtherBluRay,
+    .User,
+    .Error  {
+        height: calc(100vh - 130px);
+    }
+}
+
+@media screen and (min-width: 890px) {
+
+    .Home,
+    .New,
+    .Index,
+    .ShowBluRay,
+    .Feed,
+    .OtherBluRay,
+    .User,
+    .Error  {
+        height: calc(100vh - 150px);
+    }
+}
+
+@media screen and (min-width: 1050px) {
+
+    .Home,
+    .New,
+    .Index,
+    .ShowBluRay,
+    .Feed,
+    .OtherBluRay,
+    .User,
+    .Error  {
+        height: calc(100vh - 170px);
     }
 }

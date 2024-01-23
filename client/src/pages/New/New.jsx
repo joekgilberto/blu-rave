@@ -106,6 +106,7 @@ export default function New() {
   return (
     !loading ?
       <div className='New'>
+        <h2>NEW BLU-RAY</h2>
         <form onSubmit={handleSubmit}>
           <label>Title
             <input type='text' maxLength="50" name="title" onChange={handleChange} required />

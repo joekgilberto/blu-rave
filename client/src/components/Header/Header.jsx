@@ -1,9 +1,9 @@
 import ToggleAuth from '../ToggleAuth/ToggleAuth';
-import './Title.css';
+import './Header.css';
 
-export default function Title() {
+export default function Header() {
   return (
-    <div className="Title">
+    <div className="Header">
       <a href="/">
         <h1>BLU-RAVE</h1>
       </a>

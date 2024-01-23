@@ -1,5 +1,10 @@
-.Feed{
-    height: calc(100% - 210px);
+.Feed h2{
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.Feed .feed-list{
+    height: calc(100vh - 390px);
     margin: 20px 0;
     border-top: 2px solid #fff;
     border-bottom: 2px solid #fff;
@@ -7,13 +12,28 @@
 }
 
 @media screen and (min-width: 580px) {
-    .Feed {
-        height: calc(100vh - 260px);
+
+    .Feed .feed-list {
+    height: calc(100vh - 320px);
     }
 }
 
 @media screen and (min-width: 765px) {
-    .Feed {
-        height: calc(100vh - 230px);
+    .Feed .feed-list {
+        height: calc(100vh - 250px);
+    }
+}
+
+@media screen and (min-width: 890px) {
+
+    .Feed .feed-list {
+        height: calc(100vh - 270px);
+    }
+}
+
+@media screen and (min-width: 1050px) {
+
+    .Feed .feed-list {
+        height: calc(100vh - 290px);
     }
 }

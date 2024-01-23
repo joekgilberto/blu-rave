@@ -2,7 +2,7 @@ import './Main.css';
 
 import { Route, Routes } from 'react-router-dom';
 
-import Title from '../Title/Title';
+import Header from '../Header/Header';
 import Home from '../../pages/Home/Home';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import New from '../../pages/New/New';
@@ -16,7 +16,7 @@ import Error from '../../pages/Error/Error';
 export default function Main() {
     return (
         <main>
-            <Title />
+            <Header />
             <Routes>
                {<Route path='/' element={<Home />} name='home' />}
                 <Route path='/new' element={<PrivateRoute><New /></PrivateRoute>} name='new' />

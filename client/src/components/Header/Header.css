@@ -1,39 +1,32 @@
-.Title {
+.Header {
     display: flex;
     flex-direction: column;
 }
 
-.Title a {
+.Header a {
     text-decoration: none;
 }
 
-.Title h1 {
+.Header h1 {
     font-size: 60px;
     margin: 30px 0 0 0;
 }
 
 @media screen and (min-width: 580px) {
-    .Title{
+    .Header{
         flex-direction: row;
         justify-content: space-between;
     }
 }
 
 @media screen and (min-width: 890px) {
-    .Title h1 {
+    .Header h1 {
         font-size: 80px;
     }
 }
 
-@media screen and (min-width: 900px) {
-    .Title {
-        display: flex;
-        justify-content: space-between;
-    }
-}
-
 @media screen and (min-width: 1050px) {
-    .Title h1 {
+    .Header h1 {
         font-size: 100px;
     }
 }

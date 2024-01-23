@@ -35,6 +35,8 @@ export default function Feed() {
 
     return (
         <div className='Feed'>
+            <h2>SOCIAL FEED</h2>
+            <div className='feed-list'>
             {bluRays?
                 bluRays.length?
                 bluRays.map((bluRay, idx)=>{
@@ -44,6 +46,7 @@ export default function Feed() {
                 <p className='none'>No collections yet.</p>
             :
             <Loading />}
+            </div>
         </div>
     );
 }
