@@ -6,7 +6,7 @@
 
 .App {
   width: 100vw;
-  min-height: -webkit-fill-available;
+  height: 100vh;
   display: grid;
   grid-template-columns: 3fr 2fr;
   grid-template-rows: auto 90px;
