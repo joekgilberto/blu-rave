@@ -15,7 +15,7 @@ function PrivateRoute({ children }) {
 
     useEffect(() => {
         evalCurrentUser();
-    }, []);
+    }, [isAuthenticated]);
 
     return children;
 
