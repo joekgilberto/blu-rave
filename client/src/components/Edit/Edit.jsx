@@ -10,7 +10,7 @@ import Loading from '../Loading/Loading';
 export default function Edit({ bluRay, setEdit, handleRequest }) {
 
     const [formData, setFormData] = useState(null);
-    const { user, getAccessTokenSilently } = useAuth0();
+    const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
 
     useEffect(() => {
         setFormData(bluRay)
@@ -56,7 +56,7 @@ export default function Edit({ bluRay, setEdit, handleRequest }) {
             formData.endYear = null;
         }
 
-        if (user && formData.owner === user.sub) {
+        if (isAuthenticated && formData.owner === user.sub) {
             const accessToken = await getAccessTokenSilently();
 
             await bluRayServices.updateBluRay(accessToken, user.sub, bluRay.id, formData).then(() => {

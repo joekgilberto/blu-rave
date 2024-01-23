@@ -12,7 +12,7 @@ export default function Feed() {
 
     const [bluRays, setBluRays] = useState(null);
     const { setPage } = useContext(PageContext);
-    const { user, getAccessTokenSilently } = useAuth0();
+    const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
 
     async function handleRequest() {
         const owner = user.sub;
@@ -28,10 +28,10 @@ export default function Feed() {
     },[])
 
     useEffect(()=>{
-        if(user){
+        if(isAuthenticated){
             handleRequest()
         }
-    },[user])
+    },[isAuthenticated])
 
     return (
         <div className='Feed'>

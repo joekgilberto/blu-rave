@@ -19,7 +19,7 @@ export default function ShowBluRay() {
     const [confirm, setConfirm] = useState(false);
     const [edit, setEdit] = useState(false)
     const { id } = useParams();
-    const { user, getAccessTokenSilently } = useAuth0();
+    const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
 
     async function handleRequest() {
         const owner = user.sub;
@@ -38,10 +38,10 @@ export default function ShowBluRay() {
     }, [])
 
     useEffect(() => {
-        if (user) {
+        if (isAuthenticated) {
             handleRequest()
         }
-    }, user)
+    }, isAuthenticated)
 
     function handleDelete() {
         setConfirm(true)

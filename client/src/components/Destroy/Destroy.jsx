@@ -9,12 +9,12 @@ export default function Destroy({setConfirm}) {
 
     const navigate = useNavigate()
     const { id } = useParams();
-    const { user, getAccessTokenSilently } = useAuth0();
+    const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
     const [bluRay, setBluRay] = useState(null);
 
     useEffect(()=>{
         handleRequest()
-    },[user])
+    },[isAuthenticated])
 
     async function handleRequest(){
         const owner = user.sub;

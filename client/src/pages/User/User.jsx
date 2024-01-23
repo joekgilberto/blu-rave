@@ -18,7 +18,7 @@ export default function User() {
     const [allBluRays, setAllBluRays] = useState(null);
     const [movies, setMovies] = useState(null)
     const [tvShows, setTvShows] = useState(null)
-    const { user, getAccessTokenSilently } = useAuth0();
+    const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
 
 
     async function handleRequest() {
@@ -54,10 +54,10 @@ export default function User() {
     }, [])
 
     useEffect(() => {
-        if (user) {
+        if (isAuthenticated) {
             handleRequest()
         }
-    }, [user])
+    }, [isAuthenticated])
 
     function handleClick() {
         setFormat(!format)

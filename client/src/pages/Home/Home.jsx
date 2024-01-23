@@ -6,7 +6,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 export default function Home() {
     const { setPage } = useContext(PageContext);
-    const { user } = useAuth0();
+    const { user, isAuthenticated } = useAuth0();
 
     const[username, setUsername] = useState(null);
 
@@ -15,10 +15,10 @@ export default function Home() {
     },[])
 
     useEffect(()=>{
-        if(user){
+        if(isAuthenticated){
             setUsername(user.nickname)
         }
-    },[user])
+    },[isAuthenticated])
 
     return (
         <div className="Home">

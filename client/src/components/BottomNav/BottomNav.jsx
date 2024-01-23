@@ -8,7 +8,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 export default function BottomNav() {
 
     const { page } = useContext(PageContext);
-    const { user, isLoading, loginWithRedirect } = useAuth0();
+    const { isAuthenticated, isLoading, loginWithRedirect } = useAuth0();
 
     const links = [
         {
@@ -40,7 +40,7 @@ export default function BottomNav() {
 
     return (
         <nav className='BottomNav'>
-            {user ?
+            { isAuthenticated?
                 <>
                     {links.filter((link) => link.page !== page).map((link, idx) => {
                         return <a href={`/${link.url}`}><img alt={link.text} src={link.image} /></a>

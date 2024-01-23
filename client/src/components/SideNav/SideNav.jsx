@@ -13,7 +13,7 @@ export default function SideNav() {
 
   return (
     <nav className='SideNav'>
-      {user ?
+      {isAuthenticated ?
         <>
           {page !== "home" ?
             <a href='/'>

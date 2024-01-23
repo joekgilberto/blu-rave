@@ -11,7 +11,7 @@ export default function New() {
 
   const navigate = useNavigate()
   const { setPage } = useContext(PageContext);
-  const { user, getAccessTokenSilently } = useAuth0();
+  const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
   const [dateAdded, setDateAdded] = useState(new Date().toISOString().split('T')[0])
   const [started, setStarted] = useState(null)
   const [loading, setLoading] = useState(false);
@@ -79,7 +79,7 @@ export default function New() {
       formData.endYear = null;
     }
 
-    if (started && user && user.sub === formData.owner) {
+    if (started && isAuthenticated && user.sub === formData.owner) {
       setLoading(true);
       await getAccessTokenSilently().then(async (accessToken) => {
         await bluRayServices.createBluRay(accessToken, user.sub, formData).then((res) => {
@@ -98,10 +98,10 @@ export default function New() {
   }, [])
 
   useEffect(() => {
-    if (user) {
+    if (isAuthenticated) {
       setStart()
     }
-  }, [user])
+  }, [isAuthenticated])
 
   return (
     !loading ?

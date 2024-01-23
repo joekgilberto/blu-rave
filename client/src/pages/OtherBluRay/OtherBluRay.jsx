@@ -15,7 +15,7 @@ export default function OtherBluRay() {
     const { setPage } = useContext(PageContext);
     const [bluRay, setBluRay] = useState(null);
     const { id } = useParams();
-    const { user, getAccessTokenSilently } = useAuth0();
+    const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
 
     async function handleRequest() {
         const owner = user.sub;
@@ -34,13 +34,13 @@ export default function OtherBluRay() {
     }, [])
 
     useEffect(() => {
-        if (user) {
+        if (isAuthenticated) {
             handleRequest()
         }
-    }, user)
+    }, isAuthenticated)
 
     useEffect(() => {
-        if (bluRay && user) {
+        if (bluRay && isAuthenticated) {
             if (bluRay.username === user.nickname) {
                 navigate(`/blu-rays/${bluRay.id}`)
             }
