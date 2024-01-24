@@ -16,7 +16,7 @@ main {
 .OtherBluRay,
 .User,
 .Error {
-    height: calc(100vh - 277px);
+    height: calc(100vh - 221px);
 }
 
 @media screen and (min-width: 580px) {
@@ -29,7 +29,7 @@ main {
     .OtherBluRay,
     .User,
     .Error  {
-        height: calc(100vh - 203px);
+        height: calc(100vh - 233px);
     }
 }
 
@@ -47,7 +47,7 @@ main {
     .OtherBluRay,
     .User,
     .Error  {
-        height: calc(100vh - 130px);
+        height: calc(100vh - 115px);
     }
 }
 

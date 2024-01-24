@@ -1,6 +1,10 @@
 .Header {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .Header a {
@@ -8,14 +12,13 @@
 }
 
 .Header h1 {
-    font-size: 60px;
-    margin: 30px 0 0 0;
+    font-size: 45px;
+    margin: 0;
 }
 
 @media screen and (min-width: 580px) {
-    .Header{
-        flex-direction: row;
-        justify-content: space-between;
+    .Heade h1{
+        font-size: 60px;
     }
 }
 

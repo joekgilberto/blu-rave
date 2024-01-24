@@ -1,3 +1,7 @@
+.ToggleAuth{
+    margin-bottom: 4px;
+}
+
 .ToggleAuth a p,
 .ToggleAuth .loading {
     width: 120px;
@@ -11,6 +15,7 @@
 @media screen and (min-width: 580px) {
     .ToggleAuth {
         margin-top: 10px;
+        margin-bottom: 0;
     }
 
     .ToggleAuth a p,
