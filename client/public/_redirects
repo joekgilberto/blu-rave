@@ -1,1 +1,5 @@
 /* /index.html 200
+/admin/* 200! Role=admin
+/guest/* 200! Role=guest
+/admin/* /unauthorized 401!
+/guest/* /unauthorized 401!

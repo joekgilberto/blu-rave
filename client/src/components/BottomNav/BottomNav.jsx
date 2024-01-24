@@ -4,11 +4,12 @@ import { useContext } from "react";
 import { PageContext } from '../../data';
 
 import { useAuth0 } from "@auth0/auth0-react";
+import login from '../../functions/login';
 
 export default function BottomNav() {
 
     const { page } = useContext(PageContext);
-    const { isAuthenticated, isLoading, loginWithRedirect } = useAuth0();
+    const { isAuthenticated, isLoading } = useAuth0();
 
     const links = [
         {
@@ -49,7 +50,7 @@ export default function BottomNav() {
                 :
                 !isLoading ?
                     <a>
-                        <p className='login' onClick={() => loginWithRedirect()}>LOGIN</p>
+                        <p className='login' onClick={() => login()}>LOGIN</p>
                     </a>
                     :
                     <p className='login'>LOADING...</p>

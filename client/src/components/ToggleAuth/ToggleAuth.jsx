@@ -1,16 +1,17 @@
 import './ToggleAuth.css';
 
 import { useAuth0 } from "@auth0/auth0-react";
+import logout from '../../functions/logout';
 
 export default function ToggleAuth() {
-    const { user, isAuthenticated, loginWithRedirect, logout, isLoading } = useAuth0();
+    const { user, isAuthenticated, isLoading } = useAuth0();
 
     return (
         <div className="ToggleAuth">
             {user ?
                 isAuthenticated ?
                     <a href='/'>
-                        <p onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>LOGOUT</p>
+                        <p onClick={() => logout() }>LOGOUT</p>
                     </a>
                     : null
                 :

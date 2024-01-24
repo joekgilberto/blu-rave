@@ -4,11 +4,13 @@ import { useContext } from "react";
 import { PageContext } from '../../data';
 
 import { useAuth0 } from "@auth0/auth0-react";
+import login from '../../functions/login';
+import logout from '../../functions/logout';
 
 export default function SideNav() {
 
   const { page } = useContext(PageContext);
-  const { user, isAuthenticated, loginWithRedirect, logout, isLoading } = useAuth0();
+  const { isAuthenticated, isLoading } = useAuth0();
 
 
   return (
@@ -41,14 +43,14 @@ export default function SideNav() {
 
           {isAuthenticated ?
             <a href='/'>
-              <p onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>LOGOUT</p>
+              <p onClick={() => logout()}>LOGOUT</p>
             </a>
             : null}
         </>
         :
         !isLoading ?
           <a>
-            <p onClick={() => loginWithRedirect()}>LOGIN</p>
+            <p onClick={() => login()}>LOGIN</p>
           </a>
           :
           <p className='loading'>LOADING...</p>
