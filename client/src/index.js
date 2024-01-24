@@ -21,6 +21,7 @@ root.render(
         audience: AUTH0_AUDIENCE,
         scope: AUTH0_SCOPE
       }}
+      cacheLocation="localstorage"
     >
       <App />
     </Auth0Provider>
