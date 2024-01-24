@@ -41,7 +41,7 @@ export default function ShowBluRay() {
         if (isAuthenticated) {
             handleRequest()
         }
-    }, isAuthenticated)
+    }, [isAuthenticated])
 
     function handleDelete() {
         setConfirm(true)
