@@ -8,7 +8,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 export default function SideNav() {
 
   const { page } = useContext(PageContext);
-  const { user, isAuthenticated, loginWithRedirect, logout, isLoading } = useAuth0();
+  const { isAuthenticated, loginWithRedirect, logout, isLoading } = useAuth0();
 
 
   return (
