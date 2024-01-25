@@ -37,7 +37,7 @@ export default function OtherBluRay() {
         if (isAuthenticated) {
             handleRequest()
         }
-    }, isAuthenticated)
+    }, [isAuthenticated])
 
     useEffect(() => {
         if (bluRay && isAuthenticated) {

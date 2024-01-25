@@ -56,39 +56,43 @@ export default function AllBluRays() {
 
     return (
         <div className="AllBluRays">
-        <p className='count'>{movies?`You have ${movies.length} Blu-Rays`:null}</p>
+            <p className='count'>{movies ? `You have ${movies.length} Blu-Rays` : null}</p>
             <div className='list'>
-                {allBluRays && movies && tvShows ?
-                    <div className='list-container'>
-                        {format ?
-                            <>
-                                {movies.length ?
-                                    movies.map((bluRay, idx) => {
-                                        return (
-                                            <BluRay key={idx} bluRay={bluRay} idx={idx} listLength={movies.length} />
-                                        )
-                                    })
-                                    :
-                                    <p className='none'>None collected yet.</p>
-                                }
-                            </>
-                            :
-                            <>
-                                {tvShows.length ?
-                                    tvShows.map((bluRay, idx) => {
-                                        return (
-                                            <BluRay key={idx} bluRay={bluRay} idx={idx} listLength={tvShows.length} />
-                                        )
-                                    })
-                                    :
-                                    <p className='none'>None collected yet.</p>
-                                }
-                            </>
+                <div className='list-container'>
 
-                        }
-                    </div>
-                    :
-                    <Loading />}
+                    {allBluRays && movies && tvShows ?
+                        <>
+                            {format ?
+                                <>
+                                    {movies.length ?
+                                        movies.map((bluRay, idx) => {
+                                            return (
+                                                <BluRay key={idx} bluRay={bluRay} idx={idx} listLength={movies.length} />
+                                            )
+                                        })
+                                        :
+                                        <p className='none'>None collected yet.</p>
+                                    }
+                                </>
+                                :
+                                <>
+                                    {tvShows.length ?
+                                        tvShows.map((bluRay, idx) => {
+                                            return (
+                                                <BluRay key={idx} bluRay={bluRay} idx={idx} listLength={tvShows.length} />
+                                            )
+                                        })
+                                        :
+                                        <p className='none'>None collected yet.</p>
+                                    }
+                                </>
+
+                            }
+                        </>
+                        :
+                        <Loading />}
+                </div>
+
             </div>
             <div className='formats'>
                 <button onClick={handleClick} className={format ? "selected" : null}>Film</button>

@@ -170,5 +170,7 @@ From the home page, the user can read up on the application.  The user can then 
 
 ## Future Features
 Features to be added in further edits:
-- Mobile styling.
 - The ability for users to follow other users and like their movies.
+- A loading component after editing a blu-ray until the updated information is fetched
+- A wishlist for each user
+- A searchbar to search yours or someone else's collection
