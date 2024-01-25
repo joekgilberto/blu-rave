@@ -18,30 +18,3 @@
 .Feed .feed-list-container{
     max-height:100%
 }
-
-/* @media screen and (min-width: 580px) {
-
-    .Feed .feed-list {
-    height: calc(100vh - 350px);
-    }
-}
-
-@media screen and (min-width: 765px) {
-    .Feed .feed-list {
-        height: calc(100vh - 250px);
-    }
-}
-
-@media screen and (min-width: 890px) {
-
-    .Feed .feed-list {
-        height: calc(100vh - 270px);
-    }
-}
-
-@media screen and (min-width: 1050px) {
-
-    .Feed .feed-list {
-        height: calc(100vh - 290px);
-    }
-} */

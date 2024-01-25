@@ -1,4 +1,5 @@
 .New {
+  max-height: calc(100% - 111px); 
   display: flex;
   flex-direction: column;
   font-size: 26px;
@@ -12,8 +13,13 @@
   border-bottom: 2px solid #fff;
 }
 
+.New .form-container{
+  height: inherit;
+  overflow-y: auto;
+}
+
 .New form {
-  height: calc(100vh - 349px);
+  max-height:100%;
   display: flex;
   flex-direction: column;
   padding-bottom: 10px;
@@ -132,28 +138,25 @@ label.check {
 }
 
 @media screen and (min-width: 580px) {
-
-  .New form {
-    height: calc(100vh - 275px);
+  .New {
+    max-height: calc(100% - 123px); 
   }
 }
 
 @media screen and (min-width: 765px) {
-  .New form {
-    height: calc(100vh - 202px);
+  .New {
+    max-height: calc(100% - 75px); 
   }
 }
 
 @media screen and (min-width: 890px) {
-
-  .New form {
-    height: calc(100vh - 222px);
+  .New {
+    max-height: calc(100% - 110px); 
   }
 }
 
 @media screen and (min-width: 1050px) {
-
-  .New form {
-    height: calc(100vh - 242px);
+  .New {
+    max-height: calc(100% - 130px); 
   }
 }

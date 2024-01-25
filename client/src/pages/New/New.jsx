@@ -107,6 +107,7 @@ export default function New() {
     !loading ?
       <div className='New'>
         <h2>NEW BLU-RAY</h2>
+        <div className='form-container'>
         <form onSubmit={handleSubmit}>
           <label>Title
             <input type='text' maxLength="50" name="title" onChange={handleChange} required />
@@ -152,6 +153,7 @@ export default function New() {
           </label>
           <button type='submit'>Collect</button>
         </form>
+        </div>
       </div>
       :
       <Loading />
