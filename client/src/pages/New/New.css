@@ -46,11 +46,12 @@ label.check {
 .New input,
 .New select,
 .New textarea {
+  padding: 5px;
   font-size: 26px;
   background: transparent;
   color: #fff;
   border: 2px solid #fff;
-  padding: 5px;
+  border-radius: 0;
 }
 
 .New input:focus,
