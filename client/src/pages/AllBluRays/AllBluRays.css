@@ -49,7 +49,7 @@
 }
 
 .AllBluRays .list {
-    height: calc(calc(100vh - calc(100vh - 100%)) - 390px);
+    height: calc(100vh - 390px);
     margin: 20px 0;
     border-top: 2px solid #fff;
     border-bottom: 2px solid #fff;
@@ -68,26 +68,26 @@
 
 @media screen and (min-width: 580px) {
     .AllBluRays .list {
-    height: calc(calc(100vh - calc(100vh - 100%)) - 400px);
+    height: calc(100vh - 400px);
     }
 }
 
 @media screen and (min-width: 765px) {
     .AllBluRays .list {
-        height: calc(calc(100vh - calc(100vh - 100%)) - 310px);
+        height: calc(100vh - 310px);
     }
 }
 
 @media screen and (min-width: 890px) {
 
     .AllBluRays .list {
-        height: calc(calc(100vh - calc(100vh - 100%)) - 330px);
+        height: calc(100vh - 330px);
     }
 }
 
 @media screen and (min-width: 1050px) {
 
     .AllBluRays .list {
-        height: calc(calc(100vh - calc(100vh - 100%)) - 350px);
+        height: calc(100vh - 350px);
     }
 }
