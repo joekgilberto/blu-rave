@@ -50,13 +50,11 @@
 }
 
 .AllBluRays .list {
-    /* height: calc(100vh - 390px); */
     height: inherit;
     display: flex;
     margin: 20px 0;
     border-top: 2px solid #fff;
     border-bottom: 2px solid #fff;
-    /* overflow-y: scroll; */
     overflow-y: auto;
 }
 
@@ -79,29 +77,3 @@
         max-height: calc(100% - 140px);
     }
 }
-
-/* @media screen and (min-width: 580px) {
-    .AllBluRays .list {
-        height: calc(100vh - 400px);
-    }
-}
-
-@media screen and (min-width: 765px) {
-    .AllBluRays .list {
-        height: calc(100vh - 310px);
-    }
-}
-
-@media screen and (min-width: 890px) {
-
-    .AllBluRays .list {
-        height: calc(100vh - 330px);
-    }
-}
-
-@media screen and (min-width: 1050px) {
-
-    .AllBluRays .list {
-        height: calc(100vh - 350px);
-    }
-} */

@@ -18,66 +18,12 @@ main {
 .OtherBluRay,
 .User,
 .Error {
-    /* height: calc(100vh - 221px); */
     height: 100%;
 }
-
-/* @media screen and (min-width: 580px) {
-
-    .Home,
-    .New,
-    .Index,
-    .ShowBluRay,
-    .Feed,
-    .OtherBluRay,
-    .User,
-    .Error  {
-        height: calc(100vh - 233px);
-    }
-} */
 
 @media screen and (min-width: 765px) {
     main {
         grid-column: 1 / span 1;
         padding: 40px 40px 0 40px;
     }
-
-    /* .Home,
-    .New,
-    .Index,
-    .ShowBluRay,
-    .Feed,
-    .OtherBluRay,
-    .User,
-    .Error  {
-        height: calc(100vh - 115px);
-    } */
 }
-/*
-@media screen and (min-width: 890px) {
-
-    .Home,
-    .New,
-    .Index,
-    .ShowBluRay,
-    .Feed,
-    .OtherBluRay,
-    .User,
-    .Error  {
-        height: calc(100vh - 150px);
-    }
-}
-
-@media screen and (min-width: 1050px) {
-
-    .Home,
-    .New,
-    .Index,
-    .ShowBluRay,
-    .Feed,
-    .OtherBluRay,
-    .User,
-    .Error  {
-        height: calc(100vh - 170px);
-    }
-} */

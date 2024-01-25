@@ -1,17 +1,25 @@
+.Feed{
+    max-height: calc(100% - 230px);
+}
+
 .Feed h2{
     font-size: 30px;
     font-weight: 400;
 }
 
 .Feed .feed-list{
-    height: calc(100vh - 350px);
+    height: inherit;
     margin: 20px 0;
-    border-top: 2px solid #e2c5c5;
+    border-top: 2px solid #fff;
     border-bottom: 2px solid #fff;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
-@media screen and (min-width: 580px) {
+.Feed .feed-list-container{
+    max-height:100%
+}
+
+/* @media screen and (min-width: 580px) {
 
     .Feed .feed-list {
     height: calc(100vh - 350px);
@@ -36,4 +44,4 @@
     .Feed .feed-list {
         height: calc(100vh - 290px);
     }
-}
+} */

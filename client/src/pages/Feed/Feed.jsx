@@ -23,29 +23,31 @@ export default function Feed() {
             .catch((err) => console.log(err))
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         setPage("feed")
-    },[])
+    }, [])
 
-    useEffect(()=>{
-        if(isAuthenticated){
+    useEffect(() => {
+        if (isAuthenticated) {
             handleRequest()
         }
-    },[isAuthenticated])
+    }, [isAuthenticated])
 
     return (
         <div className='Feed'>
             <h2>SOCIAL FEED</h2>
             <div className='feed-list'>
-            {bluRays?
-                bluRays.length?
-                bluRays.map((bluRay, idx)=>{
-                    return <Post key={idx} bluRay={bluRay} listLength={bluRays.length} idx={idx} />
-                })
-                :
-                <p className='none'>No collections yet.</p>
-            :
-            <Loading />}
+                <div className='feed-list-container'>
+                    {bluRays ?
+                        bluRays.length ?
+                            bluRays.map((bluRay, idx) => {
+                                return <Post key={idx} bluRay={bluRay} listLength={bluRays.length} idx={idx} />
+                            })
+                            :
+                            <p className='none'>No collections yet.</p>
+                        :
+                        <Loading />}
+                </div>
             </div>
         </div>
     );
