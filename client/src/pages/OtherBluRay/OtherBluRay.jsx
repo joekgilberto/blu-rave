@@ -58,7 +58,7 @@ export default function OtherBluRay() {
                         <p className='release-year'>{bluRay.year}</p>
                         : null}
                     <p>Format: {bluRay.format}</p>
-                    <p>Definition: {bluRay.definition == "4K" ? "4K" : bluRay.definition == "Blu-Ray" ? "HD" : "SD"}</p>
+                    <p>Definition: {bluRay.definition === "4K" ? "4K" : bluRay.definition === "Blu-Ray" ? "HD" : "SD"}</p>
                     {bluRay.steelbook ? <p>Special Edition</p> : null}
 
                     {bluRay.notes ?
