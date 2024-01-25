@@ -4,9 +4,9 @@
 }
 
 .Feed .feed-list{
-    height: calc(100vh - 390px);
+    height: calc(100vh - 350px);
     margin: 20px 0;
-    border-top: 2px solid #fff;
+    border-top: 2px solid #e2c5c5;
     border-bottom: 2px solid #fff;
     overflow-y: scroll;
 }
@@ -14,7 +14,7 @@
 @media screen and (min-width: 580px) {
 
     .Feed .feed-list {
-    height: calc(100vh - 320px);
+    height: calc(100vh - 350px);
     }
 }
 

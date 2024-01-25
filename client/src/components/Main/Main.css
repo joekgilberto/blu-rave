@@ -22,7 +22,7 @@ main {
     height: 100%;
 }
 
-@media screen and (min-width: 580px) {
+/* @media screen and (min-width: 580px) {
 
     .Home,
     .New,
@@ -32,10 +32,9 @@ main {
     .OtherBluRay,
     .User,
     .Error  {
-        /* height: calc(100vh - 233px); */
-        height: 100%;
+        height: calc(100vh - 233px);
     }
-}
+} */
 
 @media screen and (min-width: 765px) {
     main {
@@ -43,7 +42,7 @@ main {
         padding: 40px 40px 0 40px;
     }
 
-    .Home,
+    /* .Home,
     .New,
     .Index,
     .ShowBluRay,
@@ -51,11 +50,10 @@ main {
     .OtherBluRay,
     .User,
     .Error  {
-        /* height: calc(100vh - 115px); */
-        height: 100%;
-    }
+        height: calc(100vh - 115px);
+    } */
 }
-
+/*
 @media screen and (min-width: 890px) {
 
     .Home,
@@ -66,8 +64,7 @@ main {
     .OtherBluRay,
     .User,
     .Error  {
-        /* height: calc(100vh - 150px); */
-        height: 100%;
+        height: calc(100vh - 150px);
     }
 }
 
@@ -81,7 +78,6 @@ main {
     .OtherBluRay,
     .User,
     .Error  {
-        /* height: calc(100vh - 170px); */
-        height: 100%;
+        height: calc(100vh - 170px);
     }
-}
+} */
