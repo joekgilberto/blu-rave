@@ -59,7 +59,7 @@ export default function AllBluRays() {
         <p className='count'>{movies?`You have ${movies.length} Blu-Rays`:null}</p>
             <div className='list'>
                 {allBluRays && movies && tvShows ?
-                    <>
+                    <div className='list-container'>
                         {format ?
                             <>
                                 {movies.length ?
@@ -86,7 +86,7 @@ export default function AllBluRays() {
                             </>
 
                         }
-                    </>
+                    </div>
                     :
                     <Loading />}
             </div>
