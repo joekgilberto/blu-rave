@@ -1,26 +1,29 @@
-.BottomNav{
+.BottomNav {
     display: flex;
     grid-column: 1 / span 2;
     grid-row: 2 / span 1;
     justify-content: space-around;
     align-items: center;
     padding: 0 5px;
-    flex-wrap: nowrap;      
+    flex-wrap: nowrap;
     overflow-y: hidden;
 }
 
-.BottomNav img{
+.BottomNav img {
     width: 50px;
+    -webkit-filter: invert(62%) sepia(47%) saturate(2552%) hue-rotate(181deg) brightness(102%) contrast(101%) drop-shadow(0px 2px 2px #00000060);
+
+    filter: invert(62%) sepia(47%) saturate(2552%) hue-rotate(181deg) brightness(102%) contrast(101%) drop-shadow(0px 2px 2px #00000060);
 }
 
-.BottomNav .login{
+.BottomNav .login {
     font-size: 22px;
     color: #47b2ffff;
 
 }
 
 @media screen and (min-width: 765px) {
-    .BottomNav{
+    .BottomNav {
         display: none;
     }
 }
