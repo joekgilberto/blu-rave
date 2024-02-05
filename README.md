@@ -50,6 +50,7 @@ Below are specific relevant resources I referenced while building this applicati
 - [An article from Travis Media on creating a React and .NET project in VSCode.](https://travis.media/how-to-create-react-app-net-api-vscode/)
 - [An article from Francesco Ciulla on building a C# CRUD Rest API.](https://dev.to/francescoxx/c-c-sharp-crud-rest-api-using-net-7-aspnet-entity-framework-postgres-docker-and-docker-compose-493a)
 - [The Auth0 quickstart guides to implement authentication and authorization.](https://auth0.com/docs/quickstarts)
+- [CSS hex code to filter converter.](https://codepen.io/sosuke/pen/Pjoqqp)
 
 ## Instructions for Local Deployment
 The following instructions were used through macOS with a silicone M1 chip.
