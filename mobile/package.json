@@ -9,10 +9,19 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@expo-google-fonts/libre-barcode-39-text": "^0.2.3",
+    "@expo/metro-runtime": "^3.1.2",
+    "@react-navigation/bottom-tabs": "^6.5.11",
+    "@react-navigation/native": "^6.1.9",
+    "@react-navigation/stack": "^6.3.20",
     "expo": "~50.0.5",
+    "expo-font": "^11.10.2",
     "expo-status-bar": "~1.11.1",
     "react": "18.2.0",
-    "react-native": "0.73.2"
+    "react-dom": "^18.2.0",
+    "react-native": "0.73.2",
+    "react-native-web": "^0.19.10",
+    "react-navigation": "^5.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
