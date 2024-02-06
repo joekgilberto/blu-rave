@@ -21,7 +21,7 @@ export default function BottomNav() {
             page: 'new',
             url: 'new',
             text: 'add blu-ray',
-            image: 'https://i.imgur.com/EIKyoAz.png'
+            image: 'g'
         },
         {
             page: 'index',
@@ -32,7 +32,7 @@ export default function BottomNav() {
         {
             page: 'feed',
             url: 'feed',
-            text: 'social feed',
+            text: 'group feed',
             image: 'https://i.imgur.com/bXOcMaD.png'
         }
     ]

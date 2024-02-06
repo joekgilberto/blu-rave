@@ -35,7 +35,7 @@ export default function SideNav() {
             
           {page !== "feed" ?
             <a href='/feed'>
-              <p>SOCIAL FEED</p>
+              <p>GROUP FEED</p>
             </a>
             : null}
 

@@ -35,7 +35,7 @@ export default function Feed() {
 
     return (
         <div className='Feed'>
-            <h2>SOCIAL FEED</h2>
+            <h2>GROUP FEED</h2>
             <div className='feed-list'>
                 <div className='feed-list-container'>
                     {bluRays ?
