@@ -71,7 +71,7 @@ export default function Edit({ bluRay, setEdit, handleRequest }) {
             <div className='New'>
                 <form onSubmit={handleSubmit}>
                     <label>Title
-                        <input type='text' maxLength="50" name="title" onChange={handleChange} value={tools.putTheBack(formData.title)} required />
+                        <input type='text' name="title" onChange={handleChange} value={tools.putTheBack(formData.title)} required />
                     </label>
 
                     {formData.format === "Film Collection" || formData.format === "Television" || formData.format === "Miniseries" ?

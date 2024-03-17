@@ -110,7 +110,7 @@ export default function New() {
         <div className='form-container'>
         <form onSubmit={handleSubmit}>
           <label>Title
-            <input type='text' maxLength="50" name="title" onChange={handleChange} required />
+            <input type='text' name="title" onChange={handleChange} required />
           </label>
           <label>Format
             <select name="format" onChange={handleChange}>
