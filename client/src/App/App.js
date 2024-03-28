@@ -20,7 +20,7 @@ export default function App() {
         }}
       >
         <Background />
-        <BottomNav />
+        {/* <BottomNav /> */}
         <Main />
       </PageInfo>
     </div>

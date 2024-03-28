@@ -17,8 +17,9 @@ export default function Main() {
     return (
         <main>
             <Header />
-            <Routes>
-               {<Route path='/' element={<Home />} name='home' />}
+            <Home />
+            {/* <Routes>
+                <Route path='/' element={<Home />} name='home' />
                 <Route path='/new' element={<PrivateRoute><New /></PrivateRoute>} name='new' />
                 <Route path='/blu-rays' element={<PrivateRoute><Index /></PrivateRoute>} name='index' />
                 <Route path="/blu-rays/:id" element={<PrivateRoute><ShowBluRay /></PrivateRoute>} />
@@ -26,7 +27,7 @@ export default function Main() {
                 <Route path="/feed/:id" element={<PrivateRoute><OtherBluRay /></PrivateRoute>} />
                 <Route path="/user/:id" element={<PrivateRoute><User /></PrivateRoute>} />
                 <Route path='/*' element={<Error />} />
-            </Routes>
+            </Routes> */}
         </main>
     );
 }
