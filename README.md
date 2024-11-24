@@ -101,7 +101,7 @@ Then leave the PostgreSQL shell.
 ```
 
 ## Create an Auth0 Application
-Next, follow this Auth0 quickstart guide [(https://auth0.com/docs/quickstarts))](https://auth0.com/docs/quickstarts) to create a Backend/API you will use in your service end, selecting the ASP.NET Core Web API option, and then continue on to the Single Page App tutorial you will use in your client end, choosing the React option.
+Next, follow this Auth0 quickstart guide [(https://auth0.com/docs/quickstarts)](https://auth0.com/docs/quickstarts) to create a Backend/API you will use in your service end, selecting the ASP.NET Core Web API option, and then continue on to the Single Page App tutorial you will use in your client end, choosing the React option.
 
 
 ### Create service environmental variables
